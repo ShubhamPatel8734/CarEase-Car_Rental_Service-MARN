@@ -41,7 +41,7 @@ useEffect(() => {
         <div className="header-login">
           <div className="login-icon"><FaUserCircle className="header-icon"/></div>
           <div className="login-text"><NavLink exact to='/faq'>Sign In</NavLink></div>
-          <div className="registration-icon"><FaLock className="header-icon"/></div>
+          <div className="registration-icon"><FaLock className="header-icon" style={{fontSize: "30px"}}/></div>
           <div className="registration-text"><NavLink exact to='/faq'>Sign Up</NavLink></div>
         </div>
       </nav>
