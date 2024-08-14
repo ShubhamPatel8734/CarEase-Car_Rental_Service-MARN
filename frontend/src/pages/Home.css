@@ -28,12 +28,12 @@
     max-width: 1500px;
     margin: auto;
     padding: 1rem;
-    /* background-color: #333; */
 }
 
 .home-hero .hero-content p:first-child {
     font-style: italic;
     font-size: 1.5rem;
+    padding-top: 100px;
 }
 
 .home-hero .hero-content p:first-child span{
@@ -57,7 +57,7 @@
 }
 
 .home-hero .hero-content .button {
-    margin-top: 15px;
+    margin-top: 25px;
     padding: 10px;
     width: 200px;
     background-color: transparent;
@@ -75,6 +75,12 @@
     padding-left: 10px;
     font-size: 26px;
     font-weight: 600;
+}
+
+.home-hero .hero-content .button:hover{
+    background: #f5b754;
+    border: 1px solid #f5b754;
+    cursor: pointer;
 }
 
 /* ---------------------------- About section ---------------------------- */
