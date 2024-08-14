@@ -23,17 +23,6 @@ useEffect(() => {
   };
 }, []);
 
-// const changeBackground = () => {
-//   if (window.scrollY >= 80){
-//     setNavbar(true);
-//   }
-//   else{
-//     setNavbar(false);
-//   }
-// }
-
-// window.addEventListener('scroll', changeBackground);
-
   return (
     <>
       <nav className = {`navbar ${isScrolled ? 'navbar-scrolled':'navbar-transparent'}`}>
@@ -44,7 +33,6 @@ useEffect(() => {
           <nav>
             <NavLink exact to='/'>Home</NavLink>
             <NavLink exact to='/about'>About</NavLink>
-            <NavLink exact to='/services'>Services</NavLink>
             <NavLink exact to='/cars'>Cars</NavLink>
             <NavLink exact to='/contact'>Contact</NavLink>
             <NavLink exact to='/faq'>FAQ</NavLink>
