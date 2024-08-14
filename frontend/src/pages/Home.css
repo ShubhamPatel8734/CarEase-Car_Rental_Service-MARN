@@ -61,7 +61,7 @@
     padding: 10px;
     width: 200px;
     background-color: transparent;
-    border: 1px solid white;
+    border: 1px solid #fff;
     font-size: 20px;
     display: flex;
     align-items: center;
@@ -142,7 +142,7 @@
     font-size: 48px;
     line-height: 46px;
     font-weight: 800;
-    color: white;
+    color: #fff;
     margin-bottom: 40px;
     top: 50px;
     text-align: center;
@@ -213,8 +213,8 @@
 }
 
 .about-btn .abt-btn:hover{
-    background-color: white;
-    border: 1px solid white;
+    background-color: #fff;
+    border: 1px solid #fff;
     cursor: pointer;
 }
 
@@ -236,7 +236,7 @@
     font-size: 48px;
     line-height: 46px;
     font-weight: 800;
-    color: white;
+    color: #fff;
     margin-bottom: 10px;
     top: 25px;
     text-align: center;
@@ -315,7 +315,7 @@
 .timeline-container .container .box-item .item .head-title{
     position: absolute;
     font-size: 28px;
-    color: white;
+    color: #fff;
     text-transform: capitalize;
     font-weight: 900;
     width: 200px;
@@ -325,7 +325,7 @@
 .timeline-container .container .box-item .item .sub-title{
     position: absolute;
     font-size: 16px;
-    color: white;
+    color: #fff;
     font-weight: 300;
     width: 300px;
     text-align: center;
@@ -546,7 +546,7 @@
     width: 300px;
     font-size: 18px;
     padding: 7px;
-    color: white;
+    color: #fff;
     border: none;
     outline: none;
     border-radius: 50px;
@@ -584,7 +584,7 @@
     width: 150px;
     font-size: 18px;
     padding: 5px;
-    color: white;
+    color: #fff;
     border: none;
     outline: none;
     border-radius: 50px;
@@ -595,7 +595,7 @@
     width: 100px;
     font-size: 18px;
     padding: 5px;
-    color: white;
+    color: #fff;
     border: none;
     outline: none;
     border-radius: 50px;
@@ -632,7 +632,7 @@
     width: 150px;
     font-size: 18px;
     padding: 5px;
-    color: white;
+    color: #fff;
     border: none;
     outline: none;
     border-radius: 50px;
@@ -644,7 +644,7 @@
     width: 100px;
     font-size: 18px;
     padding: 5px;
-    color: white;
+    color: #fff;
     border: none;
     outline: none;
     border-radius: 50px;
@@ -679,7 +679,7 @@
 }
 
 .search-btn button:hover{
-    color: white;
+    color: #fff;
     background-color: #333;
     cursor: pointer;
 }

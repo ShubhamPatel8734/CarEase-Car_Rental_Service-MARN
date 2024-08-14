@@ -40,7 +40,7 @@
 .right-item h4{
     font-size: 26px;
     font-weight: bold;
-    color: white;
+    color: #fff;
 
 }
 
@@ -142,7 +142,7 @@
 .quick-link a{
     font-size: 22px;
     font-weight: 600;
-    color: white;
+    color: #fff;
     text-decoration: none;
     transition: 0.2s all ease-in-out;
 }
@@ -165,7 +165,7 @@
 }
 
 .copyright-section p span{
-    color: white;
+    color: #fff;
     font-weight: 600;
     padding-bottom: 3px;
     border-bottom: 2px solid #f5b754;

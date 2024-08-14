@@ -29,7 +29,7 @@
 
 .header-logo h1 a{
     text-decoration: none;
-    color: white;
+    color: #fff;
 }
 
 .header-logo h1 a:hover{
@@ -51,7 +51,7 @@
     text-decoration: none;
     margin: 0 30px;
     font-size: 20px;
-    color: white;
+    color: #fff;
     transition: 0.2s ease-in-out;
 }
 
@@ -102,7 +102,7 @@
 
 .header-login a{
     text-decoration: none;
-    color: white;
+    color: #fff;
     font-size: 20px;
 }
 
