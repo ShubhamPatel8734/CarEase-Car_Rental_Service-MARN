@@ -86,7 +86,8 @@ const Home = () => {
         </div>
       </div>
 
-      {/* --------------------- time-line section -------------------- */}
+      {/* --------------------- Process - Animation section -------------------- */}
+      
       <div className="timeline-container">
         <div className="section-title" data-small-title="How it Works">
           <br />
@@ -125,7 +126,7 @@ const Home = () => {
 
       {/* --------------------- Car-Search section -------------------- */}
 
-      <div className="car-search">
+      {/* <div className="car-search">
         <div className="car-types"></div>
         <div className="rent-box-banner">
           <form>
@@ -175,6 +176,25 @@ const Home = () => {
               </button>
             </div>
           </form>
+        </div>
+      </div> */}
+
+      {/* --------------------- Car - Categories section -------------------- */}
+
+      <div className="car-category-section">
+        <div className="category-section-title" data-small-title="Categories">
+          <br />
+          Rental Car Types
+        </div>
+        <div className="category-cards">
+          <div className="category-card">
+            <div className="car-cat-img">
+              <img src="./images/about-us.png" alt="Sports Car"></img>
+            </div>
+            <div className="car-cat-desc">
+              <h3>Sports Car</h3>
+            </div>
+          </div>
         </div>
       </div>
     </>

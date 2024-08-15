@@ -1,5 +1,5 @@
 .footer-section{
-    height: 80vh;
+    min-height: 80vh;
     background: #222;
 }
 

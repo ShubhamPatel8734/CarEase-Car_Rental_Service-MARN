@@ -3,7 +3,7 @@
 .home-hero{
     background-color: rgba(0, 0, 0, 0.5);
     color: #fff;
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     position: relative;
 }
@@ -87,8 +87,9 @@
 
 .about-container{
     display: flex;
+    align-items: center;
     position: relative;
-    height: 95vh;
+    min-height: 95vh;
 }
 
 .left-container{
@@ -97,7 +98,7 @@
     align-items: center;
     height: 100%;
     width: 50%;
-    /* border: 1px solid red; */
+    /* border: 1px solid red;   */
 }
 
 .left-container .img-container{
@@ -228,7 +229,7 @@
     align-items: center;
     overflow: hidden;
     padding: 100px 20px;
-    height: 90vh;
+    min-height: 90vh;
 }
 
 .timeline-container .section-title{
@@ -484,7 +485,7 @@
 }
 
 /* ---------------------------- Car-Search section ---------------------------- */
-
+ 
 .car-search{
     height: 90vh;
 }
@@ -682,4 +683,71 @@
     color: #fff;
     background-color: #333;
     cursor: pointer;
+} 
+
+/* ---------------------------- Car - Category section ---------------------------- */
+
+.car-category-section{
+    min-height: 95vh;
+    /* border: 1px solid red; */
+}
+
+.car-category-section .category-section-title{
+    font-size: 48px;
+    line-height: 46px;
+    font-weight: 800;
+    color: #fff;
+    margin: 40px 0;
+    top: 50px;
+    text-align: center;
+}
+
+.car-category-section .category-section-title::before{
+    content: attr(data-small-title);
+    text-align: center;
+    color: #f5b754;
+    font-size: 28px;
+    font-weight: 500;
+    font-family: cursive;
+}
+
+.car-category-section .category-cards{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+
+.category-cards .category-card{
+    /* border: 1px solid blue; */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+}
+
+.category-card .car-cat-img{
+    height: 450px;
+    width: auto;
+}
+
+.category-card .car-cat-img img{
+    width: 450px;
+    height: 100%;
+    border-radius:50px;
+    border: 1px solid #fff;
+}
+
+.category-card .car-cat-desc{
+    width: 350px;
+    height: 50px;
+    background: #333;
+    margin-top: -20px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid red; */
 }
