@@ -14,6 +14,7 @@ import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { GoArrowUpRight } from "react-icons/go";
 
 const Home = () => {
+
   return (
     <>
       {/* --------------------- Hero section -------------------- */}
@@ -189,10 +190,29 @@ const Home = () => {
         <div className="category-cards">
           <div className="category-card">
             <div className="car-cat-img">
-              <img src="./images/about-us.png" alt="Sports Car"></img>
+              <img src="./images/about-us.png" alt="Sport Car"></img>
             </div>
             <div className="car-cat-desc">
               <h3>Sports Car</h3>
+              <GoArrowUpRight className="car-cat-desc-icon"/>
+            </div>
+          </div>
+          <div className="category-card">
+            <div className="car-cat-img">
+              <img src="./images/about-us.png" alt="Sport Car"></img>
+            </div>
+            <div className="car-cat-desc">
+              <h3>Sports Car</h3>
+              <GoArrowUpRight className="car-cat-desc-icon"/>
+            </div>
+          </div>
+          <div className="category-card">
+            <div className="car-cat-img">
+              <img src="./images/about-us.png" alt="Sport Car"></img>
+            </div>
+            <div className="car-cat-desc">
+              <h3>Sports Car</h3>
+              <GoArrowUpRight className="car-cat-desc-icon"/>
             </div>
           </div>
         </div>
