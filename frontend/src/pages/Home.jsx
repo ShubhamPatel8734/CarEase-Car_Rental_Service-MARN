@@ -4,6 +4,7 @@ import {
   FaRegThumbsUp,
   FaArrowRight,
   FaSearch,
+  FaQuoteRight,
   FaCalendar,
   FaCar,
 } from "react-icons/fa";
@@ -213,6 +214,34 @@ const Home = () => {
             <div className="car-cat-desc">
               <h3>Sports Car</h3>
               <GoArrowUpRight className="car-cat-desc-icon"/>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* --------------------- Testimonial section -------------------- */}
+
+      <div className="testimonial-section">
+        <div className="testimonial-section-title" data-small-title="Testimonials">
+          <br />
+          What Clients Say
+        </div>
+        <div className="testimonial-cards">
+          <div className="testimonial-card">
+            <div className="testimonial-desc">
+            <div className="testimonial-details">
+                <div className="testimonial-img">
+                  <img src="./images/about-us.png" alt="testimonial image"></img>
+                </div>
+                <div className="testimonial-name">
+                  <h3>Dan Martin</h3>
+                  <h4>Customer</h4>
+                </div>
+                <div className="testimonial-icon">
+                  <FaQuoteRight  className="quote-icon"/>
+                </div>
+              </div>
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi voluptatem, earum eius aspernatur alias non cupiditate deleniti velit impedit in totam ut officia iusto, voluptate quam esse! Eveniet libero rem non consectetur, voluptas reprehenderit in repudiandae placeat ab nulla, eum tempore ullam omnis necessitatibus nostrum suscipit autem ipsum delectus soluta.</p>
             </div>
           </div>
         </div>
