@@ -846,14 +846,14 @@
 .testimonial-card .testimonial-desc{
     height: 360px;
     width: 750px;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.6);
     border-radius: 60px;
     display: flex;
     flex-direction: column;
     justify-content: top;
     align-items: left;
     transition: 0.7s ease-in-out;
-    box-shadow: 1px 1px 20px #f5b754;
+    box-shadow: 1px 1px 10px #fff;
 }
 
 .testimonial-desc .testimonial-details{
@@ -888,7 +888,7 @@
     flex-direction: column;
     align-items: left;
     justify-content: center;
-    color: #333;
+    color: #1b1b1b;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -914,9 +914,11 @@
 
 .testimonial-icon .quote-icon{
     font-size: 66px;
-    margin-top: -75px;
-    margin-right: -55px;
-    color: #f5b754;
+    margin-top: -50px;
+    margin-right: 5px;
+    color: #333;
+    border: none;
+    outline: none;
 }
 
 .testimonial-card .testimonial-desc p{
@@ -926,5 +928,5 @@
     text-align: left;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0 45px;
-    color: #333;
+    color: #1b1b1b;
 }
