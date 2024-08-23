@@ -689,7 +689,6 @@
 
 .car-category-section{
     min-height: 95vh;
-    /* border: 1px solid red; */
 }
 
 .car-category-section .category-section-title{
@@ -712,7 +711,6 @@
 }
 
 .car-category-section .category-cards{
-    /* border: 1px solid red; */
     width: 80%;
     margin-left: 10%;
     height: 500px;
@@ -812,18 +810,17 @@
 
 .slick-prev:before, .slick-next:before {
 
-  font-size: 40px !important; /* Change the icon size */
+  font-size: 40px !important;
   color: #f5b754 !important;
   border-radius: 0;
 }
 
 .category-cards .slick-prev {
-border-radius: 0;
-  left: -50px; /* Adjust left arrow position */
+  left: -50px;
 }
 
 .category-cards .slick-next {
-  right: -20px; /* Adjust right arrow position */
+  right: -20px;
 }
 
 
