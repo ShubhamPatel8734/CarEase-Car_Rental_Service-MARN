@@ -13,8 +13,21 @@ import { PiCurrencyInrBold } from "react-icons/pi";
 import { TbCheckbox } from "react-icons/tb";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { GoArrowUpRight } from "react-icons/go";
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
+import Slider from "react-slick";
 
 const Home = () => {
+
+  const settings = {
+    dots: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    autoplay: false,
+    autoplaySpeed: 2000,
+  };
 
   return (
     <>
@@ -189,34 +202,63 @@ const Home = () => {
           Rental Car Types
         </div>
         <div className="category-cards">
-          <div className="category-card">
-            <div className="car-cat-img">
-              <img src="./images/about-us.png" alt="Sport Car"></img>
+          <Slider {...settings}>
+            <div className="category-card">
+              <div className="car-cat-img">
+                <img src="./images/about-us.png" alt="Sport Car"></img>
+              </div>
+              <div className="car-cat-desc">
+                <h3>Sports Car</h3>
+                <GoArrowUpRight className="car-cat-desc-icon"/>
+              </div>
             </div>
-            <div className="car-cat-desc">
-              <h3>Sports Car</h3>
-              <GoArrowUpRight className="car-cat-desc-icon"/>
+            <div className="category-card">
+              <div className="car-cat-img">
+                <img src="./images/about-us.png" alt="Sport Car"></img>
+              </div>
+              <div className="car-cat-desc">
+                <h3>Sports Car</h3>
+                <GoArrowUpRight className="car-cat-desc-icon"/>
+              </div>
             </div>
-          </div>
-          <div className="category-card">
-            <div className="car-cat-img">
-              <img src="./images/about-us.png" alt="Sport Car"></img>
+            <div className="category-card">
+              <div className="car-cat-img">
+                <img src="./images/about-us.png" alt="Sport Car"></img>
+              </div>
+              <div className="car-cat-desc">
+                <h3>Sports Car</h3>
+                <GoArrowUpRight className="car-cat-desc-icon"/>
+              </div>
             </div>
-            <div className="car-cat-desc">
-              <h3>Sports Car</h3>
-              <GoArrowUpRight className="car-cat-desc-icon"/>
+            <div className="category-card">
+              <div className="car-cat-img">
+                <img src="./images/about-us.png" alt="Sport Car"></img>
+              </div>
+              <div className="car-cat-desc">
+                <h3>Small Car</h3>
+                <GoArrowUpRight className="car-cat-desc-icon"/>
+              </div>
             </div>
-          </div>
-          <div className="category-card">
-            <div className="car-cat-img">
-              <img src="./images/about-us.png" alt="Sport Car"></img>
+            <div className="category-card">
+              <div className="car-cat-img">
+                <img src="./images/about-us.png" alt="Sport Car"></img>
+              </div>
+              <div className="car-cat-desc">
+                <h3>Sports Car</h3>
+                <GoArrowUpRight className="car-cat-desc-icon"/>
+              </div>
             </div>
-            <div className="car-cat-desc">
-              <h3>Sports Car</h3>
-              <GoArrowUpRight className="car-cat-desc-icon"/>
+            <div className="category-card">
+              <div className="car-cat-img">
+                <img src="./images/about-us.png" alt="Sport Car"></img>
+              </div>
+              <div className="car-cat-desc">
+                <h3>SUV Car</h3>
+                <GoArrowUpRight className="car-cat-desc-icon"/>
+              </div>
             </div>
-          </div>
-        </div>
+          </Slider>
+        </div> 
       </div>
 
       {/* --------------------- Testimonial section -------------------- */}
