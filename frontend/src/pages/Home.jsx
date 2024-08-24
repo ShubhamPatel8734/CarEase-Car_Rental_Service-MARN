@@ -3,8 +3,8 @@ import "../pages/Home.css";
 import {
   FaRegThumbsUp,
   FaArrowRight,
-  FaSearch,
   FaQuoteRight,
+  FaQuoteLeft,
   FaCalendar,
   FaCar,
 } from "react-icons/fa";
@@ -27,6 +27,17 @@ const Home = () => {
     slidesToScroll: 3,
     autoplay: false,
     autoplaySpeed: 2000,
+  };
+
+  const Testimonialsettings = {
+    autoplay: true,
+    autoplayspeed: 2000,
+    slidesToShow: 3,  
+    infinite: true,
+    speed: 500,
+    arrows: false,
+    dots: false,
+    focusOnSelect: true,
   };
 
   return (
@@ -102,7 +113,7 @@ const Home = () => {
       </div>
 
       {/* --------------------- Process - Animation section -------------------- */}
-      
+
       <div className="timeline-container">
         <div className="section-title" data-small-title="How it Works">
           <br />
@@ -209,7 +220,7 @@ const Home = () => {
               </div>
               <div className="car-cat-desc">
                 <h3>Sport Cars</h3>
-                <GoArrowUpRight className="car-cat-desc-icon"/>
+                <GoArrowUpRight className="car-cat-desc-icon" />
               </div>
             </div>
             <div className="category-card">
@@ -218,7 +229,7 @@ const Home = () => {
               </div>
               <div className="car-cat-desc">
                 <h3>SUVs</h3>
-                <GoArrowUpRight className="car-cat-desc-icon"/>
+                <GoArrowUpRight className="car-cat-desc-icon" />
               </div>
             </div>
             <div className="category-card">
@@ -227,7 +238,7 @@ const Home = () => {
               </div>
               <div className="car-cat-desc">
                 <h3>Convertible</h3>
-                <GoArrowUpRight className="car-cat-desc-icon"/>
+                <GoArrowUpRight className="car-cat-desc-icon" />
               </div>
             </div>
             <div className="category-card">
@@ -236,7 +247,7 @@ const Home = () => {
               </div>
               <div className="car-cat-desc">
                 <h3>EV Cars</h3>
-                <GoArrowUpRight className="car-cat-desc-icon"/>
+                <GoArrowUpRight className="car-cat-desc-icon" />
               </div>
             </div>
             <div className="category-card">
@@ -245,7 +256,7 @@ const Home = () => {
               </div>
               <div className="car-cat-desc">
                 <h3>Sedan</h3>
-                <GoArrowUpRight className="car-cat-desc-icon"/>
+                <GoArrowUpRight className="car-cat-desc-icon" />
               </div>
             </div>
             <div className="category-card">
@@ -254,38 +265,176 @@ const Home = () => {
               </div>
               <div className="car-cat-desc">
                 <h3>Small Car</h3>
-                <GoArrowUpRight className="car-cat-desc-icon"/>
+                <GoArrowUpRight className="car-cat-desc-icon" />
               </div>
             </div>
           </Slider>
-        </div> 
+        </div>
       </div>
 
       {/* --------------------- Testimonial section -------------------- */}
 
       <div className="testimonial-section">
-        <div className="testimonial-section-title" data-small-title="Testimonials">
+        <div
+          className="testimonial-section-title"
+          data-small-title="Testimonials"
+        >
           <br />
           What Clients Say
         </div>
         <div className="testimonial-cards">
-          <div className="testimonial-card">
-            <div className="testimonial-desc">
-            <div className="testimonial-details">
-                <div className="testimonial-img">
-                  <img src="./images/about-us.png" alt="testimonial image"></img>
-                </div>
-                <div className="testimonial-name">
-                  <h3>Dan Martin</h3>
-                  <h4>Customer</h4>
-                </div>
-                <div className="testimonial-icon">
-                  <FaQuoteRight  className="quote-icon"/>
+          <Slider {...Testimonialsettings}>
+            <div className="testimonial-card">
+              <div className="testimonial-desc">
+                <p>
+                  <span className="left-quote">
+                    <FaQuoteLeft className="quote-icon" />
+                  </span>
+                  <span className="middle-msg">
+                    Renting a car from CarEase made our family vacation
+                    unforgettable and top-notch customer service. The spacious
+                    SUV we rented comfortably fit our family and all our
+                    luggage, and it was a smooth ride throughout our trip.
+                  </span>
+                  <span className="right-quote">
+                    <FaQuoteRight />
+                  </span>
+                </p>
+                <div className="testimonial-details">
+                  <div className="testimonial-img">
+                    <img
+                      src="./images/testimonial-1.jpg"
+                      alt="testimonial image"
+                    ></img>
+                  </div>
+                  <div className="testimonial-name">
+                    <h3>Dan Martin</h3>
+                    <h4>Customer</h4>
+                  </div>
                 </div>
               </div>
-              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi voluptatem, earum eius aspernatur alias non cupiditate deleniti velit impedit in totam ut officia iusto, voluptate quam esse! Eveniet libero rem non consectetur, voluptas reprehenderit in repudiandae placeat ab nulla, eum tempore ullam omnis necessitatibus nostrum suscipit autem ipsum delectus soluta.</p>
             </div>
-          </div>
+            <div className="testimonial-card">
+              <div className="testimonial-desc">
+                <p>
+                  <span className="left-quote">
+                    <FaQuoteLeft className="quote-icon" />
+                  </span>
+                  <span className="middle-msg">
+                    Renting a car from CarEase made our family vacation
+                    unforgettable and top-notch customer service. The spacious
+                    SUV we rented comfortably fit our family and all our
+                    luggage, and it was a smooth ride throughout our trip.
+                  </span>
+                  <span className="right-quote">
+                    <FaQuoteRight />
+                  </span>
+                </p>
+                <div className="testimonial-details">
+                  <div className="testimonial-img">
+                    <img
+                      src="./images/testimonial-2.jpg"
+                      alt="testimonial-2 image"
+                    ></img>
+                  </div>
+                  <div className="testimonial-name">
+                    <h3>Emily Martin</h3>
+                    <h4>Customer</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="testimonial-card">
+              <div className="testimonial-desc">
+                <p>
+                  <span className="left-quote">
+                    <FaQuoteLeft className="quote-icon" />
+                  </span>
+                  <span className="middle-msg">
+                    Renting a car from CarEase made our family vacation
+                    unforgettable and top-notch customer service. The spacious
+                    SUV we rented comfortably fit our family and all our
+                    luggage, and it was a smooth ride throughout our trip.
+                  </span>
+                  <span className="right-quote">
+                    <FaQuoteRight />
+                  </span>
+                </p>
+                <div className="testimonial-details">
+                  <div className="testimonial-img">
+                    <img
+                      src="./images/testimonial-3.jpg"
+                      alt="testimonial image"
+                    ></img>
+                  </div>
+                  <div className="testimonial-name">
+                    <h3>Olivia Brown</h3>
+                    <h4>Customer</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="testimonial-card">
+              <div className="testimonial-desc">
+                <p>
+                  <span className="left-quote">
+                    <FaQuoteLeft className="quote-icon" />
+                  </span>
+                  <span className="middle-msg">
+                    Renting a car from CarEase made our family vacation
+                    unforgettable and top-notch customer service. The spacious
+                    SUV we rented comfortably fit our family and all our
+                    luggage, and it was a smooth ride throughout our trip.
+                  </span>
+                  <span className="right-quote">
+                    <FaQuoteRight />
+                  </span>
+                </p>
+                <div className="testimonial-details">
+                  <div className="testimonial-img">
+                    <img
+                      src="./images/testimonial-4.jpg"
+                      alt="testimonial image"
+                    ></img>
+                  </div>
+                  <div className="testimonial-name">
+                    <h3>Rabin Ustoc</h3>
+                    <h4>Customer</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="testimonial-card">
+              <div className="testimonial-desc">
+                <p>
+                  <span className="left-quote">
+                    <FaQuoteLeft className="quote-icon" />
+                  </span>
+                  <span className="middle-msg">
+                    Renting a car from CarEase made our family vacation
+                    unforgettable and top-notch customer service. The spacious
+                    SUV we rented comfortably fit our family and all our
+                    luggage, and it was a smooth ride throughout our trip.
+                  </span>
+                  <span className="right-quote">
+                    <FaQuoteRight />
+                  </span>
+                </p>
+                <div className="testimonial-details">
+                  <div className="testimonial-img">
+                    <img
+                      src="./images/testimonial-5.jpg"
+                      alt="testimonial image"
+                    ></img>
+                  </div>
+                  <div className="testimonial-name">
+                    <h3>Lucas Moquin</h3>
+                    <h4>Customer</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Slider>
         </div>
       </div>
     </>
