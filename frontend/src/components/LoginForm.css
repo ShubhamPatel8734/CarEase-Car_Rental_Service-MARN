@@ -1,0 +1,82 @@
+.popup-login-content{
+    color: #1b1b1b;
+    height: auto;
+    width: 500px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.popup-login-content .login-title{
+    font-size: 52px;
+    text-align: center;
+    text-shadow: 1px 1px 3px #fff;
+    top: 0;
+    color: white;
+}
+
+.popup-login-content .login-title span{
+    color: #f5b754;
+}
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+}
+
+.popup-login-content .login-form .login-label{
+    font-size: 22px;
+    font-weight: 600;
+    margin: 10px 0;
+    padding-left: 5px;
+    color: #fff;
+    text-shadow: 1px 1px 1px #333;
+}
+
+.login-form .login-textbox{
+    font-size: 20px;
+    width: 400px;
+    /* border-radius: 20px; */
+    padding: 5px 10px;
+    color: #f5b754;
+    background-color: #333;
+    transition: 0.7s all ease;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+}
+
+::placeholder{
+    font-weight: 300;
+}
+
+.login-form .login-textbox:focus{
+    outline: none;
+    border: none;
+}
+
+.login-form .login-btn{
+    margin-top: 50px;
+    font-size: 22px;
+    font-weight: 700;
+    padding: 10px 25px;
+    width: fit-content;
+    align-self: center;
+    border-radius: 10px;
+    background-color: #333;
+    border: none;
+    outline: none;
+    transition: 0.5s ease;
+}
+
+.login-btn:hover{
+    font-weight: 700;
+    cursor: pointer;
+    background: #f5b754;
+    color: #333;
+    font-weight: 600;
+    box-shadow: 1px 1px 10px #333;
+}
