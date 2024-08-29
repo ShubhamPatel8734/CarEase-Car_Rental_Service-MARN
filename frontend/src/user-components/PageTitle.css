@@ -1,0 +1,39 @@
+.PageTitle-container{
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    min-height: 60vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.PageTitle-container::before{
+    content: '';
+    background: url('../images/pagetitle.jpg') no-repeat center center/cover;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    z-index: -1;
+}
+
+.PageTitle{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.PageTitle h1{
+    font-size: 58px;
+    font-weight: 800;
+    color: #fff;
+    text-shadow: 1px 1px 2px #fff;
+}
+
+.PageTitle h1 span{
+    color: #f5b754;
+}

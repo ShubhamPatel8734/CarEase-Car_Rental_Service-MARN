@@ -7,6 +7,8 @@ import { BrowserRouter, Route, Routes} from 'react-router-dom'
 // * Components
 import { Layout } from './components/index'
 import { Home, About, Cars, Contact, FAQ } from './pages/index'
+import { User_Layout } from './user-components/index'
+import { DashboardHome } from './user-pages/index'
 
 // * Stylesheet
 import './App.css'
@@ -31,6 +33,14 @@ function App() {
           </Route>
           <Route path='/faq' element={<Layout/>}>
             <Route index element={<FAQ />} />
+          </Route>
+        </Routes>
+        <Routes>
+          <Route path='/dashboard/home' element={<User_Layout/>}>
+            <Route index element={<DashboardHome />} />
+          </Route>
+          <Route path='/dashboard/newbooking' element={<User_Layout/>}>
+            <Route index element={<DashboardHome />} />
           </Route>
         </Routes>
       </BrowserRouter>
