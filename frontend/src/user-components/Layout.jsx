@@ -11,7 +11,7 @@ const Layout = () => {
       <Page_Title />
       <Navabr/>
       <Outlet />
-      {/* <User_Footer /> */}
+      <User_Footer />
     </>
   )
 }

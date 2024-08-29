@@ -1,6 +1,6 @@
 .Navbar-container{
     background-color: #1b1b1b;
-    margin: 50px 0;
+    margin: 75px 0;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -8,7 +8,7 @@
 }
 
 .Navbar-box{
-    width: 100vw;
+    width: 98vw;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -41,11 +41,11 @@
 }
 
 .Navbar-box a .Navbar-icons{
-    font-size: 28px;
+    font-size: 32px;
 }
 
 .Navbar-box a h3{
     font-size: 22px;
-    padding-top: 5px;
+    margin-top: 5px;
     text-transform: uppercase;
 }
