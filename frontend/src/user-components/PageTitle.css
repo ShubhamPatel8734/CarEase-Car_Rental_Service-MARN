@@ -35,6 +35,7 @@
 .PageTitle h3 span{
     font-size: 30px;
     color: #f5b754;
+    text-transform: capitalize;
 }
 
 .PageTitle h4{

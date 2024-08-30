@@ -63,8 +63,9 @@ useEffect(() => {
             <NavLink to='/faq' exact>FAQ</NavLink>
           </nav>
         </div>
-        <div className="header-login">
-          <NavLink to='/faq' exact>Dashboard</NavLink>
+        <div className="user-header-dashboard">
+          <div className="user-header-icon"><FaUserCircle className="user-dashboard-icon"/></div>
+          <NavLink to='/dashboard/home' exact>Dashboard</NavLink>
         </div>
       </nav>
     </>
