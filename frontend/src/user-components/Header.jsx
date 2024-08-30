@@ -2,33 +2,33 @@ import React, { useState, useEffect } from "react";
 import { LoginForm, RegisterForm } from '../components/index'
 import { NavLink } from 'react-router-dom'
 import { FaUserCircle, FaLock } from "react-icons/fa";
-import '../components/Header.css';
+import '../user-components/Header.css';
 
 function Header (){
 
-  const [showLogin, setShowLogin] = useState(false);
-  const [showRegister, setShowRegister] = useState(false);
+  // const [showLogin, setShowLogin] = useState(false);
+  // const [showRegister, setShowRegister] = useState(false);
 
-  const handleLoginClick = (e) => {
-    e.preventDefault();
-    setShowLogin(true);
-    setShowRegister(false); 
-  };
+  // const handleLoginClick = (e) => {
+  //   e.preventDefault();
+  //   setShowLogin(true);
+  //   setShowRegister(false); 
+  // };
 
-  const handleRegisterClick = (e) => {
-    e.preventDefault();
-    setShowRegister(true);
-    setShowLogin(false); 
-  };
+  // const handleRegisterClick = (e) => {
+  //   e.preventDefault();
+  //   setShowRegister(true);
+  //   setShowLogin(false); 
+  // };
 
-  const closeLoginForm = () => {
-    setShowLogin(false);
-  };
+  // const closeLoginForm = () => {
+  //   setShowLogin(false);
+  // };
 
-  const closeRegisterForm = () => {
-    setShowRegister(false);
-    setActiveLink('');
-  };
+  // const closeRegisterForm = () => {
+  //   setShowRegister(false);
+  //   setActiveLink('');
+  // };
 
 // change navbar color when scrolling
 const [isScrolled, setIsScrolled] = useState(false);
@@ -50,11 +50,11 @@ useEffect(() => {
 
   return (
     <>
-      <nav className = {`navbar ${isScrolled ? 'navbar-scrolled':'navbar-transparent'}`}>
-        <div className="header-logo">
+      <nav className = {`user-navbar ${isScrolled ? 'user-navbar-scrolled':'user-navbar-transparent'}`}>
+        <div className="user-header-logo">
           <h1><NavLink exact to='/'><span>C</span>ar<span>E</span>ase</NavLink></h1>
         </div>
-        <div className="header-navlinks">
+        <div className="user-header-navlinks">
           <nav> 
             <NavLink to='/' exact>Home</NavLink>
             <NavLink to='/about' exact>About</NavLink>
@@ -63,14 +63,14 @@ useEffect(() => {
             <NavLink to='/faq' exact>FAQ</NavLink>
           </nav>
         </div>
-        <div className="header-login">
+        {/* <div className="header-login">
           <div className="login-icon"><FaUserCircle className="header-icon"/></div>
           <div className="login-text"><a href="#" onClick={handleLoginClick} className="login-link">Sign In</a></div>
           <div className="registration-icon"><FaLock className="header-icon" style={{fontSize: "30px"}}/></div>
           <div className="registration-text"><a href="#" exact onClick={handleRegisterClick} className="register-link">Sign Up</a></div>
           {showLogin && <div className="modal-overlay"><div className="modal"> <LoginForm onClose={closeLoginForm}/> </div></div>}
           {showRegister && <div className="modal-overlay"><div className="modal"> <RegisterForm onClose={closeRegisterForm}/> </div></div>}
-        </div>
+        </div> */}
       </nav>
     </>
   );

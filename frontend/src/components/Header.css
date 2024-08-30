@@ -30,6 +30,7 @@
 .header-logo h1 a{
     text-decoration: none;
     color: #fff;
+    text-shadow: 1px 1px 2px #f5b754;
 }
 
 .header-logo h1 a:hover{
@@ -45,6 +46,7 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    padding-left: 100px;
 }
 
 .header-navlinks nav a{
