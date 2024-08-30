@@ -16,7 +16,8 @@
 }
 
 .Navbar-box a{
-    width: 200px;
+    width: 300px;
+    height: 180px;
     text-decoration: none;
     color: #fff;
     display: flex;
@@ -41,11 +42,11 @@
 }
 
 .Navbar-box a .Navbar-icons{
-    font-size: 32px;
+    font-size: 52px;
 }
 
 .Navbar-box a h3{
-    font-size: 22px;
+    font-size: 24px;
     margin-top: 5px;
     text-transform: uppercase;
 }

@@ -1,10 +1,10 @@
 .Userhome{
-    background-color: hsl(0, 0%, 11%);
+    background-color: #1b1b1b;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 75px 0;
+    padding: 40px 0 100px 0;
 }
 
 .Userhome .Userhome-cards{
@@ -27,14 +27,20 @@
     border-radius: 20px;
 }
 
+.Userhome-card .Userhome-text{
+    /* border: 1px solid blue; */
+    width: 80%;
+}
+
 .Userhome-card .Userhome-text h1{
     color: #f5b754;
     font-size: 44px;
+    /* border: 1px solid red; */
 }
 
 .Userhome-card .Userhome-text h3{
-    font-size: 26px;
-    font-weight: 500;
+    font-size: 25px;
+    font-weight: 600;
 }
 
 .Userhome-card .Userhome-icons{
@@ -59,25 +65,55 @@
 
 .Userhome-booking-title h1{
     color: #f5b754;
+    text-shadow: 1px 1px 2px #f5b754;
 }
 
 .Userhome-booking .Userhome-booking-table{
     width: 100%;
-    border: 1px solid #fff;
+    border-radius: 100px;
     border-collapse: collapse;
 }
 
 .Userhome-booking-table tr{
     border: 1px solid #fff;
+    transition: 0.7s ease;
 }
 
 .Userhome-booking-table tr th{
-    font-size: 22px;
+    font-size: 24px;
     padding: 20px;
+    color: #f5b754;
+    background-color: #333;
 }
 
 .Userhome-booking-table tr td{
     text-align: center;
     font-size: 18px;
     padding: 15px;
+    font-weight: 500;
+}
+
+.Userhome-booking-table tr td span{
+    padding: 7px 5px;
+    border-radius: 5px;
+    font-size: 18px !important;
+    font-weight: 500;
+    min-width: 180px;
+    text-align: center;
+}
+
+.Userhome-cancel{
+    color: red;
+    background-color: rgba(255, 0, 0, 0.2);
+}
+
+.Userhome-inprogress{
+    color: royalblue;
+    background-color: rgba(65, 105, 225, 0.2);
+}
+
+.Userhome-completed{
+    color: #1FBC2F;
+    background-color: rgba(31, 188, 47, 0.2);
+    
 }

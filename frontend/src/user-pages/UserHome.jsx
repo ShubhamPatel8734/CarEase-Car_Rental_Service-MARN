@@ -59,7 +59,7 @@ const UserHome = () => {
               <td>ABC</td>
               <td>ABC</td>
               <td>ABC</td>
-              <td>ABC</td>
+              <td><span className='Userhome-cancel'>Cancelled</span></td>
             </tr>
             <tr>
               <td>ABC</td>
@@ -68,7 +68,7 @@ const UserHome = () => {
               <td>ABC</td>
               <td>ABC</td>
               <td>ABC</td>
-              <td>ABC</td>
+              <td><span className='Userhome-inprogress'>Inprogress</span></td>
             </tr>
             <tr>
               <td>ABC</td>
@@ -77,7 +77,7 @@ const UserHome = () => {
               <td>ABC</td>
               <td>ABC</td>
               <td>ABC</td>
-              <td>ABC</td>
+              <td><span className='Userhome-completed'>Completed</span></td>
             </tr>
           </tbody>
         </table>

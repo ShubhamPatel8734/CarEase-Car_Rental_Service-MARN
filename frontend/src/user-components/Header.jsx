@@ -63,14 +63,9 @@ useEffect(() => {
             <NavLink to='/faq' exact>FAQ</NavLink>
           </nav>
         </div>
-        {/* <div className="header-login">
-          <div className="login-icon"><FaUserCircle className="header-icon"/></div>
-          <div className="login-text"><a href="#" onClick={handleLoginClick} className="login-link">Sign In</a></div>
-          <div className="registration-icon"><FaLock className="header-icon" style={{fontSize: "30px"}}/></div>
-          <div className="registration-text"><a href="#" exact onClick={handleRegisterClick} className="register-link">Sign Up</a></div>
-          {showLogin && <div className="modal-overlay"><div className="modal"> <LoginForm onClose={closeLoginForm}/> </div></div>}
-          {showRegister && <div className="modal-overlay"><div className="modal"> <RegisterForm onClose={closeRegisterForm}/> </div></div>}
-        </div> */}
+        <div className="header-login">
+          <NavLink to='/faq' exact>Dashboard</NavLink>
+        </div>
       </nav>
     </>
   );

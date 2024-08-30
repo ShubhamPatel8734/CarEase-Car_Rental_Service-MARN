@@ -1,7 +1,7 @@
 .PageTitle-container{
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.6);
     color: #fff;
-    min-height: 60vh;
+    min-height: 65vh;
     width: 100%;
     position: relative;
     display: flex;
@@ -27,13 +27,30 @@
     align-items: center;
 }
 
+.PageTitle h3{
+    font-size: 24px;
+    word-spacing: 5px;
+}
+
+.PageTitle h3 span{
+    font-size: 30px;
+    color: #f5b754;
+}
+
+.PageTitle h4{
+    font-size: 26px;
+    font-family: Lucida Handwriting;
+    color: #fff;
+}
+
 .PageTitle h1{
     font-size: 58px;
     font-weight: 800;
     color: #fff;
     text-shadow: 1px 1px 2px #fff;
+    margin-top: -15px;
 }
 
-.PageTitle h1 span{
+/* .PageTitle h1 span{
     color: #f5b754;
-}
+} */

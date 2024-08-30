@@ -2,7 +2,7 @@
     width: 100%;
     height: 80px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     font-size: 1.2rem;
     position: fixed;
@@ -42,7 +42,7 @@
 }
 
 .user-header-navlinks{
-    margin-right: 24%;
+    /* margin-right: 24%; */
     display: flex;
     align-items: center;
     justify-content: space-evenly;
