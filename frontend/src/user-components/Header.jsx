@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { LoginForm, RegisterForm } from '../components/index'
 import { NavLink } from 'react-router-dom'
 import { FaUserCircle, FaLock } from "react-icons/fa";
+import { FaPowerOff } from "react-icons/fa6";
 import '../user-components/Header.css';
 
 function Header (){
@@ -64,8 +65,10 @@ useEffect(() => {
           </nav>
         </div>
         <div className="user-header-dashboard">
-          <div className="user-header-icon"><FaUserCircle className="user-dashboard-icon"/></div>
-          <NavLink to='/dashboard/home' exact>Dashboard</NavLink>
+          <div className="dashboard-icon"><FaUserCircle className="header-icon"/></div>
+          <div className="dashboard-text"><a href="#" className="login-link">Dashboard</a></div>
+          <div className="logout-icon"><FaPowerOff className="header-icon"/></div>
+          <div className="logout-text"><a href="#" exact className="register-link">Logout</a></div>
         </div>
       </nav>
     </>

@@ -5,8 +5,9 @@
     width: 100%;
     position: relative;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
+    /* border: 1px solid red; */
 }
 
 .PageTitle-container::before{
@@ -23,35 +24,36 @@
 .PageTitle{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    margin-left: 260px;
+    margin-top: 75px;
 }
 
 .PageTitle h3{
-    font-size: 24px;
+    font-size: 28px;
     word-spacing: 5px;
+    font-weight: 500;
+    font-family: Lucida Handwriting;
+    position: relative;
 }
 
 .PageTitle h3 span{
-    font-size: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    font-size: 34px;
     color: #f5b754;
     text-transform: capitalize;
 }
 
 .PageTitle h4{
-    font-size: 26px;
+    font-size: 28px;
     font-family: Lucida Handwriting;
     color: #fff;
 }
 
 .PageTitle h1{
     font-size: 58px;
-    font-weight: 800;
+    font-weight: 400;
     color: #fff;
     text-shadow: 1px 1px 2px #fff;
     margin-top: -15px;
 }
-
-/* .PageTitle h1 span{
-    color: #f5b754;
-} */
