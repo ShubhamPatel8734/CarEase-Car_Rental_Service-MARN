@@ -12,3 +12,9 @@ export { default as Page_Title } from '../user-components/PageTitle.jsx'
 
 // Navabr
 export { default as Navabr } from '../user-components/Navbar.jsx'
+
+// MyProfile
+export { default as MyProfile } from '../user-components/MyProfile.jsx'
+
+// EditProfile
+export { default as EditProfile } from '../user-components/EditProfile.jsx'

@@ -1,0 +1,66 @@
+.Userprofile{
+    /* border: 1px solid red; */
+    background-color: #333;
+    margin: 80px;
+    border-radius: 10px;
+}
+
+.Userprofile .Userprofile-container{
+    margin: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: top;
+    align-items: left;
+    /* border: 1px solid blue; */
+}
+
+.Userprofile-container .Userprofile-leftside{
+    width: 500px;
+    height: 200px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+    /* border: 1px solid red; */
+}
+
+.Userprofile-link-box{
+    /* border: 1px solid blue; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 7px;
+}
+
+.Userprofile-link-box a{
+    width: 500px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #222;
+    padding: 15px;  
+    font-size: 22px;
+    transition: 0.5s ease-in-out;
+    border-radius: 10px;
+}
+
+.Userprofile-link-box a:hover, .Userprofile-link-box a.active{
+    color: #1b1b1b;
+    background-color: #f5b754;
+}
+
+
+.Userprofile-container .Userprofile-rightside{
+    /* border: 1px solid red; */
+    background-color: #222;
+    margin: 20px 20px 20px 50px;
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px;
+}

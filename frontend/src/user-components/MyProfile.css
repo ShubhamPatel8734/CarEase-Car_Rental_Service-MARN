@@ -1,0 +1,45 @@
+.Myprofile-body{
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.Myprofile-body .Myprofile-body-row{
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+}
+
+.Myprofile-body-row .Myprofile-label,
+.Myprofile-body-row-area .Myprofile-label{
+    font-size: 24px;
+    font-weight: 600;
+    padding-left: 5px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.Myprofile-body-row .Myprofile-textbox,
+.Myprofile-body-row-area .Myprofile-textarea{
+    font-size: 20px;
+    padding: 15px 10px;
+    color: #f5b754;
+    border-radius: 20px;
+    background-color: #333;
+    border: 1px solid #222;
+    outline: none;
+    user-select:contain;
+    margin-bottom: 15px;
+}
+
+.Myprofile-body-row-area{
+    display: flex;
+    flex-direction: column;
+    width: 97%;
+}
+
+.Myprofile-body-row-area .Myprofile-textarea{
+    resize: none;
+}
