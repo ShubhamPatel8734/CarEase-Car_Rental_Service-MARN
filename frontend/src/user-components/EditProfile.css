@@ -1,0 +1,81 @@
+.Editprofile-body{
+    padding: 10px;
+    
+}
+
+.Editprofile-body form{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: left;
+    /* border: 1px solid red; */
+}
+
+.Editprofile-body .Editprofile-body-row{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+    width: 48%;
+    margin-left: 10px;
+}
+
+.Editprofile-body-row .Editprofile-label,
+.Editprofile-body-row-area .Editprofile-label{
+    font-size: 24px;
+    font-weight: 600;
+    padding-left: 5px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.Editprofile-body-row .Editprofile-textbox,
+.Editprofile-body-row-area .Editprofile-textarea{
+    font-size: 20px;
+    padding: 15px 10px;
+    color: #f5b754;
+    border-radius: 20px;
+    background-color: #333;
+    border: 1px solid #222;
+    outline: none;
+    user-select:contain;
+    margin-bottom: 15px;
+}
+
+.Editprofile-body-row-area{
+    display: flex;
+    flex-direction: column;
+    width: 97%;
+    margin-left: 10px;
+}
+
+.Editprofile-body-row-area .Editprofile-textarea{
+    resize: none;
+}
+
+.Editprofile-body-row-btn{
+    width: 97%;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    margin: 10px;
+}
+
+.Editprofile-body-row-btn .Editprofile-btn{
+    margin: 0 10px;
+    padding: 15px;
+    font-size: 22px;
+    font-weight: 600;
+    border-radius: 20px;
+    color: #222;
+    background-color: #f5b754;
+    border: 1px solid #f5b754;
+    transition: 0.5s ease-in-out;
+}
+
+.Editprofile-body-row-btn .Editprofile-btn:hover{
+    cursor: pointer;
+    background-color: #333;
+    color: #f5b754;
+}
