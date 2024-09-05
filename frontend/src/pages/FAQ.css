@@ -1,0 +1,128 @@
+.faq-title{
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    min-height: 60vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+}
+
+.faq-title:before{
+    content: '';
+    background: url('../images/faq.jpg') no-repeat center/cover;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    z-index: -1;
+}
+
+.faq-title-text{
+    display: flex;
+    flex-direction: column;
+    margin-left: 260px;
+}
+
+.faq-title-text h4{
+    font-size: 24px;
+    word-spacing: 5px;
+    font-weight: 500;
+    font-family: Lucida Handwriting;
+    position: relative;
+    color: #f5b754;
+}
+
+.faq-title-text h1{
+    font-size: 48px;
+    font-weight: 400;
+    color: #fff;
+    text-shadow: 1px 1px 2px #fff;
+    margin-top: -15px;
+    text-transform: uppercase;
+}
+
+.faq-questions{
+    background-color: #1b1b1b;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.faq-questions .faq-left{
+    /* border: 1px solid red; */
+    width: 20%;
+}
+
+.faq-left ul li{
+    list-style: none;
+}
+
+.question-title{
+    color: #fff;
+    background-color: #333;
+    font-size: 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.question-title .question{
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    padding: 20px;
+}
+
+.question h2{
+    font-size: 22px;
+    padding: 10px;
+    font-weight: 500;
+}
+
+.question span{
+    color: #f5b754;
+    font-weight: 600;
+}
+
+.question-title .faq-btn{
+    font-size: 16px;
+    color: #f5b754;
+    background: none;
+    border: none;
+    margin-top: 6px;
+}
+
+.question-title .faq-btn:hover{
+    cursor: pointer;
+}
+
+.faq-left .question-desc{
+    width: 300px;
+    background-color: #f5b754;
+    color: #333;
+    padding: 15px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.question-desc p{
+    font-size: 20px;
+    font-weight: 600;
+    text-wrap: wrap;
+}
+
+.faq-middle img{
+    height: 600px;
+    width: 600px;
+}
