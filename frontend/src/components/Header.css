@@ -158,11 +158,23 @@
     font-size: 22px;
     font-weight: 600;
     color: #fff;
+    background-color: red;
     transition: 0.5s all;
+    border-top-right-radius: 20px;      
+  }
+
+  .close-btn h1{
+    font-size: 20px;
   }
 
 .modal .close-btn:hover{
-    color: red;
+    color: #fff;
+    border-top-right-radius: 20px;
     cursor: pointer;
     outline: none;
+}
+
+.close-btn:hover h1{
+    color: #fff;
+    text-shadow: 1px 1px 4px #333;
 }

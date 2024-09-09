@@ -1,0 +1,46 @@
+.cars-title{
+    background-color: rgba(0, 0, 0, 0.79);
+    color: #fff;
+    min-height: 65vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+}
+
+.cars-title:before{
+    content: '';
+    background: url('../images/cars.jpg') no-repeat center/cover;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    z-index: -1;
+}
+
+.cars-title-text{
+    display: flex;
+    flex-direction: column;
+    margin-left: 260px;
+}
+
+.cars-title-text h4{
+    font-size: 24px;
+    word-spacing: 5px;
+    font-weight: 500;
+    font-family: Lucida Handwriting;
+    position: relative;
+    color: #f5b754;
+}
+
+.cars-title-text h1{
+    font-size: 48px;
+    font-weight: 400;
+    color: #fff;
+    text-shadow: 1px 1px 2px #fff;
+    margin-top: -10px;
+    text-transform: uppercase;
+}

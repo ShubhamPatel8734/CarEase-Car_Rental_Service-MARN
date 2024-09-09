@@ -4,7 +4,7 @@ import '../components/RegisterForm.css'
 const RegisterForm = ({ onClose }) => {
   return (
     <div className="popup">
-      <button className="close-btn" onClick={onClose}>X</button>
+      <button className="close-btn" onClick={onClose}><h1>X</h1></button>
       <div className="popup-register-content">
         <h2 className='register-title'><span>S</span>ign <span>U</span>p</h2>
         <form className='register-form'>

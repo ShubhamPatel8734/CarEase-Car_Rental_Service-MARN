@@ -4,7 +4,7 @@ import '../components/LoginForm.css'
 const LoginForm = ({ onClose }) => {
   return (
     <div className="popup">
-      <button className="close-btn" onClick={onClose}>X</button>
+      <button className="close-btn" onClick={onClose}><h1>X</h1></button>
       <div className="popup-login-content">
         <h2 className='login-title'><span>S</span>ign <span>I</span>n</h2>
         <form className='login-form'>
