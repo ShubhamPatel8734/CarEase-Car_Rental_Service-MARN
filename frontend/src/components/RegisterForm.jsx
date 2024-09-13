@@ -8,8 +8,10 @@ const RegisterForm = ({ onClose }) => {
       <div className="popup-register-content">
         <h2 className='register-title'><span>S</span>ign <span>U</span>p</h2>
         <form className='register-form'>
-          <label htmlFor="username" className='register-label'>Username</label>
-          <input type="text" id="username" name="username" placeholder='Enter Username' className='register-textbox' required />
+          <label htmlFor="firstname" className='register-label'>Firstname</label>
+          <input type="text" id="firstname" name="firstname" placeholder='Enter Firstname' className='register-textbox' required />
+          <label htmlFor="lastname" className='register-label'>Lastname</label>
+          <input type="text" id="lastname" name="lastname" placeholder='Enter Lastname' className='register-textbox' required />
           <label htmlFor="email" className='register-label'>Email</label>
           <input type="email" id="email" name="email" placeholder='Enter Email ID' className='register-textbox' required />
           <label htmlFor="phone" className='register-label'>Phone No</label>

@@ -20,7 +20,7 @@ const MyProfile = () => {
         <label htmlFor="email" className='Myprofile-label'>Email ID</label>
         <input type="email" id="email" name="email" className='Myprofile-textbox' required readOnly='true' defaultValue='Email ID' />
       </div>
-      <div className='Myprofile-body-row-area'>
+      {/* <div className='Myprofile-body-row-area'>
         <label htmlFor='address' className='Myprofile-label'>Address</label>
         <textarea id='address' name='address' className='Myprofile-textarea' readOnly='true' rows='5' defaultValue='Address'></textarea>
       </div>
@@ -39,7 +39,7 @@ const MyProfile = () => {
       <div className='Myprofile-body-row'>
         <label htmlFor='pincode' className='Myprofile-label'>Pincode</label>
         <input type="text" id="pincode" name="pincode" className='Myprofile-textbox' required readOnly='true' defaultValue='PinCode'/>
-      </div>
+      </div> */}
     </div>
   )
 }
