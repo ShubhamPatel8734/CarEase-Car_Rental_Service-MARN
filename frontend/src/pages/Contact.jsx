@@ -93,7 +93,7 @@ const Contact = () => {
         </div>
         <div className='contactus-map'>
           <div className='contactus-map-img'>
-            <img src="./images/gmap.jpg"></img>
+            <img src="./images/contactus-map.png"></img>
           </div>
         </div>
       </div>
