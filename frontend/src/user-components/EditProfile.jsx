@@ -21,14 +21,22 @@ const EditProfile = () => {
           <label htmlFor="email" className='Editprofile-label'>Email ID</label>
           <input type="email" id="email" name="email" className='Editprofile-textbox' required  placeholder='Enter Email-ID' />
         </div>
-        <div className='Editprofile-body-row-area'>
+        <div className='Editprofile-body-row'>
+          <label htmlFor="password" className='Editprofile-label'>Password</label>
+          <input type="password" id="password" name="password" className='Editprofile-textbox' required  placeholder='Enter Password' />
+        </div>
+        <div className='Editprofile-body-row'>
+          <label htmlFor="confirm_password" className='Editprofile-label'>Confirm Password</label>
+          <input type="password" id="confirm_password" name="confirm_password" className='Editprofile-textbox' required  placeholder='Enter Password Again' />
+        </div>
+        {/* <div className='Editprofile-body-row-area'>
           <label htmlFor='address' className='Editprofile-label'>Address</label>
           <textarea id='address' name='address' className='Editprofile-textarea' rows='5' placeholder='Enter Address'></textarea>
         </div>
-        {/* <div className='Editprofile-body-row'>
+        <div className='Editprofile-body-row'>
           <label htmlFor='country' className='Editprofile-label'>Country</label>
           <input type="text" id="country" name="country" className='Editprofile-textbox' required  placeholder='Enter Country' />
-        </div> */}
+        </div>
         <div className='Editprofile-body-row'>
           <label htmlFor='state' className='Editprofile-label'>State</label>
           <input type="text" id="state" name="state" className='Editprofile-textbox' required  placeholder='Enter State'/>
@@ -40,7 +48,7 @@ const EditProfile = () => {
         <div className='Editprofile-body-row'>
           <label htmlFor='pincode' className='Editprofile-label'>Pincode</label>
           <input type="text" id="pincode" name="pincode" className='Editprofile-textbox' required  placeholder='Enter PinCode'/>
-        </div>
+        </div> */}
         <div className='Editprofile-body-row-btn'>
           <button type='reset' id='reset-btn' className='Editprofile-btn'>Cancle</button>
           <button type='submit' id='edit-btn' className='Editprofile-btn'>Save Changes</button>

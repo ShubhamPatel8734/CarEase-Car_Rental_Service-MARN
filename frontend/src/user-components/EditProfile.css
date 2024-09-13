@@ -6,33 +6,36 @@
 .Editprofile-body form{
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
-    align-items: left;
+    align-items: center;
     /* border: 1px solid red; */
 }
 
 .Editprofile-body .Editprofile-body-row{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: left;
     justify-content: left;
-    width: 48%;
+    width: 90%;
     margin-left: 10px;
 }
 
 .Editprofile-body-row .Editprofile-label,
 .Editprofile-body-row-area .Editprofile-label{
+    width: 40%;
+    text-align: left;
     font-size: 24px;
     font-weight: 600;
     padding-left: 5px;
-    margin-top: 20px;
+    margin-top: 25px;
     margin-bottom: 10px;
 }
 
 .Editprofile-body-row .Editprofile-textbox,
 .Editprofile-body-row-area .Editprofile-textarea{
     font-size: 20px;
+    width: 90%;
     padding: 15px 10px;
     color: #f5b754;
     border-radius: 20px;
@@ -40,7 +43,7 @@
     border: 1px solid #222;
     outline: none;
     user-select:contain;
-    margin-bottom: 15px;
+    margin: 15px 0;
 }
 
 .Editprofile-body-row-area{
