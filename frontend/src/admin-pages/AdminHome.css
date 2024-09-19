@@ -1,5 +1,68 @@
 .admin-home-container{
-    /* border: 1px solid green; */
-    position: sticky;
-    width: 82vw;
+    width: 80vw;
+    margin-left: 18vw;
+}
+
+.admin-home-title{
+    margin-top: 30px;
+    padding: 10px 50px;
+}
+
+.admin-home-title h2{
+    font-size: 26px;
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 1px;
+    width: max-content;
+    color: #ffffff;
+    text-decoration: underline;
+    text-decoration-color: #f5b754;
+    text-underline-offset: 10px;
+}
+
+.admin-home-cards{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 50px 40px;
+}
+
+.admin-home-card{
+    width: 14vw;
+    height: 20vh;
+    margin: 10px;
+    padding: 20px;
+    background-color: rgb(34, 34, 34);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.admin-home-card h1{
+    font-size: 44px;
+    color: #f5b754;
+}
+
+.admin-home-card h3{
+    font-size: 28px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.admin-home-chart{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 100px;
+    width: 98%;
+    margin-left: 50px;
+}
+
+.bar-chart, .line-chart{
+    width: 720px;
 }
