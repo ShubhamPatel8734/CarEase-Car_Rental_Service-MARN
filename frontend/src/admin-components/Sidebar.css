@@ -1,5 +1,6 @@
 .sidebar-box{
     min-height: 100vh;
+    height: auto;
     width: 18vw;
     position: fixed;
     display: flex;
