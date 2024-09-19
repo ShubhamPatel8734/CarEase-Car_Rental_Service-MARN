@@ -9,7 +9,8 @@ import { Layout } from "./components/index";
 import { Home, About, Cars, Contact, FAQ } from "./pages/index";
 import { User_Layout, MyProfile, EditProfile } from "./user-components/index";
 import { DashboardHome, UserProfile } from "./user-pages/index";
-import { AdminLogin } from './admin-pages/index'
+import { AdminLogin, AdminHome } from './admin-pages/index'
+import { AdminLayout } from "./admin-components/index";
 
 // * Stylesheet
 import "./App.css";
@@ -46,7 +47,10 @@ function App() {
         </Route>
       </Routes>
       <Routes>
-        <Route path="/admin-login" element={<AdminLogin />}></Route>
+        <Route path="/admin/login" element={<AdminLogin />}></Route>
+        <Route path='/admin/home' element={<AdminLayout />}>
+          <Route index element={<AdminHome />} />
+        </Route>
       </Routes>
     </Router>
   );
