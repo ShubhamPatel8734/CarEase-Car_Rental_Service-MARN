@@ -9,3 +9,6 @@ export { default as AdminCustomer } from '../admin-pages/AdminCustomer.jsx'
 
 // Admin Car Page
 export { default as AdminCar } from '../admin-pages/AdminCar.jsx'
+
+// Admin Booking Page
+export { default as AdminBooking } from '../admin-pages/AdminBooking.jsx'
