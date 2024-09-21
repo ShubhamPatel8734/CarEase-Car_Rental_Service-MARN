@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { FaSearch, FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
-import '../admin-pages/AdminCustomer.css'
+import '../admin-pages/AdminContact.css'
 
-const AdminCustomer = () => {
+const AdminContact = () => {
 
     const data = [
         { id: 1, name: 'John', age: 28 },
@@ -35,27 +35,29 @@ const AdminCustomer = () => {
       const paginate = (pageNumber) => setcurrentPage(pageNumber);
 
   return (
-    <div className='admin-customer-container'>
-        <div className='admin-customer-title'>
-            <div className='admin-customer-title-decoration'>
-                <h2>Customers</h2>
+    <div className='admin-contact-container'>
+        <div className='admin-contact-title'>
+            <div className='admin-contact-title-decoration'>
+                <h2>Contact Us</h2>
             </div>
-            <div className='admin-customer-search'>
-                <form className='admin-customer-form'>
-                    <input type='text' placeholder='Search here...' name='customer-search' className='customer-searchtxt'/>
-                    <button type='submit' className='customer-searchbtn'><FaSearch className='customer-search-icon'/></button>
+            <div className='admin-contact-search'>
+                <form className='admin-contact-form'>
+                    <input type='text' placeholder='Search here...' name='contact-search' className='contact-searchtxt'/>
+                    <button type='submit' className='contact-searchbtn'><FaSearch className='contact-search-icon'/></button>
                 </form>
             </div>
         </div>
-        <div className='admin-customer-details'>
-            <table className='admin-customer-table'>
+        <div className='admin-contact-details'>
+            <table className='admin-contact-table'>
             <thead>
                 <tr>
-                    <th style={{width:'10%'}}>ID</th>
-                    <th style={{width:'20%'}}>Name</th>
-                    <th style={{width:'30%'}}>Email ID</th>
-                    <th style={{width:'30%'}}>Phone Number</th>
-                    <th style={{width:'10%'}}>Action</th>
+                    <th style={{width:'5%'}}>ID</th>
+                    <th style={{width:'10%'}}>Name</th>
+                    <th style={{width:'10%'}}>Email ID</th>
+                    <th style={{width:'10%'}}>Phone Number</th>
+                    <th style={{width:'10%'}}>Subject</th>
+                    <th style={{width:'30%'}}>Message</th>
+                    <th style={{width:'25%'}}>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -65,21 +67,23 @@ const AdminCustomer = () => {
                         <td>{record.name}</td>
                         <td>{record.age}</td>
                         <td>ABC</td>
-                        <td className='admin-customer-table-icons'>
+                        <td>ABC</td>
+                        <td>ABC</td>
+                        <td className='admin-contact-table-icons'>
                             {/* <FaEdit className='customer-table-editbtn'/> */}
-                            <MdDelete className='customer-table-deletebtn'/>
+                            <MdDelete className='contact-table-deletebtn'/>
                         </td>
                     </tr>
                 ))}
             </tbody>
         </table>
 
-        <div className='pagination'>
+        <div className='admin-contact-pagination'>
             {Array.from({length: totalPages}, (_, index) => (
                 <button
                     key={index + 1}
                     onClick={() => paginate(index + 1)}
-                    className='customer-pagination-btn'
+                    className='contact-pagination-btn'
                     style={{
                         backgroundColor: currentPage === index + 1 ? '#f5b754' : '#f0f0f0',
                         color: currentPage === index + 1 ? '#333' : '#000',
@@ -94,4 +98,4 @@ const AdminCustomer = () => {
   )
 }
 
-export default AdminCustomer
+export default AdminContact

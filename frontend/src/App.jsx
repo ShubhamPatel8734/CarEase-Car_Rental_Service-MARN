@@ -9,7 +9,7 @@ import { Layout } from "./components/index";
 import { Home, About, Cars, Contact, FAQ } from "./pages/index";
 import { User_Layout, MyProfile, EditProfile } from "./user-components/index";
 import { DashboardHome, UserProfile } from "./user-pages/index";
-import { AdminLogin, AdminHome, AdminCustomer, AdminCar, AdminBooking } from './admin-pages/index'
+import { AdminLogin, AdminHome, AdminCustomer, AdminCar, AdminBooking, AdminContact } from './admin-pages/index'
 import { AdminLayout } from "./admin-components/index";
 
 // * Stylesheet
@@ -59,6 +59,9 @@ function App() {
         </Route>
         <Route path='/admin/booking' element={<AdminLayout />}>
           <Route index element={<AdminBooking />} />
+        </Route>
+        <Route path='/admin/contact_us' element={<AdminLayout />}>
+          <Route index element={<AdminContact />} />
         </Route>
       </Routes>
     </Router>

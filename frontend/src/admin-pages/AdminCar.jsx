@@ -27,6 +27,7 @@ const closeCarForm = () => {
 
 const closeCarEditForm = () => {
     setshowCarEditForm(false);
+    setActiveLink('');
 }
 
 
@@ -102,10 +103,10 @@ const data = [
                             <FaEdit className='car-table-editbtn' onClick={handleCarEditFormClick}/>
                             <MdDelete className='car-table-deletebtn'/>
                         </td>
+                        {showCarEditForm && <div className='carform-overlay'><div className='carform-show'> <EditCar onClose={closeCarEditForm}/> </div></div>}
                     </tr>
                 ))}
             </tbody>
-            {showCarEditForm && <div className='carform-overlay'><div className='carform-show'> <AddCar onClose={closeCarEditForm}/> </div></div>}
         </table>
 
         <div className='admin-car-pagination'>

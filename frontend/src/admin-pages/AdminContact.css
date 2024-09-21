@@ -1,4 +1,4 @@
-.admin-customer-container{
+.admin-contact-container{
     width: 80vw;
     margin-left: 18vw;
     display: flex;
@@ -8,7 +8,7 @@
     overflow-x: hidden;
 }
 
-.admin-customer-title{
+.admin-contact-title{
     margin-top: 30px;
     padding: 10px 100px;
     width: 84vw;
@@ -18,7 +18,7 @@
     align-items: center;
 }
 
-.admin-customer-title h2{
+.admin-contact-title h2{
     font-size: 26px;
     text-transform: uppercase;
     font-weight: 900;
@@ -31,14 +31,14 @@
     text-underline-offset: 10px;
 }
 
-.admin-customer-search{
+.admin-contact-search{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
 }
 
-.admin-customer-search .customer-searchtxt{
+.admin-contact-search .contact-searchtxt{
     width: 300px;
     font-size: 18px;
     padding: 10px;
@@ -50,12 +50,12 @@
     transition: 0.5s ease-in-out;
 }
 
-.admin-customer-search .customer-searchtxt:focus{
+.admin-contact-search .contact-searchtxt:focus{
     border: 1px solid #f5b754;
     background-color: #222;
 }
 
-.admin-customer-search .customer-searchbtn{
+.admin-contact-search .contact-searchbtn{
     width: 50px;
     height: 48px;
     padding: 10px;
@@ -68,18 +68,18 @@
     transition: 0.5s ease-in-out;
 }
 
-.customer-searchbtn:hover{
+.contact-searchbtn:hover{
     cursor: pointer;
     background-color: #222;
     color: #f5b754;
     border: 1px solid #f5b754;
 }
 
-.customer-search-icon{
+.contact-search-icon{
     font-size: 20px;
 }
 
-.admin-customer-details{
+.admin-contact-details{
     width: 70vw;
     margin: 28px 50px;
     background-color: #333;
@@ -87,32 +87,32 @@
     border-radius: 10px;
 }
 
-.admin-customer-details .admin-customer-table{
+.admin-contact-details .admin-contact-table{
     width: 100%;
     border-radius: 100px;
     border-collapse: collapse;
 }
 
-.admin-customer-table tr{
+.admin-contact-table tr{
     border: 1px solid #fff;
     transition: 0.7s ease;
 }
 
-.admin-customer-table tr th{
+.admin-contact-table tr th{
     font-size: 24px;
     padding: 18px;
     color: #f5b754;
     background-color: #333;
 }
 
-.admin-customer-table tr td{
+.admin-contact-table tr td{
     text-align: center;
     font-size: 18px;
     padding: 15px;
     font-weight: 500;
 }
 
-.admin-customer-table tr td span{
+.admin-contact-table tr td span{
     padding: 7px 5px;
     border-radius: 5px;
     font-size: 18px !important;
@@ -121,30 +121,30 @@
     text-align: center;
 }
 
-.admin-customer-table tr .admin-customer-table-icons{
+.admin-contact-table tr .admin-contact-table-icons{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
 }
 
-.customer-table-editbtn, .customer-table-deletebtn{
+.contact-table-editbtn, .contact-table-deletebtn{
     font-size: 28px;
     color: #fff;
     transition: 0.2s ease-in-out;
 }
 
-.customer-table-editbtn:hover{
+.contact-table-editbtn:hover{
     cursor: pointer;
     color: greenyellow;
 }
 
-.customer-table-deletebtn:hover{
+.contact-table-deletebtn:hover{
     cursor: pointer;
     color: red;
 }
 
-.pagination{
+.admin-contact-pagination{
     margin-top: 20px;
     position: static;
     width: 100%;
@@ -155,7 +155,7 @@
     justify-content: center;
 }
 
-.pagination .customer-pagination-btn{
+.admin-contact-pagination .contact-pagination-btn{
     margin: 0 5px;
     padding: 5px 10px;
     border: 1px solid #333;

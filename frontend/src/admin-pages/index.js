@@ -12,3 +12,6 @@ export { default as AdminCar } from '../admin-pages/AdminCar.jsx'
 
 // Admin Booking Page
 export { default as AdminBooking } from '../admin-pages/AdminBooking.jsx'
+
+// Admin Contact Page
+export { default as AdminContact } from '../admin-pages/AdminContact.jsx'

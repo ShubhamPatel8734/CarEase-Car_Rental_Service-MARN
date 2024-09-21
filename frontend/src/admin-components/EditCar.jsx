@@ -1,6 +1,7 @@
 import React from 'react'
+import '../admin-components/AddCar.css'
 
-const EditCar = (onClose) => {
+const EditCar = ({onClose}) => {
   return (
     <div className="carform-popup">
       <button className="carform-close-btn" onClick={onClose}>
@@ -106,7 +107,7 @@ const EditCar = (onClose) => {
             required
           />
           <button type="submit" className="carform-add-btn">
-            Add
+            Edit
           </button>
         </form>
       </div>
