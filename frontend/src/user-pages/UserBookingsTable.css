@@ -1,0 +1,75 @@
+.mybooking{
+    background-color: #1b1b1b;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0 100px 0;
+}
+
+.User-mybooking{
+    width: 60vw;
+    margin-top: 55px;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.User-mybooking .User-mybooking-title{
+    margin: 15px;
+}
+
+.User-mybooking-title h1{
+    color: #f5b754;
+    text-shadow: 1px 1px 2px #f5b754;
+}
+
+.User-mybooking .User-mybooking-table{
+    width: 100%;
+    border-radius: 100px;
+    border-collapse: collapse;
+}
+
+.User-mybooking-table tr{
+    border: 1px solid #fff;
+    transition: 0.7s ease;
+}
+
+.User-mybooking-table tr th{
+    font-size: 24px;
+    padding: 20px;
+    color: #f5b754;
+    background-color: #333;
+}
+
+.User-mybooking-table tr td{
+    text-align: center;
+    font-size: 18px;
+    padding: 15px;
+    font-weight: 500;
+}
+
+.User-mybooking-table tr td span{
+    padding: 7px 5px;
+    border-radius: 5px;
+    font-size: 18px !important;
+    font-weight: 500;
+    min-width: 180px;
+    text-align: center;
+}
+
+.Userhome-cancel{
+    color: red;
+    background-color: rgba(255, 0, 0, 0.2);
+}
+
+.Userhome-inprogress{
+    color: royalblue;
+    background-color: rgba(65, 105, 225, 0.2);
+}
+
+.Userhome-completed{
+    color: #1FBC2F;
+    background-color: rgba(31, 188, 47, 0.2);
+    
+}
