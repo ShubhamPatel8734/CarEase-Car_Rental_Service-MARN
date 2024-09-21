@@ -6,3 +6,6 @@ export { default as AdminHome } from '../admin-pages/AdminHome.jsx'
 
 // Admin Customer Page
 export { default as AdminCustomer } from '../admin-pages/AdminCustomer.jsx'
+
+// Admin Car Page
+export { default as AdminCar } from '../admin-pages/AdminCar.jsx'

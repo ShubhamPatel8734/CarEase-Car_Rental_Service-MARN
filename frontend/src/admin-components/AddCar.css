@@ -1,0 +1,128 @@
+.carform-popup{
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardform-popup-login-content{
+    color: #1b1b1b;
+    height: auto;
+    width: 500px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid red;
+}
+
+.carform-popup-login-content .carform-login-title{
+    font-size: 52px;
+    text-align: center;
+    text-shadow: 1px 1px 3px #fff;
+    top: 0;
+    color: white;
+}
+
+.carform-popup-login-content .carform-login-title span{
+    color: #f5b754;
+}
+
+.carform-add-form{
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    padding: 10px 30px;
+}
+
+.carform-popup-login-content .carform-add-form .carform-label{
+    font-size: 22px;
+    font-weight: 600;
+    margin: 10px 0;
+    padding-left: 5px;
+    color: #fff;
+    text-shadow: 1px 1px 1px #333;
+}
+
+.carform-add-form .carform-textbox{
+    font-size: 20px;
+    width: 100%;
+    padding: 5px 10px;
+    color: #f5b754;
+    background-color: #333;
+    transition: 0.7s all ease;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+}
+
+::placeholder{
+    font-weight: 300;
+}
+
+.carform-add-form .login-textbox:focus{
+    outline: none;
+    border: none;
+}
+
+.carform-radio-group{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: left;
+    width: 30%;
+    margin-left: 5px;
+}
+
+.carform-radio .carform-radiobtn{
+    margin-right: 10px;
+    height: 15px;
+    width: 15px;
+    accent-color: #f5b754;
+}
+
+.carform-radio-lable{
+    color: #fff;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.carform-textarea{
+    font-size: 20px;
+    width: 100%;
+    padding: 5px 10px;
+    color: #f5b754;
+    border-radius: 20px;
+    background-color: #333;
+    border: 1px solid #222;
+    outline: none;
+    user-select: contain;
+    margin: 5px 0;
+    resize: none;
+}
+
+.carform-add-form .carform-add-btn{
+    margin-top: 25px;
+    font-size: 22px;
+    font-weight: 700;
+    padding: 10px 25px;
+    width: fit-content;
+    align-self: center;
+    border-radius: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    outline: none;
+    transition: 0.5s ease;
+}
+
+.carform-add-btn:hover{
+    font-weight: 700;
+    cursor: pointer;
+    background: #f5b754;
+    color: #333;
+    font-weight: 600;
+    box-shadow: 1px 1px 10px #333;
+}

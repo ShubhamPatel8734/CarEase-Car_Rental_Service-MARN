@@ -1,0 +1,132 @@
+.admin-car-container{
+    width: 80vw;
+    margin-left: 18vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.admin-car-title{
+    margin-top: 30px;
+    padding: 10px 100px;
+    width: 84vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-car-title h2{
+    font-size: 26px;
+    text-transform: uppercase;
+    font-weight: 900;
+    text-align: left;
+    letter-spacing: 1px;
+    width: max-content;
+    color: #ffffff;
+    text-decoration: underline;
+    text-decoration-color: #f5b754;
+    text-underline-offset: 10px;
+}
+
+.admin-car-search{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.admin-car-search .admin-car-searchtxt{
+    width: 300px;
+    font-size: 18px;
+    padding: 10px;
+    outline: none;
+    border: 1px solid #333;
+    background-color: #333;
+    color: #f5b754;
+    border-radius: 20px;
+    transition: 0.5s ease-in-out;
+}
+
+.admin-car-search .admin-car-searchtxt:focus{
+    border: 1px solid #f5b754;
+    background-color: #222;
+}
+
+.admin-car-search .admin-car-btn{
+    width: 50px;
+    height: 48px;
+    padding: 10px;
+    border: 1px solid #333;
+    outline: none;
+    border-radius: 50%;
+    margin-left: 10px;
+    background-color: #333;
+    color: #fff;
+    transition: 0.5s ease-in-out;
+}
+
+.admin-car-btn:hover{
+    cursor: pointer;
+    background-color: #222;
+    color: #f5b754;
+    border: 1px solid #f5b754;
+}
+
+.admin-car-icon{
+    font-size: 20px;
+}
+
+.carform-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 999;
+}
+
+.carform-show{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #222;
+    box-shadow: 1px 1px 10px #333;
+    z-index: 1000;
+    border-radius: 20px;
+}
+
+.carform-show .carform-close-btn{
+    position: absolute;
+    padding: 15px;
+    top: 0;   
+    right: 0;
+    background-color: transparent;
+    border: none;
+    font-size: 22px;
+    font-weight: 600;
+    color: #fff;
+    background-color: red;
+    transition: 0.5s all;
+    border-top-right-radius: 20px;
+}
+
+.carform-close-btn h1{
+    font-size: 20px;
+}
+
+.carform-show .carform-close-btn:hover{
+    color: #fff;
+    border-top-right-radius: 20px;
+    cursor: pointer;
+    outline: none;
+}
+
+.carform-close-btn:hover h1{
+    color: #fff;
+    text-shadow: 1px 1px 4px #333;
+}
