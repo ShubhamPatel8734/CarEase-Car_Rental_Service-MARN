@@ -38,25 +38,23 @@ const AdminCustomer = () => {
     <div className='admin-customer-container'>
         <div className='admin-customer-title'>
             <div className='admin-customer-title-decoration'>
-            <h2>Customers</h2>
+                <h2>Customers</h2>
             </div>
-        </div>
-        <div className='admin-customer-search'>
-            <form className='admin-customer-form'>
-                <input type='text' placeholder='Search here...' name='customer-search' className='customer-searchtxt'/>
-                <button type='submit' className='customer-searchbtn'><FaSearch className='customer-search-icon'/></button>
-            </form>
+            <div className='admin-customer-search'>
+                <form className='admin-customer-form'>
+                    <input type='text' placeholder='Search here...' name='customer-search' className='customer-searchtxt'/>
+                    <button type='submit' className='customer-searchbtn'><FaSearch className='customer-search-icon'/></button>
+                </form>
+            </div>
         </div>
         <div className='admin-customer-details'>
             <table className='admin-customer-table'>
             <thead>
                 <tr>
-                    <th>Car Name</th>
-                    <th>Start Date</th>
-                    <th>End Date</th>
-                    <th>Rent Type</th> 
-                    <th>Car Price</th>
-                    <th>Total Price</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email ID</th>
+                    <th>Phone Number</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -67,30 +65,24 @@ const AdminCustomer = () => {
                         <td>{record.name}</td>
                         <td>{record.age}</td>
                         <td>ABC</td>
-                        <td>ABC</td>
-                        <td>ABC</td>
-                        <td>ABC</td>
-                        <td className='admin-customer-table-icons'><FaEdit className='customer-table-editbtn'/><MdDelete className='customer-table-deletebtn'/></td>
+                        <td className='admin-customer-table-icons'>
+                            {/* <FaEdit className='customer-table-editbtn'/> */}
+                            <MdDelete className='customer-table-deletebtn'/>
+                        </td>
                     </tr>
                 ))}
             </tbody>
         </table>
 
-        <div className='pagination' style={{ marginTop: '20px', position:'static', width:'80%' }}>
+        <div className='pagination'>
             {Array.from({length: totalPages}, (_, index) => (
                 <button
                     key={index + 1}
                     onClick={() => paginate(index + 1)}
+                    className='customer-pagination-btn'
                     style={{
-                        margin: '0 5px',
-                        padding: '5px 10px',
                         backgroundColor: currentPage === index + 1 ? '#f5b754' : '#f0f0f0',
                         color: currentPage === index + 1 ? '#333' : '#000',
-                        border: '1px solid #333',
-                        cursor: 'pointer',
-                        fontSize:'16px',
-                        fontWeight: '700',
-                        borderRadius: '50%',
                       }}
                 >
                     {index + 1}
