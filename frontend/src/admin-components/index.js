@@ -12,3 +12,6 @@ export { default as IncomeByMonth } from '../admin-components/IncomeByMonth.jsx'
 
 // Add Car Form
 export { default as AddCar } from '../admin-components/AddCar.jsx' 
+
+// Edit Car Form
+export { default as EditCar } from '../admin-components/EditCar.jsx'

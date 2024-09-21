@@ -130,3 +130,92 @@
     color: #fff;
     text-shadow: 1px 1px 4px #333;
 }
+
+.admin-car-details{
+    width: 70vw;
+    margin: 28px 50px;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.admin-car-details .admin-car-table{
+    width: 100%;
+    border-radius: 100px;
+    border-collapse: collapse;
+}
+
+.admin-car-table tr{
+    border: 1px solid #fff;
+    transition: 0.7s ease;
+}
+
+.admin-car-table tr th{
+    width: 5%;
+    font-size: 24px;
+    padding: 18px;
+    color: #f5b754;
+    background-color: #333;
+}
+
+.admin-car-table tr td{
+    /* width: 5%; */
+    text-align: center;
+    font-size: 18px;
+    padding: 15px;
+    font-weight: 500;
+}
+
+.admin-car-table tr td span{
+    padding: 7px 5px;
+    border-radius: 5px;
+    font-size: 18px !important;
+    font-weight: 500;
+    min-width: 180px;
+    text-align: center;
+}
+
+.admin-car-table tr .admin-car-table-icons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.car-table-editbtn, .car-table-deletebtn{
+    font-size: 28px;
+    color: #fff;
+    transition: 0.2s ease-in-out;
+    margin: 5px 8px;
+}
+
+.car-table-editbtn:hover{
+    cursor: pointer;
+    color: greenyellow;
+}
+
+.car-table-deletebtn:hover{
+    cursor: pointer;
+    color: red;
+}
+
+.admin-car-pagination{
+    margin-top: 20px;
+    position: static;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-car-pagination .car-pagination-btn{
+    margin: 0 5px;
+    padding: 5px 10px;
+    border: 1px solid #333;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 50%;
+}

@@ -107,6 +107,7 @@
 }
 
 .admin-customer-table tr td{
+    width: 20%;
     text-align: center;
     font-size: 18px;
     padding: 15px;
