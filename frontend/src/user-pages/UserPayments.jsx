@@ -68,6 +68,7 @@ const UserPayments = () => {
                 <th>Total Price</th>
                 <th>Mode</th>
                 <th>Status</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>

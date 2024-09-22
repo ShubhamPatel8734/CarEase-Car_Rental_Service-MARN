@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Layout } from "./components/index";
 import { Home, About, Cars, Contact, FAQ } from "./pages/index";
 import { User_Layout, MyProfile, EditProfile } from "./user-components/index";
-import { DashboardHome, UserProfile, UserBookingTable, UserPayments } from "./user-pages/index";
+import { DashboardHome, UserProfile, UserBookingTable, UserPayments, UserBookingForm } from "./user-pages/index";
 import { AdminLogin, AdminHome, AdminCustomer, AdminCar, AdminBooking, AdminContact } from './admin-pages/index'
 import { AdminLayout } from "./admin-components/index";
 
@@ -51,6 +51,9 @@ function App() {
         </Route>
         <Route path="/dashboard/payments" element={<User_Layout />}>
           <Route index element={<UserPayments />} />
+        </Route>
+        <Route path="/dashboard/newbooking" element={<User_Layout />}>
+          <Route index element={<UserBookingForm />} />
         </Route>
       </Routes>
 
