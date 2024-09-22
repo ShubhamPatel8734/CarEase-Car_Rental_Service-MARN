@@ -22,7 +22,7 @@ const Navbar = () => {
                     <FaRegCalendarCheck className='Navbar-icons'/>
                     <h3>My Bookings</h3>
                 </NavLink>
-                <NavLink to='/dashboard/payment' exact className='Navbar-link'>
+                <NavLink to='/dashboard/payments' exact className='Navbar-link'>
                     <FaRupeeSign className='Navbar-icons'/>
                     <h3>Payment</h3>
                 </NavLink>
