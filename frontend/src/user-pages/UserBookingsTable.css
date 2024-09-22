@@ -1,3 +1,70 @@
+.userbooking-title{
+    margin: 1% 10%;
+    padding: 10px 100px;
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.userbooking-title h2{
+    font-size: 26px;
+    text-transform: uppercase;
+    font-weight: 900;
+    text-align: left;
+    letter-spacing: 1px;
+    width: max-content;
+    color: #ffffff;
+    text-decoration: underline;
+    text-decoration-color: #f5b754;
+    text-underline-offset: 10px;
+}
+
+.userbooking-search{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.userbooking-search .userbooking-searchtxt{
+    width: 300px;
+    font-size: 18px;
+    padding: 10px;
+    outline: none;
+    border: 1px solid #333;
+    background-color: #333;
+    color: #f5b754;
+    border-radius: 20px;
+    transition: 0.5s ease-in-out;
+}
+
+.userbooking-search .userbooking-searchtxt:focus{
+    border: 1px solid #f5b754;
+    background-color: #222;
+}
+
+.userbooking-search .userbooking-searchbtn{
+    width: 50px;
+    height: 48px;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    margin-left: 10px;
+    background-color: #333;
+    color: #fff;
+    transition: 0.5s ease-in-out;
+}
+
+.userbooking-searchbtn:hover{
+    cursor: pointer;
+    background-color: #222;
+    color: #f5b754;
+    border: 1px solid #f5b754;
+}
+
 .mybooking{
     background-color: #1b1b1b;
     display: flex;
@@ -9,7 +76,6 @@
 
 .User-mybooking{
     width: 60vw;
-    margin-top: 55px;
     background-color: #333;
     padding: 20px;
     border-radius: 10px;
@@ -72,4 +138,25 @@
     color: #1FBC2F;
     background-color: rgba(31, 188, 47, 0.2);
     
+}
+
+.userbooking-pagination{
+    margin-top: 20px;
+    position: static;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.userbooking-pagination .userbooking-pagination-btn{
+    margin: 0 5px;
+    padding: 5px 10px;
+    border: 1px solid #333;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 50%;
 }

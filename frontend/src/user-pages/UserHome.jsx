@@ -42,10 +42,11 @@ const UserHome = () => {
         <table className='Userhome-booking-table'>
           <thead>
             <tr>
+              <th>ID</th>
               <th>Car Name</th>
+              <th>Car Type</th>
               <th>Start Date</th>
-              <th>End Date</th>
-              <th>Rent Type</th> 
+              <th>End Date</th> 
               <th>Car Price</th>
               <th>Total Price</th>
               <th>Status</th>
@@ -53,6 +54,7 @@ const UserHome = () => {
           </thead>
           <tbody>
             <tr>
+              <td>ABC</td>
               <td>ABC</td>
               <td>ABC</td>
               <td>ABC</td>
@@ -68,9 +70,11 @@ const UserHome = () => {
               <td>ABC</td>
               <td>ABC</td>
               <td>ABC</td>
+              <td>ABC</td>
               <td><span className='Userhome-inprogress'>Inprogress</span></td>
             </tr>
             <tr>
+              <td>ABC</td>
               <td>ABC</td>
               <td>ABC</td>
               <td>ABC</td>
