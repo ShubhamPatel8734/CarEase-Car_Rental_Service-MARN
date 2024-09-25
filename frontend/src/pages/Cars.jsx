@@ -31,7 +31,7 @@ const ItemCard = ({ item }) => {
             <p>{item.luggage}</p>
           </div>
           <div className="carcard-footer">
-            <h3>{item.rent}<span> /day</span></h3>
+            <h3>₹{item.rent}<span> /day</span></h3>
             <button className="carcard-rentbtn">Rent Now</button>
           </div>
         </div>
