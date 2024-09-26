@@ -6,7 +6,6 @@ import { HiMail } from "react-icons/hi";
 import { IoLocationOutline } from "react-icons/io5";
 import { FaFacebookF, FaTiktok } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-// first commit in project.
 const Footer = () => {
   return (
     <>
