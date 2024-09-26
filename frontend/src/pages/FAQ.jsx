@@ -32,7 +32,7 @@ const FAQ = () => {
     right_setSelected(j)
   }
 
-
+// Shubham
   return (
     <div>
       <div className="faq-title">
