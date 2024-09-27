@@ -11,7 +11,7 @@ const leftdata = [
 const rightdata = [
   {title: 'Car Delivery', desc:'At the time of Delivery our team will contact And Deliver the car to your Location. On spot, You will check the car, Sign the contract & receive the key. Enjoy your ride !'},
   {title: 'Enquire Now', desc:'You can contact us for a quotation & our team will assist you with the booking process. You can use the contact methods available on this page.'},
-  {title: 'Payment Methods', desc:'We offer a variety of payment methods. We accept cash, Crypto and the majority of credit cards such as Visa, MasterCard and American Express.'},
+  {title: 'Payment Methods', desc:'We offer a variety of payment methods. We accept cash and the majority of credit cards such as Visa, MasterCard and RuPay.'},
 ]
 
 const FAQ = () => {
