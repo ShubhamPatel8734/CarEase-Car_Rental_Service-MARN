@@ -92,7 +92,7 @@ const Contact = () => {
           </form>
         </div>
         <div className='contactus-map'>
-          <div className='contactus-map-img'>
+          <div className='contactus-map-img' onClick={handleMap}>
             <img src="./images/contactus-map.png"></img>
           </div>
         </div>

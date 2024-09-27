@@ -3,9 +3,9 @@ import { FaAngleRight, FaAngleDown } from "react-icons/fa6";
 import "../pages/FAQ.css";
 
 const leftdata = [
-  {title: 'Age and Responsibility', desc:'Driver must be 25+ years old to drive economy, luxury cars and supercars.'},
-  {title: 'Deposite', desc:'500 USD will be blocked on your card for the duration of 24 days, cash deposits are also accepted. This amount will be used only for fines and toll road charges. terms & conditions apply.'},
-  {title: 'Documents', desc:'A Passport copy is required, Valid Driving License, Mobile number, Email address and Location and Time of delivery'},
+  {title: 'Age and Responsibility', desc:'Driver must be 20+ years old to drive cars, must hold driving license & should obey all the rules.'},
+  {title: 'Deposite', desc:'Online & Cash deposits are accepted. This amount will be used only for fines and toll road charges. terms & conditions apply.'},
+  {title: 'Documents', desc:'A valid Driving License, Mobile number, Email address is required. (Payment receipt is required to show for those who rent car online.)'},
 ]
 
 const rightdata = [
