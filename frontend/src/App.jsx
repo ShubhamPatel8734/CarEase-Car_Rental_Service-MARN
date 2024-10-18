@@ -1,11 +1,12 @@
 /* --------------------------------- Imports -------------------------------- */
 
 // [Import React Components]
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 //[Import local folders/files]
 // * Components
-import { Layout } from "./components/index";
+import { Layout, PreLoader } from "./components/index";
 import { Home, About, Cars, Contact, FAQ } from "./pages/index";
 import { User_Layout, MyProfile, EditProfile } from "./user-components/index";
 import { DashboardHome, UserProfile, UserBookingTable, UserPayments, UserBookingForm } from "./user-pages/index";
@@ -16,11 +17,23 @@ import { AdminLayout } from "./admin-components/index";
 import "./App.css";
 
 function App() {
+
+  const[loading, setloading] = useState(true);
+
+  useEffect(()=>{
+    const timer = setTimeout(()=> {
+      setloading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <Router>
       <Routes>
+        
         <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
+          <Route index element={loading ? <PreLoader /> : <Home />} />
         </Route>
         <Route path="/about" element={<Layout />}>
           <Route index element={<About />} />

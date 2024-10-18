@@ -1,0 +1,39 @@
+.Preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #222; /* or any background color */
+    z-index: 9999;
+}
+
+.spinner {
+    position: absolute;
+    border: 2px solid #f3f3f3;
+    border-top: 6px solid #f5b754;
+    border-radius: 50%;
+    width: 100px; /* Adjust size */
+    height: 100px; /* Adjust size */
+    animation: spin 1s linear infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.preloader-image {
+    width: 40px;  /* Adjust the size of the image */
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
