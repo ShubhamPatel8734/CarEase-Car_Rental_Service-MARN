@@ -2,6 +2,7 @@ import React from 'react';
 import '../components/RegisterForm.css'
 import { useState } from 'react';
 import SignupValidation from './UserSignupValidation';
+import axios from "axios";
 const RegisterForm = ({ onClose }) => {
   const [values,setvalues]=useState({firstname:'',lastname:'',email:'',phone:'', password:'',confirmpassword:''});
     function handleinput(event){
@@ -12,7 +13,26 @@ const RegisterForm = ({ onClose }) => {
     function signup(event){
       event.preventDefault();
       seterrors(SignupValidation(values));
-    }
+      const checkerr=SignupValidation(values);
+      console.log(Object.entries(checkerr).length)
+      if(Object.entries(checkerr).length=== 0){
+        axios.post("http://localhost:3000/user/register",{
+          firstname:values.firstname,
+          lastname:values.lastname,
+          email:values.email,
+          phone:values.phone,
+          password:values.password,
+        }).then(res =>{
+              console.log(res);
+              if(res.data.status)
+              alert("registered");
+              else
+              alert(res.data.message);
+        }).catch(err =>{
+          console.log(err);
+        })
+      }
+  }
   return (
     <div className="popup">
       <button className="close-btn" onClick={onClose}><h1>X</h1></button>
