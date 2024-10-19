@@ -44,4 +44,26 @@ router.post('/login', async(req,res)=>{
     res.cookie('utoken', token, {httpOnly: true,maxAge: 720000})
     return res.json({status: true, message: "Login Successfull"})
 })
+
+const verifyuser = (req,res,next) =>{
+    const token=req.cookies.utoken;
+    if(!token){
+        return res.json({status: false,Message: "We need token."})
+    }
+    else{
+       jwt.verify(token, process.env.KEY, (err, decoded) => {
+            if (err) {
+                return res.json({ status: false, Message: "Authentication failed." });
+            }
+            else {
+                req.name = decoded.name;
+                req.id = decoded.id;
+                next();
+            }
+        })
+    }
+}
+router.get("/status",verifyuser,(req,res) =>{
+    return res.json({Status: "Success",name: req.name,id: req.id});
+})
 export {router as UserRouter}
