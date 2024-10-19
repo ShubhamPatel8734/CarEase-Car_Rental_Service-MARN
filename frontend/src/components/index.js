@@ -12,3 +12,6 @@ export { default as LoginForm } from '../components/LoginForm.jsx'
 
 // Registration Form
 export { default as RegisterForm } from '../components/RegisterForm.jsx'
+
+// PreLoader
+export { default as PreLoader } from '../components/PreLoader.jsx'
