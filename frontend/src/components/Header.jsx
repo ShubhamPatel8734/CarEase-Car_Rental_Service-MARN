@@ -52,22 +52,22 @@ useEffect(() => {
     <>
       <nav className = {`navbar ${isScrolled ? 'navbar-scrolled':'navbar-transparent'}`}>
         <div className="header-logo">
-          <h1><NavLink exact to='/'><span>C</span>ar<span>E</span>ase</NavLink></h1>
+          <h1><NavLink to='/'><span>C</span>ar<span>E</span>ase</NavLink></h1>
         </div>
         <div className="header-navlinks">
           <nav> 
-            <NavLink to='/' exact>Home</NavLink>
-            <NavLink to='/about' exact>About</NavLink>
-            <NavLink to='/cars' exact>Cars</NavLink>
-            <NavLink to='/contact' exact>Contact</NavLink>
-            <NavLink to='/faq' exact>FAQ</NavLink>
+            <NavLink to='/' >Home</NavLink>
+            <NavLink to='/about' >About</NavLink>
+            <NavLink to='/cars' >Cars</NavLink>
+            <NavLink to='/contact' >Contact</NavLink>
+            <NavLink to='/faq' >FAQ</NavLink>
           </nav>
         </div>
         <div className="header-login">
           <div className="login-icon"><FaUserCircle className="header-icon"/></div>
           <div className="login-text"><a href="#" onClick={handleLoginClick} className="login-link">Sign In</a></div>
           <div className="registration-icon"><FaLock className="header-icon" style={{fontSize: "30px"}}/></div>
-          <div className="registration-text"><a href="#" exact onClick={handleRegisterClick} className="register-link">Sign Up</a></div>
+          <div className="registration-text"><a href="#"  onClick={handleRegisterClick} className="register-link">Sign Up</a></div>
           {showLogin && <div className="modal-overlay"><div className="modal"> <LoginForm onClose={closeLoginForm}/> </div></div>}
           {showRegister && <div className="modal-overlay"><div className="modal"> <RegisterForm onClose={closeRegisterForm}/> </div></div>}
         </div>

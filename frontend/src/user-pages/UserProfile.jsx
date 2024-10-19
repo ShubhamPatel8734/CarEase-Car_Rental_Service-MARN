@@ -14,7 +14,7 @@ function UserProfile() {
             </NavLink>
           </div>
           <div className="Userprofile-link-box">
-            <NavLink to="/dashboard/profile/edit" exact className="Navbar-link">
+            <NavLink to="/dashboard/profile/edit" className="Navbar-link">
               <h3>Edit Profile</h3>
             </NavLink>
           </div>

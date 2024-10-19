@@ -52,7 +52,7 @@ const Footer = () => {
           <div className='quick-link'>
             <h1><span>Q</span>uick <span>L</span>inks</h1>
             <ul>
-              <li><Link to='/' exact>Home</Link></li>
+              <li><Link to='/'>Home</Link></li>
               <li><Link to='/about'>About</Link></li>
               <li><Link to='/cars'>Cars</Link></li>
               <li><Link to='/contact'>Contact</Link></li>

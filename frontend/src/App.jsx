@@ -15,6 +15,7 @@ import { AdminLayout } from "./admin-components/index";
 
 // * Stylesheet
 import "./App.css";
+import UserHome from './user-pages/UserHome';
 
 function App() {
 
@@ -31,61 +32,37 @@ function App() {
   return (
     <Router>
       <Routes>
-        
-        <Route path="/" element={<Layout />}>
-          <Route index element={loading ? <PreLoader /> : <Home />} />
-        </Route>
-        <Route path="/about" element={<Layout />}>
-          <Route index element={<About />} />
-        </Route>
-        <Route path="/cars" element={<Layout />}>
-          <Route index element={<Cars />} />
-        </Route>
-        <Route path="/contact" element={<Layout />}>
-          <Route index element={<Contact />} />
-        </Route>
-        <Route path="/faq" element={<Layout />}>
-          <Route index element={<FAQ />} />
-        </Route>
-      </Routes>
 
-      <Routes>
-        <Route path="/dashboard/home" element={<User_Layout />}>
-          <Route index element={<DashboardHome />} />
+        {/* Main Pages Routes */}
+        <Route path='/' element={<Layout />}>
+          <Route index element={<Home />}/>
+          <Route path='about' element={<About />}></Route>
+          <Route path='cars' element={<Cars />}/>
+          <Route path='contact' element={<Contact />}/>
+          <Route path='faq' element={<FAQ />}/>
         </Route>
-        <Route path="/dashboard/profile" element={<User_Layout />}>
-          <Route element={<UserProfile />}>
-            <Route index element={<MyProfile />} />
-            <Route path="edit" element={<EditProfile />} />
+
+        {/* User Dashboard Routes */}
+        <Route path='/dashboard' element={<User_Layout />}>
+          <Route path='home' element={<UserHome />}/>
+          <Route path='newbooking' element={<UserBookingForm />}/>
+          <Route path='mybooking' element={<UserBookingTable />}/>
+          <Route path='payments' element={<UserPayments />}/>
+          <Route path='profile' element={<UserProfile />}>
+            <Route index element={<MyProfile />}/>
+            <Route path='edit' element={<EditProfile />}/>
           </Route>
         </Route>
-        <Route path="/dashboard/mybooking" element={<User_Layout />}>
-          <Route index element={<UserBookingTable />} />
-        </Route>
-        <Route path="/dashboard/payments" element={<User_Layout />}>
-          <Route index element={<UserPayments />} />
-        </Route>
-        <Route path="/dashboard/newbooking" element={<User_Layout />}>
-          <Route index element={<UserBookingForm />} />
-        </Route>
-      </Routes>
 
-      <Routes>
-        <Route path="/admin/login" element={<AdminLogin />}></Route>
-        <Route path='/admin/home' element={<AdminLayout />}>
-          <Route index element={<AdminHome />} />
-        </Route>
-        <Route path='/admin/customers' element={<AdminLayout />}>
-          <Route index element={<AdminCustomer />} />
-        </Route>
-        <Route path='/admin/cars' element={<AdminLayout />}>
-          <Route index element={<AdminCar />} />
-        </Route>
-        <Route path='/admin/booking' element={<AdminLayout />}>
-          <Route index element={<AdminBooking />} />
-        </Route>
-        <Route path='/admin/contact_us' element={<AdminLayout />}>
-          <Route index element={<AdminContact />} />
+        {/* Admin Dashboard Routes */}
+        
+        <Route path='/login' element={<AdminLogin />}/>
+        <Route path='/admin' element={<AdminLayout />}>
+          <Route path='home' element={<AdminHome />}/>
+          <Route path='customers' element={<AdminCustomer />}/>
+          <Route path='cars' element={<AdminCar />}/>
+          <Route path='booking' element={<AdminBooking />}/>
+          <Route path='contact_us' element={<AdminContact />}/>
         </Route>
       </Routes>
     </Router>

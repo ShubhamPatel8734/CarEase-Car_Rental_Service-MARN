@@ -53,22 +53,22 @@ useEffect(() => {
     <>
       <nav className = {`user-navbar ${isScrolled ? 'user-navbar-scrolled':'user-navbar-transparent'}`}>
         <div className="user-header-logo">
-          <h1><NavLink exact to='/'><span>C</span>ar<span>E</span>ase</NavLink></h1>
+          <h1><NavLink to='/'><span>C</span>ar<span>E</span>ase</NavLink></h1>
         </div>
         <div className="user-header-navlinks">
           <nav> 
-            <NavLink to='/' exact>Home</NavLink>
-            <NavLink to='/about' exact>About</NavLink>
-            <NavLink to='/cars' exact>Cars</NavLink>
-            <NavLink to='/contact' exact>Contact</NavLink>
-            <NavLink to='/faq' exact>FAQ</NavLink>
+            <NavLink to='/'>Home</NavLink>
+            <NavLink to='/about'>About</NavLink>
+            <NavLink to='/cars'>Cars</NavLink>
+            <NavLink to='/contact'>Contact</NavLink>
+            <NavLink to='/faq'>FAQ</NavLink>
           </nav>
         </div>
         <div className="user-header-dashboard">
           <div className="dashboard-icon"><FaUserCircle className="header-icon"/></div>
-          <div className="dashboard-text"><a href="#" className="login-link">Dashboard</a></div>
+          <div className="dashboard-text"><a href="/dashboard/home" className="login-link">Dashboard</a></div>
           <div className="logout-icon"><FaPowerOff className="header-icon"/></div>
-          <div className="logout-text"><a href="#" exact className="register-link">Logout</a></div>
+          <div className="logout-text"><a href="/" className="register-link">Logout</a></div>
         </div>
       </nav>
     </>

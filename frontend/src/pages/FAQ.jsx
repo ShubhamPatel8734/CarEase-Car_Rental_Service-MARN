@@ -3,15 +3,15 @@ import { FaAngleRight, FaAngleDown } from "react-icons/fa6";
 import "../pages/FAQ.css";
 
 const leftdata = [
-  {title: 'Age and Responsibility', desc:'Driver must be 20+ years old to drive cars, must hold driving license & should obey all the rules.'},
-  {title: 'Deposite', desc:'Online & Cash deposits are accepted. This amount will be used only for fines and toll road charges. terms & conditions apply.'},
-  {title: 'Documents', desc:'A valid Driving License, Mobile number, Email address is required. (Payment receipt is required to show for those who rent car online.)'},
+  {id: 1,title: 'Age and Responsibility', desc:'Driver must be 20+ years old to drive cars, must hold driving license & should obey all the rules.'},
+  {id: 2,title: 'Deposite', desc:'Online & Cash deposits are accepted. This amount will be used only for fines and toll road charges. terms & conditions apply.'},
+  {id: 3,title: 'Documents', desc:'A valid Driving License, Mobile number, Email address is required. (Payment receipt is required to show for those who rent car online.)'},
 ]
 
 const rightdata = [
-  {title: 'Car Delivery', desc:'At the time of Delivery our team will contact And Deliver the car to your Location. On spot, You will check the car, Sign the contract & receive the key. Enjoy your ride !'},
-  {title: 'Enquire Now', desc:'You can contact us for a quotation & our team will assist you with the booking process. You can use the contact methods available on this page.'},
-  {title: 'Payment Methods', desc:'We offer a variety of payment methods. We accept cash and the majority of credit cards such as Visa, MasterCard and RuPay.'},
+  {id: 4,title: 'Car Delivery', desc:'At the time of Delivery our team will contact And Deliver the car to your Location. On spot, You will check the car, Sign the contract & receive the key. Enjoy your ride !'},
+  {id: 5,title: 'Enquire Now', desc:'You can contact us for a quotation & our team will assist you with the booking process. You can use the contact methods available on this page.'},
+  {id: 6,title: 'Payment Methods', desc:'We offer a variety of payment methods. We accept cash and the majority of credit cards such as Visa, MasterCard and RuPay.'},
 ]
 
 const FAQ = () => {
@@ -45,7 +45,7 @@ const FAQ = () => {
         <div className="faq-left">
           <div className="accordion">
             {leftdata.map( (faqitem, i) => (
-              <div className="faq-item">
+              <div className="faq-item" key={faqitem.id}>
                 <div className="question-title" onClick={() => left_toggle(i)}>
                   <h2><span>{i + 1}.   </span>{faqitem.title}</h2>
                   <span>{left_selected == i ? <FaAngleDown /> : <FaAngleRight />}</span>
@@ -63,7 +63,7 @@ const FAQ = () => {
         <div className="faq-right">
         <div className="accordion">
             {rightdata.map((faq_item, j=4) => (
-              <div className="faq-item">
+              <div className="faq-item" key={faq_item.id}>
                 <div className="question-title" onClick={() => right_toggle(j)}>
                   <h2><span>{j+4  }.   </span>{faq_item.title}</h2>
                   <span>{right_selected == j ? <FaAngleDown /> : <FaAngleRight />}</span>

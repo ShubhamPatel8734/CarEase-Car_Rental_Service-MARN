@@ -10,23 +10,23 @@ const Navbar = () => {
     <div className='Navbar-container'>
         <nav>
             <div className='Navbar-box'>
-                <NavLink to='/dashboard/home' exact className='Navbar-link'>
+                <NavLink to='/dashboard/home' className='Navbar-link'>
                     <MdDashboard className='Navbar-icons'/>
                     <h3>Home</h3>
                 </NavLink>
-                <NavLink to='/dashboard/newbooking' exact className='Navbar-link'>
+                <NavLink to='/dashboard/newbooking'  className='Navbar-link'>
                     <MdAddBox className='Navbar-icons'/>
                     <h3>New Booking</h3>
                 </NavLink>
-                <NavLink to='/dashboard/mybooking' exact className='Navbar-link'>
+                <NavLink to='/dashboard/mybooking'  className='Navbar-link'>
                     <FaRegCalendarCheck className='Navbar-icons'/>
                     <h3>My Bookings</h3>
                 </NavLink>
-                <NavLink to='/dashboard/payments' exact className='Navbar-link'>
+                <NavLink to='/dashboard/payments'  className='Navbar-link'>
                     <FaRupeeSign className='Navbar-icons'/>
                     <h3>Payment</h3>
                 </NavLink>
-                <NavLink to='/dashboard/profile' exact className='Navbar-link'>
+                <NavLink to='/dashboard/profile' className='Navbar-link'>
                     <FaUserLarge className='Navbar-icons'/>
                     <h3>Profile</h3>
                 </NavLink>
