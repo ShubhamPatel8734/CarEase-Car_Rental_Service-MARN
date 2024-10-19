@@ -2,7 +2,7 @@ import express from "express";
 import bcrypt from "bcrypt";
 const router=express.Router();
 import { User } from "../models/User.js";
-
+import jwt from "jsonwebtoken";
 router.post('/register',async (req,res)=>{
     const firstname=req.body.firstname;
     const lastname=req.body.lastname;
@@ -21,12 +21,27 @@ router.post('/register',async (req,res)=>{
     const newUser= new User({
         firstname,
         lastname,
-        
         email,
         phone,
         password: hashpass,
     })
     await newUser.save();
     return res.json({status: true,message: "User registered"})
+});
+
+router.post('/login', async(req,res)=>{
+    const email=req.body.email;
+    const password=req.body.password;
+    const user= await User.findOne({email});
+    if(!user){
+        return res.json({status: false,message: "Invalid Credentials"})
+    }
+    const validPassword= await bcrypt.compare(password, user.password)
+    if(!validPassword){
+        return res.json({status: false,message: "Invalid Credentials"})
+    }
+    const token=jwt.sign({name: user.firstname, id: user._id}, process.env.KEY , {expiresIn: '2h'})
+    res.cookie('utoken', token, {httpOnly: true,maxAge: 720000})
+    return res.json({status: true, message: "Login Successfull"})
 })
 export {router as UserRouter}
