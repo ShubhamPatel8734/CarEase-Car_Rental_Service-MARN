@@ -2,6 +2,8 @@ import React from 'react'
 import '../admin-pages/AdminLogin.css'
 import { useState } from 'react'
 import LoginValidation from '../components/UserLoginValidation'
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 const AdminLogin = () => {
   const [values,setvalues]= useState({
     email:'',
@@ -11,6 +13,8 @@ const AdminLogin = () => {
     email:'',
     password:'',
   });
+  const navigate=useNavigate();
+  axios.defaults.withCredentials=true;
   function handleinput(event){
     const newObj={...values,[event.target.name]:event.target.value}
     setvalues(newObj);
@@ -18,6 +22,26 @@ const AdminLogin = () => {
   function handleValidation(event){
     event.preventDefault();
     seterrors(LoginValidation(values));
+    const checkerr=LoginValidation(values);
+      console.log(Object.entries(checkerr).length)
+      if(Object.entries(checkerr).length=== 0){
+        axios.post("http://localhost:3000/admin/login",{
+          email:values.email,
+          password:values.password,
+        }).then(res =>{
+              console.log(res);
+              if(res.data.status){
+              alert(res.data.message);
+              navigate("/admin/home");
+              }
+              else{
+              alert(res.data.message);
+              navigate("/login");
+              }
+        }).catch(err =>{
+          console.log(err);
+        })
+      }
   }
   return (
     <div>

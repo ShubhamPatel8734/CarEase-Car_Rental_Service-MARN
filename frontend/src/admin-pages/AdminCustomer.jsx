@@ -2,9 +2,30 @@ import React, { useState } from 'react'
 import { FaSearch, FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import '../admin-pages/AdminCustomer.css'
-
+import axios from "axios";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 const AdminCustomer = () => {
-
+    axios.defaults.withCredentials = true;
+    const [auth,setauth]=useState(false);
+    const [name,setname]=useState('');
+    const [message,setmessage]=useState('');
+    const [id,setid]=useState('');
+    const navigate=useNavigate();
+    useEffect(()=>{
+      axios.get('http://localhost:3000/admin/status')
+      .then( res=>{
+        if(res.data.Status === "Success"){
+            setauth(true);
+            setname(res.data.name);
+            setid(res.data.id);  
+        }
+        else{
+          setmessage(res.data.Message);
+          navigate("/login");
+        }
+      })
+    },[])
     const data = [
         { id: 1, name: 'John', age: 28 },
         { id: 2, name: 'Jane', age: 32 },

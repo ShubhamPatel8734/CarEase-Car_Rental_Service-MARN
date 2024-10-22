@@ -3,9 +3,29 @@ import { FaSearch, FaEdit } from "react-icons/fa";
 import { MdDelete, MdAdd } from "react-icons/md";
 import { AddCar, EditCar } from '../admin-components/index.js'
 import '../admin-pages/AdminCar.css'
-
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 function AdminCar (){
-
+    axios.defaults.withCredentials = true;
+    const [auth,setauth]=useState(false);
+    const [name,setname]=useState('');
+    const [message,setmessage]=useState('');
+    const [id,setid]=useState('');
+    const navigate=useNavigate();
+    useEffect(()=>{
+      axios.get('http://localhost:3000/admin/status')
+      .then( res=>{
+        if(res.data.Status === "Success"){
+            setauth(true);
+            setname(res.data.name);
+            setid(res.data.id);  
+        }
+        else{
+          setmessage(res.data.Message);
+          navigate("/login");
+        }
+      })
+    },[])
 const [showCarForm, setshowCarForm] = useState(false);
 const [showCarEditForm, setshowCarEditForm ] = useState(false);
 
