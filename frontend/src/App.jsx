@@ -12,7 +12,6 @@ import { User_Layout, MyProfile, EditProfile } from "./user-components/index";
 import { DashboardHome, UserProfile, UserBookingTable, UserPayments, UserBookingForm } from "./user-pages/index";
 import { AdminLogin, AdminHome, AdminCustomer, AdminCar, AdminBooking, AdminContact } from './admin-pages/index'
 import { AdminLayout } from "./admin-components/index";
-
 // * Stylesheet
 import "./App.css";
 import UserHome from './user-pages/UserHome';

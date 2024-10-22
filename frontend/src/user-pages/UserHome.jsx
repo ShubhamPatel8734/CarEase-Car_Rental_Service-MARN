@@ -24,8 +24,8 @@ const UserHome = () => {
       }
       else{
         setmessage(res.data.Message);
-        alert(res.data.Message);
         navigate("/about");
+        //alert(res.data.Message);
       }
     })
   },[])
