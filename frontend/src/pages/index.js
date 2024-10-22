@@ -12,3 +12,6 @@ export { default as Contact } from '../pages/Contact.jsx'
 
 // FAQ Page
 export { default as FAQ } from '../pages/FAQ.jsx'
+
+// Error Page
+export { default as ErrorPage } from '../pages/ErrorPage.jsx'

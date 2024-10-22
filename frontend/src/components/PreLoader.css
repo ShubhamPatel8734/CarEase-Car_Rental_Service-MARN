@@ -16,8 +16,8 @@
     border: 2px solid #f3f3f3;
     border-top: 6px solid #f5b754;
     border-radius: 50%;
-    width: 100px; /* Adjust size */
-    height: 100px; /* Adjust size */
+    width: 150px;
+    height: 150px; 
     animation: spin 1s linear infinite;
     display: flex;
     justify-content: center;
@@ -25,8 +25,8 @@
 }
 
 .preloader-image {
-    width: 40px;  /* Adjust the size of the image */
-    height: 40px;
+    width: 75px; 
+    height: 75px;
     position: absolute;
     top: 50%;
     left: 50%;

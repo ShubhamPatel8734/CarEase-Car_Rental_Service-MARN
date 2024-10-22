@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 //[Import local folders/files]
 // * Components
 import { Layout, PreLoader } from "./components/index";
-import { Home, About, Cars, Contact, FAQ } from "./pages/index";
+import { Home, About, Cars, Contact, FAQ, ErrorPage } from "./pages/index";
 import { User_Layout, MyProfile, EditProfile } from "./user-components/index";
 import { DashboardHome, UserProfile, UserBookingTable, UserPayments, UserBookingForm } from "./user-pages/index";
 import { AdminLogin, AdminHome, AdminCustomer, AdminCar, AdminBooking, AdminContact } from './admin-pages/index'
@@ -31,11 +31,14 @@ function App() {
 
   return (
     <Router>
-      <Routes>
+      <Routes> 
+
+        {/* 404 Error Page */}
+        <Route path='*' element={<ErrorPage />} />
 
         {/* Main Pages Routes */}
         <Route path='/' element={<Layout />}>
-          <Route index element={<Home />}/>
+          <Route index element={loading ? <PreLoader /> : <Home />}/>
           <Route path='about' element={<About />}></Route>
           <Route path='cars' element={<Cars />}/>
           <Route path='contact' element={<Contact />}/>
@@ -44,7 +47,7 @@ function App() {
 
         {/* User Dashboard Routes */}
         <Route path='/dashboard' element={<User_Layout />}>
-          <Route path='home' element={<UserHome />}/>
+          <Route path='home' element={loading ? <PreLoader /> : <UserHome />}/>
           <Route path='newbooking' element={<UserBookingForm />}/>
           <Route path='mybooking' element={<UserBookingTable />}/>
           <Route path='payments' element={<UserPayments />}/>
