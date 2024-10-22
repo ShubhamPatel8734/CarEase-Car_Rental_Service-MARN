@@ -4,9 +4,9 @@ import { NavLink } from 'react-router-dom'
 import { FaUserCircle, FaLock } from "react-icons/fa";
 import { FaPowerOff } from "react-icons/fa6";
 import '../user-components/Header.css';
-
+import axios from "axios";
 function Header (){
-
+axios.defaults.withCredentials=true;
   // const [showLogin, setShowLogin] = useState(false);
   // const [showRegister, setShowRegister] = useState(false);
 
@@ -49,6 +49,17 @@ useEffect(() => {
   };
 }, []);
 
+const handlelogout=()=>{
+  console.log("clicked");
+  axios.get('http://localhost:3000/user/logout')
+  .then(res =>{
+    if(res.data.Status === "Success"){
+    location.reload(true);
+    }
+    else
+    alert("error");
+  }).catch(err => console.log(err))
+}
   return (
     <>
       <nav className = {`user-navbar ${isScrolled ? 'user-navbar-scrolled':'user-navbar-transparent'}`}>
@@ -68,7 +79,7 @@ useEffect(() => {
           <div className="dashboard-icon"><FaUserCircle className="header-icon"/></div>
           <div className="dashboard-text"><a href="/dashboard/home" className="login-link">Dashboard</a></div>
           <div className="logout-icon"><FaPowerOff className="header-icon"/></div>
-          <div className="logout-text"><a href="/" className="register-link">Logout</a></div>
+          <div className="logout-text"><a href="/" className="register-link" onClick={handlelogout}>Logout</a></div>
         </div>
       </nav>
     </>

@@ -66,4 +66,8 @@ const verifyuser = (req,res,next) =>{
 router.get("/status",verifyuser,(req,res) =>{
     return res.json({Status: "Success",name: req.name,id: req.id});
 })
+router.get('/logout',(req,res)=>{
+    res.clearCookie('utoken');
+    return res.json({Status: "Success"});
+})
 export {router as UserRouter}
