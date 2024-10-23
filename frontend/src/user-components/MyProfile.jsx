@@ -1,24 +1,55 @@
 import React from 'react'
 import '../user-components/MyProfile.css'
-
+import axios from 'axios'
+import { useLocation } from 'react-router-dom'
+import { useState,useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
 const MyProfile = () => {
+   axios.defaults.withCredentials=true;
+  const [auth,setauth]=useState(false);
+  const [name,setname]=useState('');
+  const [message,setmessage]=useState('');
+  const [id,setid]=useState('');
+  const [values,setvalues]=useState([]);
+  const navigate=useNavigate();
+  useEffect(()=>{
+    axios.get('http://localhost:3000/user/status')
+    .then( res=>{
+      if(res.data.Status === "Success"){
+          setauth(true);
+          setname(res.data.name);
+          setid(res.data.id);  
+          console.log("id="+res.data.id)
+          axios.post("http://localhost:3000/user/profile",{
+            id:res.data.id
+          }).then(res =>{
+            console.log(res.data);
+            setvalues(res.data);
+          }).catch(err => console.log(err))
+      }
+      else{
+        setmessage(res.data.Message);
+        navigate("/about");
+      }
+    })
+  },[])
   return (
     <div className='Myprofile-body'>
       <div className='Myprofile-body-row'>
         <label htmlFor="firstname" className='Myprofile-label'>Firstname</label>
-        <input type="text" id="firstname" name="firstname" className='Myprofile-textbox' required readOnly={true} defaultValue='FirstName' />
+        <input type="text" id="firstname" name="firstname" className='Myprofile-textbox' required readOnly={true} value={values.firstname} />
       </div>
       <div className='Myprofile-body-row'>
         <label htmlFor="lastname" className='Myprofile-label'>Lastname</label>
-        <input type="text" id="lastname" name="lastname" className='Myprofile-textbox' required readOnly={true} defaultValue='LastName'/>
+        <input type="text" id="lastname" name="lastname" className='Myprofile-textbox' required readOnly={true} value={values.lastname}/>
       </div>
       <div className='Myprofile-body-row'>
       <label htmlFor="phoneno" className='Myprofile-label'>Phone No</label>
-      <input type="phone" id="phone" name="phoneno" className='Myprofile-textbox' required readOnly={true} defaultValue='Phone No' />
+      <input type="phone" id="phone" name="phoneno" className='Myprofile-textbox' required readOnly={true} value={values.phone} />
       </div>
       <div className='Myprofile-body-row'>
         <label htmlFor="email" className='Myprofile-label'>Email ID</label>
-        <input type="email" id="email" name="email" className='Myprofile-textbox' required readOnly={true} defaultValue='Email ID' />
+        <input type="email" id="email" name="email" className='Myprofile-textbox' required readOnly={true} value={values.email} />
       </div>
       {/* <div className='Myprofile-body-row-area'>
         <label htmlFor='address' className='Myprofile-label'>Address</label>

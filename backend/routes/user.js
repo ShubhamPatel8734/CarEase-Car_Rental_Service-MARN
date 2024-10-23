@@ -41,7 +41,7 @@ router.post('/login', async(req,res)=>{
         return res.json({status: false,message: "Invalid Credentials"})
     }
     const token=jwt.sign({name: user.firstname, id: user._id}, process.env.KEY , {expiresIn: '2h'})
-    res.cookie('utoken', token, {httpOnly: true,maxAge: 720000})
+    res.cookie('utoken', token, {httpOnly: true,maxAge: 7200000})
     return res.json({status: true, message: "Login Successfull"})
 })
 
@@ -69,5 +69,19 @@ router.get("/status",verifyuser,(req,res) =>{
 router.get('/logout',(req,res)=>{
     res.clearCookie('utoken');
     return res.json({Status: "Success"});
+})
+router.post("/profile",async(req,res)=>{
+    try{
+    const id=req.body.id;
+    console.log(id);
+    const user= await User.findById(id); 
+    if(!user){
+        return res.json({status: false,message: "User Not Found"})
+    }  
+     return res.json(user);
+    }
+    catch(err){
+        return res.json({status: false,message: "Server error"})
+    }
 })
 export {router as UserRouter}
