@@ -73,7 +73,7 @@ router.get('/logout',(req,res)=>{
 router.post("/profile",async(req,res)=>{
     try{
     const id=req.body.id;
-    console.log(id);
+    //console.log(id);
     const user= await User.findById(id); 
     if(!user){
         return res.json({status: false,message: "User Not Found"})

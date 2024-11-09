@@ -1,11 +1,10 @@
 import React from 'react'
 import '../user-components/MyProfile.css'
 import axios from 'axios'
-import { useLocation } from 'react-router-dom'
 import { useState,useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 const MyProfile = () => {
-   axios.defaults.withCredentials=true;
+  axios.defaults.withCredentials=true;
   const [auth,setauth]=useState(false);
   const [name,setname]=useState('');
   const [message,setmessage]=useState('');
