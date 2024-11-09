@@ -47,7 +47,20 @@ const EditProfile = () => {
     const checkerr=EditProfileValidation(values);
     console.log(Object.entries(checkerr).length)
     if(Object.entries(checkerr).length=== 0){
-        console.log("good to go");
+      axios.put("http://localhost:3000/user/editprofile",{
+        id:id,
+        fname:values.firstname,
+        lname:values.lastname,
+        phone:values.phone,
+        email:values.email
+    }).then(res => {
+      if(res.data.Status === true){
+        location.reload(true);
+      }
+      else{
+        alert(res.data.message)
+      }
+    }).catch(err => console.log(err));
     }}
   return (
     <div className='Editprofile-body'>

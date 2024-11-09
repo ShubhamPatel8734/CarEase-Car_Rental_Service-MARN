@@ -84,4 +84,20 @@ router.post("/profile",async(req,res)=>{
         return res.json({status: false,message: "Server error"})
     }
 })
+router.put("/editprofile", async(req,res)=>{
+    const id=req.body.id;
+    const fname=req.body.fname;
+    const lname=req.body.lname;const phone=req.body.phone;const email=req.body.email;
+    try{
+        const updateduser=await User.findByIdAndUpdate({_id: id},{firstname: fname,lastname: lname,email: email,phone: phone},
+        { new:true,runValidators:true });
+        if(!updateduser){
+            return res.json({Status: false,message: "User Not Found"})       
+        }
+        return res.json({Status: true,message: "User Updated"})
+    }
+    catch(err){
+        return res.json({Status: false,message: "Server error"})
+    }
+})
 export {router as UserRouter}
