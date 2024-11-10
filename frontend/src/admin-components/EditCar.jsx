@@ -42,7 +42,7 @@ const EditCar = ({onClose}) => {
           <div className="carform-dropdown-box">
             <div className="carform-dropdown">
               <select className="carform-textbox" required name="geartype">
-                <option value='' disabled selected>Select Gear</option>
+                <option value='' disabled selected>Select Gear type</option>
                 <option value='A'>Manual</option>
                 <option value='B'>Automatic</option>
               </select>

@@ -88,7 +88,7 @@
 .contactus-desc p{
     color: #fff;
     font-size: 16px;
-    font-weight: 300;
+    font-weight: 500;
 }
 
 .contactus-desc .contactus-icon{
@@ -122,6 +122,11 @@
 
 .contactus-box:hover .contactus-desc h3, .contactus-box:hover .contactus-desc p{
     color: #333;
+}
+
+.contactus-box:hover .contactus-desc p{
+    font-size: 16px;
+    font-weight: 500;
 }
 
 .contactus-body{
