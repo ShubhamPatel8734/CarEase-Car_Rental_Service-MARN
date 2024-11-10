@@ -2,8 +2,10 @@ import express from "express";
 import bcrypt from "bcrypt";
 const router=express.Router();
 import { Admin } from "../models/Admin.js";
+import { Car } from "../models/Cars.js";
 import jwt from "jsonwebtoken";
-
+import multer from "multer";
+import path from "path";
 router.post('/login', async(req,res)=>{
     const email=req.body.email;
     const password=req.body.password;
@@ -44,5 +46,42 @@ router.get("/status",verifyadmin,(req,res) =>{
 router.get('/logout',(req,res)=>{
     res.clearCookie('atoken');
     return res.json({Status: "Success"});
+})
+const storage=multer.diskStorage({
+    destination:(req,file,cb)=>{
+        cb(null,"./uploads")
+    },
+    filename:(req,file,cb) =>{
+        cb(null,file.fieldname+"_"+Date.now()+ path.extname(file.originalname));
+    }
+})
+const upload=multer({
+    storage:storage
+})
+router.post('/addcar',upload.single('image'), async(req,res)=>{
+    try{
+        const image=req.file.filename;
+        const carname=req.body.carname;
+        const seat=req.body.seat;
+        const geartype=req.body.geartype;
+        const cartype=req.body.cartype;
+        const rent=req.body.rent;
+        const milage=req.body.milage;
+        const newCar= new Car({
+            carname,
+            seat,
+            geartype,
+            cartype,
+            rent,
+            milage,
+            image,
+            avial: 1,
+        })
+        await newCar.save();
+        return res.json({Status: true,message: "Car Added"});
+    }
+    catch(err){
+        return res.json({Status: false,message: "Server error"})
+    }
 })
 export {router as AdminRouter}
