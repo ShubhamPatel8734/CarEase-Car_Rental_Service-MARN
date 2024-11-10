@@ -12,7 +12,7 @@
 
 .faq-title:before{
     content: '';
-    background: url('../images/faq.jpg') no-repeat center/cover;
+    background: url('/public/images/faq.jpg') no-repeat center/cover;
     height: 100%;
     width: 100%;
     position: absolute;

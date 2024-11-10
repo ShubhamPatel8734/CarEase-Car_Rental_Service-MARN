@@ -37,31 +37,15 @@ const AddCar = ({ onClose }) => {
             required
           />
           <label htmlFor="isgear" className="carform-label">
-            Is Gear Available?
+            Gear Type
           </label>
-          <div className="carform-radio-group">
-            <div className="carform-radio">
-              <input
-                type="radio"
-                id="yes"
-                name="isgear"
-                value="Yes"
-                defaultChecked="true"
-                className="carform-radiobtn"
-                required
-              />
-              <label for='yes' className="carform-radio-lable">Yes</label>
-            </div>
-            <div className="carform-radio">
-              <input
-                type="radio"
-                id="no"
-                name="isgear"
-                value="No"
-                className="carform-radiobtn"
-                required
-              />
-              <label for='no' className="carform-radio-lable">No</label>
+          <div className="carform-dropdown-box">
+            <div className="carform-dropdown">
+              <select className="carform-textbox" required name="geartype">
+                <option value='' disabled selected>Select Gear</option>
+                <option value='A'>Manual</option>
+                <option value='B'>Automatic</option>
+              </select>
             </div>
           </div>
           <label htmlFor="car_type" className="carform-label">

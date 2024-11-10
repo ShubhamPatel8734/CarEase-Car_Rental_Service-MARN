@@ -12,7 +12,7 @@
 
 .contact-title:before{
     content: '';
-    background: url('../images/contactpage.jpg') no-repeat center/cover;
+    background: url('/public/images/contactpage.jpg') no-repeat center/cover;
     height: 100%;
     width: 100%;
     position: absolute;

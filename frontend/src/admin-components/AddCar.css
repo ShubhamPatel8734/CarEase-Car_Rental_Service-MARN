@@ -67,26 +67,29 @@
     border: none;
 }
 
-.carform-radio-group{
+.carform-dropdown-box{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: left;
-    width: 30%;
+    width: 100%;
     margin-left: 5px;
 }
 
-.carform-radio .carform-radiobtn{
-    margin-right: 10px;
-    height: 15px;
-    width: 15px;
-    accent-color: #f5b754;
+.carform-dropdown-box .carform-dropdown select{
+    /* border: 1px solid #ccc; */
+    border: none;
+    outline: none;
+    outline: none;
+    cursor: pointer;
+    padding: 15px;
+    position: rela;
 }
 
-.carform-radio-lable{
-    color: #fff;
-    font-size: 22px;
-    font-weight: 600;
+.carform-dropdown-box .carform-dropdown select:hover {
+    border-color: #1b1b1b;
+    background-color: #1b1b1b;
+    color: #f5b754;
 }
 
 .carform-textarea{
