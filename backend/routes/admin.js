@@ -3,6 +3,7 @@ import bcrypt from "bcrypt";
 const router=express.Router();
 import { Admin } from "../models/Admin.js";
 import { Car } from "../models/Cars.js";
+import { User } from "../models/User.js";
 import jwt from "jsonwebtoken";
 import multer from "multer";
 import path from "path";
@@ -82,6 +83,18 @@ router.post('/addcar',upload.single('image'), async(req,res)=>{
     }
     catch(err){
         return res.json({Status: false,message: "Server error"})
+    }
+})
+router.post("/details",async(req,res)=>{
+    const fetch=req.body.fetch;
+    if(fetch==='user'){
+        try{
+            const users= await User.find();
+            return res.json(users);
+        }
+        catch(err){
+            return res.json({Status: false,message: "Server error"}) 
+        }
     }
 })
 export {router as AdminRouter}
