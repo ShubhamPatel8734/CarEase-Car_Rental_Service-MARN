@@ -108,7 +108,11 @@ const AddCar = ({ onClose }) => {
           </label>
           {/* <textarea id='car_desc' name='car_desc' className='carform-textarea' rows='3' placeholder='Enter Car Description'>
           </textarea> */}
-          <input type="file"
+          <input 
+            type="file"
+            id="car_img"
+            name="car_img"
+            className="carform-carimg"
             accept="image/jpeg,image/png"
             onChange={(e)=>{setimage(e.target.files[0])}}
           />

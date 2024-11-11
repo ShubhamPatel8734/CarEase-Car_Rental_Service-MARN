@@ -60,10 +60,17 @@ const EditCar = ({onClose}) => {
             required
           />
           <label htmlFor="car_desc" className="carform-label">
-            Car Description
+            Car Image
           </label>
-          <textarea id='car_desc' name='car_desc' className='carform-textarea' rows='3' placeholder='Enter Car Description'>
-          </textarea>
+          {/* <textarea id='car_desc' name='car_desc' className='carform-textarea' rows='3' placeholder='Enter Car Description'>
+          </textarea> */}
+          <input 
+            type="file"
+            id="car_img"
+            name="car_img"
+            className="carform-carimg"
+            accept="image/jpeg,image/png"
+          />
           <label htmlFor="milage" className="carform-label">
             Milage
           </label>

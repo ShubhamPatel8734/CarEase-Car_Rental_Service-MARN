@@ -103,7 +103,7 @@ const data = [
                     <th>Seating Capacity</th>
                     <th>Is Gear</th>
                     <th>Car Type</th>
-                    <th>Description</th>
+                    {/* <th>Description</th> */}
                     <th>Milage</th>
                     <th>Rent</th>
                     <th style={{width:'5%'}}>Action</th>
@@ -116,7 +116,7 @@ const data = [
                         <td>{record.name}</td>
                         <td>{record.age}</td>
                         <td>ABC</td>
-                        <td style={{width:'30%'}}>ABC</td>
+                        {/* <td style={{width:'30%'}}>ABC</td> */}
                         <td>ABC</td>
                         <td>ABC</td>
                         <td className='admin-car-table-icons'>

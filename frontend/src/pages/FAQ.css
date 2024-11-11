@@ -1,7 +1,7 @@
 .faq-title{
     background-color: rgba(0, 0, 0, 0.79);
     color: #fff;
-    min-height: 65vh;
+    min-height: 72vh;
     width: 100%;
     position: relative;
     display: flex;
@@ -46,7 +46,7 @@
 }
 
 .faq-questions{
-    height: 85vh;
+    height: 80vh;
     width: 98vw;
     background-color: #1b1b1b;
     display: flex;
