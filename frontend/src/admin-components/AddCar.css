@@ -4,10 +4,39 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    display: block;
 }
 
+.carform-add-form{
+    max-height: 50vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.carform-add-form::-webkit-scrollbar {
+    width: 10px;
+}
+
+.carform-add-form::-webkit-scrollbar-track {
+    background-color: #333  ; 
+    border-radius: 10px;
+  }
+  
+ 
+  .carform-add-form::-webkit-scrollbar-thumb {
+    background-color: #f5b754; 
+    border-radius: 10px;
+    border: 2px solid #f5b754;
+  }
+  
+
+  .carform-add-form::-webkit-scrollbar-thumb:hover {
+    background-color: #fff; 
+    cursor: pointer;
+  }
+
 .cardform-popup-login-content{
-    color: #1b1b1b;
+    color: #fff;
     height: auto;
     width: 500px;
     padding: 20px;
@@ -15,7 +44,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
 .carform-popup-login-content .carform-login-title{

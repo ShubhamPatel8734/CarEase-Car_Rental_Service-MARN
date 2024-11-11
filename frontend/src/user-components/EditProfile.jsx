@@ -70,25 +70,25 @@ const EditProfile = () => {
           <input type="text" id="firstname" name="firstname" className='Editprofile-textbox' required  placeholder='Enter FirstName' 
           onChange={handleinput} value={values.firstname}/>
         </div>
-        {errors.firstname && <div style={{color:'red'}}>{errors.firstname}</div>}
+        {errors.firstname && <div className='editprofile-error'>{errors.firstname}</div>}
         <div className='Editprofile-body-row'>
           <label htmlFor="lastname" className='Editprofile-label'>Lastname</label>
           <input type="text" id="lastname" name="lastname" className='Editprofile-textbox' required  placeholder='Enter LastName' 
           onChange={handleinput} value={values.lastname}/>
         </div>
-        {errors.lastname && <div style={{color:'red'}}>{errors.lastname}</div>}
+        {errors.lastname && <div className='editprofile-error'>{errors.lastname}</div>}
         <div className='Editprofile-body-row'>
         <label htmlFor="phoneno" className='Editprofile-label'>Phone No</label>
         <input type="phone" id="phone" name="phone" className='Editprofile-textbox' required  placeholder='Enter Phone No' 
         onChange={handleinput} value={values.phone} />
         </div>
-        {errors.phone && <div style={{color:'red'}}>{errors.phone}</div>}
+        {errors.phone && <div className='editprofile-error'>{errors.phone}</div>}
         <div className='Editprofile-body-row'>
           <label htmlFor="email" className='Editprofile-label'>Email ID</label>
           <input type="email" id="email" name="email" className='Editprofile-textbox' required  placeholder='Enter Email-ID' 
           onChange={handleinput} value={values.email}/>
         </div>
-        {errors.email && <div style={{color:'red'}}>{errors.email}</div>}
+        {errors.email && <div className='editprofile-error'>{errors.email}</div>}
         {/* <div className='Editprofile-body-row'>
           <label htmlFor="password" className='Editprofile-label'>Password</label>
           <input type="password" id="password" name="password" className='Editprofile-textbox' required  placeholder='Enter Password' value='****'/>
