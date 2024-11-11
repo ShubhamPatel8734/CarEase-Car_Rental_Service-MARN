@@ -96,5 +96,14 @@ router.post("/details",async(req,res)=>{
             return res.json({Status: false,message: "Server error"}) 
         }
     }
+    if(fetch==='car'){
+        try{
+            const cars= await Car.find();
+            return res.json(cars);
+        }
+        catch(err){
+            return res.json({Status: false,message: "Server error"}) 
+        }
+    }
 })
 export {router as AdminRouter}

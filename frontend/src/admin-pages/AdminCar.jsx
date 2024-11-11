@@ -12,6 +12,8 @@ function AdminCar (){
     const [message,setmessage]=useState('');
     const [id,setid]=useState('');
     const navigate=useNavigate();
+    const [search,setsearch]=useState('');
+    const [cars,setcars]=useState([]);
     useEffect(()=>{
       axios.get('http://localhost:3000/admin/status')
       .then( res=>{
@@ -26,6 +28,18 @@ function AdminCar (){
         }
       })
     },[])
+    useEffect(()=>{
+        axios.post('http://localhost:3000/admin/details',{
+            fetch:'car',
+        })
+        .then(res => {
+            setcars(res.data);
+            console.log(res.data);
+        })
+        .catch(err => {console.log(res.data.message)});
+      }
+    ,[]);
+
 const [showCarForm, setshowCarForm] = useState(false);
 const [showCarEditForm, setshowCarEditForm ] = useState(false);
 
@@ -50,35 +64,34 @@ const closeCarEditForm = () => {
     setActiveLink('');
 }
 
+// const data = [
+//     { id: 1, name: 'John', age: 28 },
+//     { id: 2, name: 'Jane', age: 32 },
+//     { id: 3, name: 'David', age: 45 },
+//     { id: 4, name: 'Chris', age: 23 },
+//     { id: 5, name: 'Sam', age: 34 },
+//     { id: 6, name: 'Sara', age: 29 },
+//     { id: 7, name: 'Lisa', age: 36 },
+//     { id: 8, name: 'James', age: 40 },
+//     { id: 9, name: 'Emily', age: 30 },
+//     { id: 10, name: 'Tom', age: 25 },
+//     { id: 11, name: 'Mark', age: 50 },
+//     { id: 12, name: 'Anna', age: 27 },
+//     { id: 13, name: 'Lucy', age: 31 },
+//     { id: 14, name: 'Robert', age: 41 },
+//     { id: 15, name: 'Michael', age: 38 },
+//   ];
 
-const data = [
-    { id: 1, name: 'John', age: 28 },
-    { id: 2, name: 'Jane', age: 32 },
-    { id: 3, name: 'David', age: 45 },
-    { id: 4, name: 'Chris', age: 23 },
-    { id: 5, name: 'Sam', age: 34 },
-    { id: 6, name: 'Sara', age: 29 },
-    { id: 7, name: 'Lisa', age: 36 },
-    { id: 8, name: 'James', age: 40 },
-    { id: 9, name: 'Emily', age: 30 },
-    { id: 10, name: 'Tom', age: 25 },
-    { id: 11, name: 'Mark', age: 50 },
-    { id: 12, name: 'Anna', age: 27 },
-    { id: 13, name: 'Lucy', age: 31 },
-    { id: 14, name: 'Robert', age: 41 },
-    { id: 15, name: 'Michael', age: 38 },
-  ];
+//   const [currentPage, setcurrentPage] = useState(1);
+//   const recordsPerPage = 10;
 
-  const [currentPage, setcurrentPage] = useState(1);
-  const recordsPerPage = 10;
+//   const totalPages = Math.ceil(data.length / recordsPerPage);
 
-  const totalPages = Math.ceil(data.length / recordsPerPage);
+//   const indexofLastRecord = currentPage * recordsPerPage;
+//   const indexofFirstRecord = indexofLastRecord - recordsPerPage;
+//   const currentRecords = data.slice(indexofFirstRecord, indexofLastRecord);
 
-  const indexofLastRecord = currentPage * recordsPerPage;
-  const indexofFirstRecord = indexofLastRecord - recordsPerPage;
-  const currentRecords = data.slice(indexofFirstRecord, indexofLastRecord);
-
-  const paginate = (pageNumber) => setcurrentPage(pageNumber);
+//   const paginate = (pageNumber) => setcurrentPage(pageNumber);
 
   return (
     <div className='admin-car-container'>
@@ -88,8 +101,8 @@ const data = [
             </div>
             <div className='admin-car-search'>
                 <form className='admin-car-form'>
-                    <input type='text' placeholder='Search here...' name='admin-car-search' className='admin-car-searchtxt'/>
-                    <button type='submit' className='admin-car-btn'><FaSearch className='admin-car-icon'/></button>
+                    <input type='text' placeholder='Search here...' name='admin-car-search' className='admin-car-searchtxt' onChange={(e)=>{setsearch(e.target.value)}}/>
+                    {/* <button type='submit' className='admin-car-btn'><FaSearch className='admin-car-icon'/></button> */}
                 </form>
                 <a href='/admin/cars' className='admin-car-btn' onClick={handleCarFormClick}><MdAdd className='admin-car-icon' style={{fontSize: '28px', marginTop:'-1px'}}/></a>  
             </div>
@@ -99,26 +112,28 @@ const data = [
             <table className='admin-car-table'>
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Seating Capacity</th>
-                    <th>Is Gear</th>
+                    <th>Car Name</th>
+                    <th>Seating </th>
+                    <th>Gear</th>
                     <th>Car Type</th>
-                    {/* <th>Description</th> */}
+                    <th>Available</th>
                     <th>Milage</th>
                     <th>Rent</th>
                     <th style={{width:'5%'}}>Action</th>
                 </tr>
             </thead>
             <tbody>
-                {currentRecords.map((record) => (
-                    <tr key={record.id}>
-                        <td>{record.id}</td>
-                        <td>{record.name}</td>
-                        <td>{record.age}</td>
-                        <td>ABC</td>
-                        {/* <td style={{width:'30%'}}>ABC</td> */}
-                        <td>ABC</td>
-                        <td>ABC</td>
+                {cars.filter((record) =>{
+                      return search.toLowerCase()=== ''? record : record.carname.toLowerCase().includes(search);
+                      }).map((record) => (
+                    <tr key={record._id}>
+                        <td>{record.carname}</td>
+                        <td>{record.seat}</td>
+                        <td>{record.geartype}</td>
+                        <td>{record.cartype}</td>
+                        <td>{record.avial}</td>
+                        <td>{record.milage}</td>
+                        <td>{record.rent}</td>
                         <td className='admin-car-table-icons'>
                             <FaEdit className='car-table-editbtn' onClick={handleCarEditFormClick}/>
                             <MdDelete className='car-table-deletebtn'/>
@@ -129,7 +144,7 @@ const data = [
             </tbody>
         </table>
 
-        <div className='admin-car-pagination'>
+        {/* <div className='admin-car-pagination'>
             {Array.from({length: totalPages}, (_, index) => (
                 <button
                     key={index + 1}
@@ -143,7 +158,7 @@ const data = [
                     {index + 1}
                 </button>
             ))}
-        </div>
+        </div> */}
       </div>
     </div>
   )

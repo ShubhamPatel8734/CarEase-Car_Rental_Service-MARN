@@ -1,7 +1,44 @@
 import React from 'react'
 import '../admin-components/AddCar.css'
-
+import { useState } from "react";
+import axios from 'axios';
+import vehvalidate from "./AddCarValidate";
 const EditCar = ({onClose}) => {
+  const [carname,setcarname]=useState(''); 
+  const [seat,setseat]=useState(0);
+  const [geartype,setgeartype]=useState('');
+  const [rent,setrent]=useState(0);
+  const [cartype,setcartype]=useState('');
+  const [image,setimage]=useState(null);
+  const [milage,setmilage]=useState(0);
+  const [errors,seterrors]=useState({});
+  function handlevalidate(e){
+    e.preventDefault();
+    seterrors(vehvalidate(carname,seat,geartype,rent,cartype,image,milage));
+    const checkerr=vehvalidate(carname,seat,geartype,rent,cartype,image,milage);
+    if(Object.entries(checkerr).length=== 0){
+      console.log("Good to go");
+      var formdata= new FormData();
+      formdata.append("carname",carname);formdata.append("seat",seat);formdata.append("geartype",geartype);
+      formdata.append("rent",rent);formdata.append("cartype",cartype);formdata.append("milage",milage);
+      formdata.append("image",image);
+      const config={
+        headers:{
+          "Content-Type":"multipart/form-data"
+        }
+      }
+      axios.post('http://localhost:3000/admin/editcar',formdata,config)
+      .then(res => {
+        if(res.data.Status=== true){
+          alert(res.data.message);
+        }
+        else{
+          alert(res.data.message);
+        }
+      })
+      .catch(err => console.log("Error",err));
+    }
+  }
   return (
     <div className="carform-popup">
       <button className="carform-close-btn" onClick={onClose}>
@@ -22,7 +59,9 @@ const EditCar = ({onClose}) => {
             placeholder="Enter Car Modal Name"
             className="carform-textbox"
             required
+            onChange={(e)=>{setcarname(e.target.value)}}
           />
+          {errors.carname && <div style={{color:'red',margin: "0 0 0 5%"}}>{errors.carname}</div>}
           <label htmlFor="capacity" className="carform-label">
             Seating Capacity
           </label>
@@ -35,19 +74,22 @@ const EditCar = ({onClose}) => {
             min='0'
             max='10'
             required
+            onChange={(e)=>{setseat(e.target.value)}}
           />
+          {errors.seat && <div style={{color:'red',margin: "0 0 0 5%"}}>{errors.seat}</div>}
           <label htmlFor="isgear" className="carform-label">
             Gear Type
           </label>
           <div className="carform-dropdown-box">
             <div className="carform-dropdown">
-              <select className="carform-textbox" required name="geartype">
+              <select className="carform-textbox" required name="geartype" onChange={(e)=>{setgeartype(e.target.value)}}>
                 <option value='' disabled selected>Select Gear type</option>
                 <option value='A'>Manual</option>
                 <option value='B'>Automatic</option>
               </select>
             </div>
           </div>
+          {errors.geartype && <div style={{color:'red',margin: "0 0 0 5%"}}>{errors.geartype}</div>}
           <label htmlFor="car_type" className="carform-label">
             Car Type
           </label>
@@ -58,7 +100,9 @@ const EditCar = ({onClose}) => {
             placeholder="Enter Car Type"
             className="carform-textbox"
             required
+            onChange={(e)=>{setcartype(e.target.value)}}
           />
+          {errors.cartype && <div style={{color:'red',margin: "0 0 0 5%"}}>{errors.cartype}</div>}
           <label htmlFor="car_desc" className="carform-label">
             Car Image
           </label>
@@ -70,7 +114,9 @@ const EditCar = ({onClose}) => {
             name="car_img"
             className="carform-carimg"
             accept="image/jpeg,image/png"
+            onChange={(e)=>{setimage(e.target.files[0])}}
           />
+          {errors.image && <div style={{color:'red',margin: "0 0 0 5%"}}>{errors.image}</div>}
           <label htmlFor="milage" className="carform-label">
             Milage
           </label>
@@ -83,7 +129,9 @@ const EditCar = ({onClose}) => {
             min='0'
             step='0.1'
             required
+            onChange={(e)=>{setmilage(e.target.value)}}
           />
+          {errors.milage && <div style={{color:'red',margin: "0 0 0 5%"}}>{errors.milage}</div>}
           <label htmlFor="rent" className="carform-label">
             Rent
           </label>
@@ -96,8 +144,10 @@ const EditCar = ({onClose}) => {
             min='0'
             step='1'
             required
+            onChange={(e)=>{setrent(e.target.value)}}
           />
-          <button type="submit" className="carform-add-btn">
+          {errors.rent && <div style={{color:'red',margin: "0 0 0 5%"}}>{errors.rent}</div>}
+          <button type="submit" className="carform-add-btn" onClick={handlevalidate}>
             Edit
           </button>
         </form>
