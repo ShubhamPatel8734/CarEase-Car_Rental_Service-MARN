@@ -106,6 +106,43 @@
     resize: none;
 }
 
+.carform-carimg{
+    font-size: 20px;
+    width: 100%;
+    padding: 7px 10px;
+    color: #f5b754;
+    border-radius: 20px;
+    background-color: #333;
+    border: 1px solid #222;
+    outline: none;
+    user-select: contain;
+    margin: 5px 0;
+}
+
+.carform-carimg::file-selector-button{
+    font-size: 16px;
+    border-radius: 20px;
+    font-weight: 700;
+    padding: 1px;
+    width: 22%;
+    align-self: center;
+    border-radius: 10px;
+    background-color: #f5b754;
+    color: #222;
+    border: none;
+    outline: none;
+    transition: 0.5s ease;
+    margin-right: 10px;
+}
+
+.carform-carimg::file-selector-button:hover{
+    font-weight: 700;
+    cursor: pointer;
+    background: #fff;
+    color: #333;
+    box-shadow: 1px 1px 10px #333;
+}
+
 .carform-add-form .carform-add-btn{
     margin-top: 25px;
     font-size: 22px;
@@ -126,6 +163,5 @@
     cursor: pointer;
     background: #f5b754;
     color: #333;
-    font-weight: 600;
     box-shadow: 1px 1px 10px #333;
 }
