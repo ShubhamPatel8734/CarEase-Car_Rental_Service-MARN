@@ -147,6 +147,21 @@ const AddCar = ({ onClose }) => {
             onChange={(e)=>{setrent(e.target.value)}}
           />
           {errors.rent && <div style={{color:'red',margin: "0 0 0 5%"}}>{errors.rent}</div>}
+          <label htmlFor="isavailable" className="carform-label">
+            Is Available?
+          </label>
+          <input
+            type="number"
+            id="isavailable"
+            name="isavailable"
+            placeholder="Enter Car Availability"
+            className="carform-textbox"
+            min='0'
+            step='1'
+            max="1"
+            required
+            onChange={(e)=>{setrent(e.target.value)}}
+          />
           <button type="submit" className="carform-add-btn" onClick={handlevalidate}>
             Add
           </button>
