@@ -7,6 +7,7 @@ import { User } from "../models/User.js";
 import jwt from "jsonwebtoken";
 import multer from "multer";
 import path from "path";
+
 router.post('/login', async(req,res)=>{
     const email=req.body.email;
     const password=req.body.password;
