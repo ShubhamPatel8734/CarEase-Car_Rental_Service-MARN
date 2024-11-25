@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Layout, PreLoader } from "./components/index";
 import { Home, About, Cars, Contact, FAQ, ErrorPage } from "./pages/index";
 import { User_Layout, MyProfile, EditProfile } from "./user-components/index";
-import { DashboardHome, UserProfile, UserBookingTable, UserPayments, UserBookingForm } from "./user-pages/index";
+import { DashboardHome, CarList, UserProfile, UserBookingTable, UserBookingForm } from "./user-pages/index";
 import { AdminLogin, AdminHome, AdminCustomer, AdminCar, AdminBooking, AdminContact } from './admin-pages/index'
 import { AdminLayout } from "./admin-components/index";
 // * Stylesheet
@@ -36,6 +36,7 @@ function App() {
         <Route path='*' element={<ErrorPage />} />
 
         {/* Main Pages Routes */}
+        
         <Route path='/' element={<Layout />}>
           <Route index element={loading ? <PreLoader /> : <Home />}/>
           <Route path='about' element={<About />}></Route>
@@ -45,11 +46,12 @@ function App() {
         </Route>
 
         {/* User Dashboard Routes */}
-        <Route path='/dashboard' element={<User_Layout />}>
-          <Route path='home' element={loading ? <PreLoader /> : <UserHome />}/>
+        <Route path='/dashboard' element={loading ? <PreLoader /> : <User_Layout />}>
+          <Route path='home' element={<UserHome />}/>
+          <Route path='carlist' element={<CarList />}/>
           <Route path='newbooking' element={<UserBookingForm />}/>
           <Route path='mybooking' element={<UserBookingTable />}/>
-          <Route path='payments' element={<UserPayments />}/>
+          {/* <Route path='payments' element={<UserPayments />}/> */}
           <Route path='profile' element={<UserProfile />}>
             <Route index element={<MyProfile />}/>
             <Route path='edit' element={<EditProfile />}/>

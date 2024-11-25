@@ -7,7 +7,7 @@ const PreLoader = () => {
       <div className='spinner'>
         
       </div>
-      <img src='./Car-favicon-color.png' alt='Preloader' className='preloader-image'></img>
+      <img src='/public/Car-favicon-color.png' alt='Preloader' className='preloader-image'></img>
     </div>
   )
 }

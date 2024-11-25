@@ -69,7 +69,7 @@ const UserBookingForm = () => {
                     </label>
                     <div className="dropdown">
                         <select className="bookingform-textbox" required name="cartypes">
-                            <option value='' disabled defaultValue>Select Car Type</option>
+                            <option value='' disabled selected>Select Car Type</option>
                             <option value='A'>A</option>
                             <option value='B'>B</option>
                             <option value='C'>C</option>
@@ -83,7 +83,7 @@ const UserBookingForm = () => {
                     </label>
                     <div className="dropdown">
                         <select className="bookingform-textbox" required name="cartypes">
-                            <option value='' disabled defaultValue>Select Car</option>
+                            <option value='' disabled selected>Select Car</option>
                             <option value='A'>A</option>
                             <option value='B'>B</option>
                             <option value='C'>C</option>
@@ -153,7 +153,7 @@ const UserBookingForm = () => {
                     </label>
                     <div className="dropdown">
                         <select className="bookingform-textbox" required name="pmode">
-                            <option value='' disabled defaultValue>Select Payment Method</option>
+                            <option value='' disabled selected>Select Payment Method</option>
                             <option value='cash'>Cash</option>
                             <option value='netbanking'>Net Banking</option>
                         </select>

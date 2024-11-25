@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import "../user-pages/UserBookingsTable.css";
+import { BiSolidDownload } from "react-icons/bi";
+import { jsPDF } from "jspdf";
+import autoTable from "jspdf-autotable"
 
 const UserBookingsTable = () => {
   const data = [
@@ -32,6 +35,28 @@ const UserBookingsTable = () => {
 
   const paginate = (pageNumber) => setcurrentPage(pageNumber);
 
+  const downloadPdfReceipt = (record) => {
+    const doc = new jsPDF();
+    doc.setFontSize(16);
+    doc.text("Receipt", 20, 20);
+    autoTable(doc, {
+      startY: 30,
+      // head:[["Details"],["Values"]],
+      body: [
+        ["ID", record.id],
+        ["Car Name", record.name],
+        ["Car Type", record.age],
+        ["Rent Date", record.id],
+        ["Return Date", record.id],
+        ["Car Price", record.id],
+        ["Total Price", record.id],
+        ["Payment Date", record.id],
+        ["Payment Mode", record.id],
+        ["Payment Status", record.id],
+      ],
+    });
+    doc.save(`Receipt-${record.id}.pdf`);
+  };
   return (
     <>
       <div className="userbooking-title">
@@ -60,13 +85,17 @@ const UserBookingsTable = () => {
           <table className="User-mybooking-table">
             <thead>
               <tr>
-                <th>ID</th>
-                <th>Car Name</th>
-                <th>Car Type</th>
-                <th>Start Date</th>
-                <th>End Date</th>
-                <th>Car Price</th>
-                <th>Total Price</th>
+                <th style={{width: "2%"}}>ID</th>
+                <th style={{width: "10%"}}>Car Name</th>
+                <th style={{width: "10%"}}>Car Type</th>
+                <th style={{width: "10%"}}>Rent Date</th>
+                <th style={{width: "10%"}}>Return Date</th>
+                <th style={{width: "8%"}}>Car Price</th>
+                <th style={{width: "9%"}}>Total Price</th>
+                <th style={{width: "10%"}}>Payment Date</th>
+                <th style={{width: "10%"}}>Payment Mode</th>
+                <th style={{width: "10%"}}>Payment Status</th>
+                <th style={{width: "10%"}}>Mail This Record</th>
               </tr>
             </thead>
             <tbody>
@@ -76,6 +105,13 @@ const UserBookingsTable = () => {
                   <td>{record.name}</td>
                   <td>{record.age}</td>
                   <td>ABC</td>
+                  <td>ABC</td>
+                  <td>ABC</td>
+                  <td>ABC</td>
+                  <td>ABC</td>
+                  <td>ABC</td>
+                  <td>ABC</td>
+                  <td><button onClick={() => downloadPdfReceipt(record)} className="Userbookingtbl-downloadbtn"><BiSolidDownload className='user-booking-table-icons'/></button></td>
                 </tr>
               ))}
             </tbody>

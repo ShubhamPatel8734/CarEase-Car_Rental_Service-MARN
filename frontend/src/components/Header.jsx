@@ -62,7 +62,7 @@ useEffect(() => {
             <NavLink to='/contact' >Contact</NavLink>
             <NavLink to='/faq' >FAQ</NavLink>
           </nav>
-        </div>
+        </div>   
         <div className="header-login">
           <div className="login-icon"><FaUserCircle className="header-icon"/></div>
           <div className="login-text"><a href="#" onClick={handleLoginClick} className="login-link">Sign In</a></div>

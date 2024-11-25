@@ -68,11 +68,11 @@ const handlelogout=()=>{
         </div>
         <div className="user-header-navlinks">
           <nav> 
-            <NavLink to='/'>Home</NavLink>
+            {/* <NavLink to='/'>Home</NavLink>
             <NavLink to='/about'>About</NavLink>
             <NavLink to='/cars'>Cars</NavLink>
             <NavLink to='/contact'>Contact</NavLink>
-            <NavLink to='/faq'>FAQ</NavLink>
+            <NavLink to='/faq'>FAQ</NavLink> */}
           </nav>
         </div>
         <div className="user-header-dashboard">
