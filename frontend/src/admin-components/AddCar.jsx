@@ -11,16 +11,17 @@ const AddCar = ({ onClose }) => {
   const [cartype,setcartype]=useState('');
   const [image,setimage]=useState(null);
   const [milage,setmilage]=useState(0);
+  const [isavailable,setisavailable]=useState(0);
   const [errors,seterrors]=useState({});
   function handlevalidate(e){
     e.preventDefault();
-    seterrors(vehvalidate(carname,seat,geartype,rent,cartype,image,milage));
-    const checkerr=vehvalidate(carname,seat,geartype,rent,cartype,image,milage);
+    seterrors(vehvalidate(carname,seat,geartype,rent,cartype,image,milage,isavailable));
+    const checkerr=vehvalidate(carname,seat,geartype,rent,cartype,image,milage,isavailable);
     if(Object.entries(checkerr).length=== 0){
       console.log("Good to go");
       var formdata= new FormData();
       formdata.append("carname",carname);formdata.append("seat",seat);formdata.append("geartype",geartype);
-      formdata.append("rent",rent);formdata.append("cartype",cartype);formdata.append("milage",milage);
+      formdata.append("rent",rent);formdata.append("cartype",cartype);formdata.append("milage",milage);formdata.append("isavailable",isavailable);
       formdata.append("image",image);
       const config={
         headers:{
@@ -160,8 +161,9 @@ const AddCar = ({ onClose }) => {
             step='1'
             max="1"
             required
-            onChange={(e)=>{setrent(e.target.value)}}
+            onChange={(e)=>{setisavailable(e.target.value)}}
           />
+          {errors.available && <div style={{color:'red',margin: "0 0 0 5%"}}>{errors.available}</div>}
           <button type="submit" className="carform-add-btn" onClick={handlevalidate}>
             Add
           </button>

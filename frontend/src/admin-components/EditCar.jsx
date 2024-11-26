@@ -1,43 +1,52 @@
 import React from 'react'
 import '../admin-components/AddCar.css'
-import { useState } from "react";
-import axios from 'axios';
+import { useState,useEffect } from "react";
+import axios, { Axios } from 'axios';
 import vehvalidate from "./AddCarValidate";
-const EditCar = ({onClose}) => {
+const EditCar = ({onClose,data}) => {
+  axios.defaults.withCredentials=true;
   const [carname,setcarname]=useState(''); 
   const [seat,setseat]=useState(0);
   const [geartype,setgeartype]=useState('');
   const [rent,setrent]=useState(0);
   const [cartype,setcartype]=useState('');
-  const [image,setimage]=useState(null);
+  const [isavailable,setisavailable]=useState(0);
   const [milage,setmilage]=useState(0);
   const [errors,seterrors]=useState({});
+  const [image,setimage]=useState('');
+  const [id,setid]=useState('');
+  useEffect(()=>{
+    console.log("iddd",data);
+    axios.post("http://localhost:3000/admin/cardetail",{
+      id:data
+    })
+    .then(res => {
+      setid(res.data._id);
+      setcarname(res.data.carname);setseat(res.data.seat);setgeartype(res.data.geartype);setrent(res.data.rent);
+      setcartype(res.data.cartype);setmilage(res.data.milage);setisavailable(res.data.avial);
+    }).catch(err => console.log(err));
+  },data)
   function handlevalidate(e){
     e.preventDefault();
-    seterrors(vehvalidate(carname,seat,geartype,rent,cartype,image,milage));
-    const checkerr=vehvalidate(carname,seat,geartype,rent,cartype,image,milage);
-    if(Object.entries(checkerr).length=== 0){
+    seterrors(vehvalidate(carname,seat,geartype,rent,cartype,image,milage,isavailable));
+    const checkerr=vehvalidate(carname,seat,geartype,rent,cartype,image,milage,isavailable);
+    if(Object.entries(checkerr).length=== 1){
       console.log("Good to go");
-      var formdata= new FormData();
-      formdata.append("carname",carname);formdata.append("seat",seat);formdata.append("geartype",geartype);
-      formdata.append("rent",rent);formdata.append("cartype",cartype);formdata.append("milage",milage);
-      formdata.append("image",image);
-      const config={
-        headers:{
-          "Content-Type":"multipart/form-data"
-        }
+      axios.put("http://localhost:3000/admin/editcar",{
+        id:id,
+        carname:carname,
+        seat:seat,
+        geartype:geartype,
+        rent:rent,cartype:cartype,milage:milage,avail:isavailable,
+    }).then(res => {
+      if(res.data.Status === true){
+        location.reload(true);
       }
-      axios.post('http://localhost:3000/admin/editcar',formdata,config)
-      .then(res => {
-        if(res.data.Status=== true){
-          alert(res.data.message);
-        }
-        else{
-          alert(res.data.message);
-        }
-      })
-      .catch(err => console.log("Error",err));
-    }
+      else{
+        alert(res.data.message)
+      }
+    }).catch(err => console.log(err));
+    }    
   }
   return (
     <div className="carform-popup">
@@ -59,6 +68,7 @@ const EditCar = ({onClose}) => {
             placeholder="Enter Car Modal Name"
             className="carform-textbox"
             required
+            value={carname}
             onChange={(e)=>{setcarname(e.target.value)}}
           />
           {errors.carname && <div style={{color:'red',margin: "0 0 0 5%"}}>{errors.carname}</div>}
@@ -73,7 +83,7 @@ const EditCar = ({onClose}) => {
             className="carform-textbox"
             min='0'
             max='10'
-            required
+            required value={seat}
             onChange={(e)=>{setseat(e.target.value)}}
           />
           {errors.seat && <div style={{color:'red',margin: "0 0 0 5%"}}>{errors.seat}</div>}
@@ -82,8 +92,8 @@ const EditCar = ({onClose}) => {
           </label>
           <div className="carform-dropdown-box">
             <div className="carform-dropdown">
-              <select className="carform-textbox" required name="geartype" onChange={(e)=>{setgeartype(e.target.value)}}>
-                <option value='' disabled selected>Select Gear type</option>
+              <select className="carform-textbox" required name="geartype" value={geartype} onChange={(e)=>{setgeartype(e.target.value)}}>
+                <option value='' disabled >Select Gear type</option>
                 <option value='A'>Manual</option>
                 <option value='B'>Automatic</option>
               </select>
@@ -99,24 +109,10 @@ const EditCar = ({onClose}) => {
             name="car_type"
             placeholder="Enter Car Type"
             className="carform-textbox"
-            required
+            required value={cartype}
             onChange={(e)=>{setcartype(e.target.value)}}
           />
           {errors.cartype && <div style={{color:'red',margin: "0 0 0 5%"}}>{errors.cartype}</div>}
-          <label htmlFor="car_desc" className="carform-label">
-            Car Image
-          </label>
-          {/* <textarea id='car_desc' name='car_desc' className='carform-textarea' rows='3' placeholder='Enter Car Description'>
-          </textarea> */}
-          <input 
-            type="file"
-            id="car_img"
-            name="car_img"
-            className="carform-carimg"
-            accept="image/jpeg,image/png"
-            onChange={(e)=>{setimage(e.target.files[0])}}
-          />
-          {errors.image && <div style={{color:'red',margin: "0 0 0 5%"}}>{errors.image}</div>}
           <label htmlFor="milage" className="carform-label">
             Milage
           </label>
@@ -128,7 +124,7 @@ const EditCar = ({onClose}) => {
             className="carform-textbox"
             min='0'
             step='0.1'
-            required
+            required value={milage}
             onChange={(e)=>{setmilage(e.target.value)}}
           />
           {errors.milage && <div style={{color:'red',margin: "0 0 0 5%"}}>{errors.milage}</div>}
@@ -143,7 +139,7 @@ const EditCar = ({onClose}) => {
             className="carform-textbox"
             min='0'
             step='1'
-            required
+            required value={rent}
             onChange={(e)=>{setrent(e.target.value)}}
           />
           {errors.rent && <div style={{color:'red',margin: "0 0 0 5%"}}>{errors.rent}</div>}
@@ -159,9 +155,10 @@ const EditCar = ({onClose}) => {
             min='0'
             step='1'
             max="1"
-            required
-            onChange={(e)=>{setrent(e.target.value)}}
+            required value={isavailable}
+            onChange={(e)=>{setisavailable(e.target.value)}}
           />
+          {errors.available && <div style={{color:'red',margin: "0 0 0 5%"}}>{errors.available}</div>}
           <button type="submit" className="carform-add-btn" onClick={handlevalidate}>
             Edit
           </button>

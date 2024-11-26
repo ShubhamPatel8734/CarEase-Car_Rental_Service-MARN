@@ -14,6 +14,7 @@ function AdminCar (){
     const navigate=useNavigate();
     const [search,setsearch]=useState('');
     const [cars,setcars]=useState([]);
+    const [selectedid,setselectedid]=useState(null);
     useEffect(()=>{
       axios.get('http://localhost:3000/admin/status')
       .then( res=>{
@@ -49,14 +50,16 @@ const handleCarFormClick = (e) => {
     setshowCarEditForm(false);
 }
 
-const handleCarEditFormClick = (e) => {
-    e.preventDefault();
+const handleCarEditFormClick = (id) => {
+    //e.preventDefault();
     setshowCarForm(false);
+    setselectedid(id);
     setshowCarEditForm(true);
 }
 
 const closeCarForm = () => {
     setshowCarForm(false);
+    setselectedid(null);
 }
 
 const closeCarEditForm = () => {
@@ -135,10 +138,11 @@ const closeCarEditForm = () => {
                         <td>{record.milage}</td>
                         <td>{record.rent}</td>
                         <td className='admin-car-table-icons'>
-                            <FaEdit className='car-table-editbtn' onClick={handleCarEditFormClick}/>
+                            <FaEdit className='car-table-editbtn' onClick={(e)=>{ e.preventDefault();
+                                handleCarEditFormClick(record._id)}}/>
                             <MdDelete className='car-table-deletebtn'/>
                         </td>
-                        {showCarEditForm && <div className='carform-overlay'><div className='carform-show'> <EditCar onClose={closeCarEditForm}/> </div></div>}
+                        {showCarEditForm && <div className='carform-overlay'><div className='carform-show'> <EditCar onClose={closeCarEditForm} data={selectedid}/> </div></div>}
                     </tr>
                 ))}
             </tbody>

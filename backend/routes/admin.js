@@ -69,6 +69,7 @@ router.post('/addcar',upload.single('image'), async(req,res)=>{
         const cartype=req.body.cartype;
         const rent=req.body.rent;
         const milage=req.body.milage;
+        const avial=req.body.isavailable;
         const newCar= new Car({
             carname,
             seat,
@@ -77,7 +78,7 @@ router.post('/addcar',upload.single('image'), async(req,res)=>{
             rent,
             milage,
             image,
-            avial: 1,
+            avial,
         })
         await newCar.save();
         return res.json({Status: true,message: "Car Added"});
@@ -105,6 +106,40 @@ router.post("/details",async(req,res)=>{
         catch(err){
             return res.json({Status: false,message: "Server error"}) 
         }
+    }
+})
+router.put("/editcar", async(req,res)=>{
+    const id=req.body.id;
+    const carname=req.body.carname;
+    const seat=req.body.seat;
+    const geartype=req.body.geartype;
+    const cartype=req.body.cartype;
+    const rent=req.body.rent;
+    const milage=req.body.milage;
+    const avial=req.body.avail;
+    try{
+        const updatedcar=await Car.findByIdAndUpdate({_id: id},{carname: carname,seat: seat,geartype: geartype,cartype: cartype,
+            rent: rent, milage:milage, avial: avial},
+        { new:true,runValidators:true });
+        if(!updatedcar){
+            return res.json({Status: false,message: "Car Not Found"})       
+        }
+        return res.json({Status: true,message: "Car Updated"})
+    }
+    catch(err){
+        return res.json({Status: false,message: "Server error"})
+    }
+})
+router.post('/cardetail',async(req,res)=>{
+    try{
+    const id=req.body.id;
+    const findCar=await Car.findById(id);
+    if(!findCar){
+        return res.json({status: false,message: "Car Not Found"})
+    }
+    return res.json(findCar);
+    }catch(err){
+        return res.json({status: false,message: err})
     }
 })
 export {router as AdminRouter}
