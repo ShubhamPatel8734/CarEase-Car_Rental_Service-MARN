@@ -1,7 +1,7 @@
 export default function EditProfileValidation(values){
     const errors={};
     const email_pattern= /^[^\s@]+@[^\s@]+\.[^\s@]{2,6}$/;
-    const contact_pattern=/^[6-9]{1}[0-9]{9}/;
+    const contact_pattern=/^[6-9]{1}[0-9]{9}$/;
     if(values.firstname===""){
         errors.firstname="First name is reqired";
     }

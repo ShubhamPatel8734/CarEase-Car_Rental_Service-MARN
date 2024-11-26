@@ -4,13 +4,14 @@ import { LuClock3, LuMapPin } from "react-icons/lu";
 import { IoCall } from "react-icons/io5";
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
 import '../pages/Contact.css'
-
+import { useState } from 'react';
+import axios from 'axios';
+import contact from './ContactValidation';
   const handleEmailCheck = () => {
     const email = 'info@carease.com';
     const subject = 'Inquiry about car';
     window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}`;
   };
-
   const handleMap = () => {
     const location = 'https://www.google.com/maps/place/Ahmedabad,+Gujarat/';
     window.open(location);
@@ -23,8 +24,34 @@ import '../pages/Contact.css'
   const defaultCenter = {
     lat: 37.7749, lng: -122.4194 // Example coordinates (San Francisco)
   }
-
 const Contact = () => {
+  const [values,setvalues]=useState({username:'',email:'',phone:'',subject:'',message:''});
+  const [errors,seterrors]=useState({});
+  axios.defaults.withCredentials=true;
+  function handleinput(event){
+    const newObj={...values,[event.target.name]:event.target.value}
+    setvalues(newObj);
+  }
+  function handleValidation(event){
+    event.preventDefault();
+    seterrors(contact(values));
+    const checkerr=contact(values);
+    console.log(Object.entries(checkerr).length)
+    if(Object.entries(checkerr).length=== 0){
+      axios.post("http://localhost:3000/contactus",{
+        username:values.username,
+        phone:values.phone,
+        email:values.email,
+        subject:values.subject,
+        message:values.message,
+    }).then(res => {
+      if(res.data.Status === true){
+        alert(res.data.message)
+        location.reload(true);
+      }
+    }).catch(err => console.log(err));
+    }
+  }
   return (
     <div>
       <div className="contact-title">
@@ -78,17 +105,22 @@ const Contact = () => {
           <h1><span>Get In</span> Touch</h1>
           <form className='contact-form'>
             <div className='contact-form-row'>
-              <input type="text" id="username" name="username" placeholder='Your Name*' className='contactus-textbox' required />
-              <input type="email" id="email" name="email" placeholder='Your Email*' className='contactus-textbox' required />
+              <input type="text" id="username" name="username" placeholder='Your Name*' className='contactus-textbox' required onChange={handleinput}/>
+              {errors.username && <div className='editprofile-error'>{errors.username}</div>}
+              <input type="email" id="email" name="email" placeholder='Your Email*' className='contactus-textbox' required onChange={handleinput}/>
+              {errors.email && <div className='editprofile-error'>{errors.email}</div>}
             </div>
             <div className='contact-form-row'>
-              <input type="tel" id="phone" name="phone" placeholder='Contact No*' className='contactus-textbox' required />
-              <input type="text" id="subject" name="subject" placeholder='Subject*' className='contactus-textbox' required />
+              <input type="tel" id="phone" name="phone" placeholder='Contact No*' className='contactus-textbox' required onChange={handleinput}/>
+              {errors.phone && <div className='editprofile-error'>{errors.phone}</div>}
+              <input type="text" id="subject" name="subject" placeholder='Subject*' className='contactus-textbox' required onChange={handleinput}/>
+              {errors.subject && <div className='editprofile-error'>{errors.subject}</div>}
             </div>
             <div className='contact-form-row'>
-              <textarea id='message' name='message' className='contactus-textarea' rows='5' placeholder='Write your message here...'></textarea>
+              <textarea id='message' name='message' className='contactus-textarea' rows='5' placeholder='Write your message here...'onChange={handleinput}></textarea>
+              {errors.message && <div className='editprofile-error'>{errors.message}</div>}
             </div>
-            <button type="submit" className='contactus-btn'>Submit</button>
+            <button type="submit" className='contactus-btn' onClick={handleValidation}>Submit</button>
           </form>
         </div>
         <div className='contactus-map'>
