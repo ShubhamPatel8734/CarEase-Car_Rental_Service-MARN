@@ -10,6 +10,7 @@ const AdminHome = () => {
   const [name,setname]=useState('');
   const [message,setmessage]=useState('');
   const [id,setid]=useState('');
+  const [values,setvalues]=useState({customers: 0,carsonrent: 0,totalcars: 0})
   const navigate=useNavigate();
   useEffect(()=>{
     axios.get('http://localhost:3000/admin/status')
@@ -25,6 +26,13 @@ const AdminHome = () => {
       }
     })
   },[])
+  useEffect(()=>{
+    axios.get('http://localhost:3000/admin/count')
+    .then(res =>{
+      setvalues(res.data)
+      console.log(res.data)
+    }).catch(err =>{console.log(err)})
+  },[])
   return (
     <div className='admin-home-container'>
       <div className='admin-home-title'>
@@ -35,19 +43,19 @@ const AdminHome = () => {
       <div className='admin-home-cards'>
         <div className='admin-home-card'>
           <div className='admin-home-text'>
-            <h1>00</h1>
+            <h1>{values.customers}</h1>
             <h3>Total Customers</h3>
           </div>
         </div>
         <div className='admin-home-card'>
           <div className='admin-home-text'>
-            <h1>00</h1>
+            <h1>{values.carsonrent}</h1>
             <h3>Cars on Rent</h3>
           </div>
         </div>
         <div className='admin-home-card'>
           <div className='admin-home-text'>
-            <h1>00</h1>
+            <h1>{values.totalcars}</h1>
             <h3>Cars we have</h3>
           </div>
         </div>

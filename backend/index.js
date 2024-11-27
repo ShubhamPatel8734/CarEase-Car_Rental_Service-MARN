@@ -15,6 +15,7 @@ app.use(cors({
     credentials: true
 }));
 app.use(cookieParser());
+app.use(express.static('uploads'));
 app.use('/user', UserRouter);
 app.use('/admin', AdminRouter);
 mongoose.connect('mongodb://127.0.0.1:27017/Carease')

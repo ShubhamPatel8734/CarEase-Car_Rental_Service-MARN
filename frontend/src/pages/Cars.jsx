@@ -2,33 +2,34 @@ import React, { useState } from "react";
 import { FaCar, FaSuitcase  } from "react-icons/fa";
 import { TbUser, TbManualGearbox } from "react-icons/tb";
 import "../pages/Cars.css";
-
+import { useEffect } from "react";
+import axios from "axios";
 const ItemCard = ({ item }) => {
   return (
     <div className="carcard">
       <div className="carcard-content">
         <div className="carcard-img">
-          <img src="../images/cars.jpg" alt={item.name}></img>
+          <img src={'http://localhost:3000/'+item.image} alt={item.carname} ></img>
         </div>
         <div className="carcard-desc">
           <div className="carcard-title">
-            <h3>{item.name}</h3>
+            <h3>{item.carname}</h3>
           </div>
           <div className="carcard-info">
             <h4><span><FaCar/></span> Car Type</h4>
-            <p>{item.category}</p>
+            <p>{item.cartype}</p>
           </div>
           <div className="carcard-info">
             <h4><span><TbUser/></span> Passengers</h4>
-            <p>{item.passenger}</p>
+            <p>{item.seat}</p>
           </div>
           <div className="carcard-info">
             <h4><span><TbManualGearbox/></span> Transmission</h4>
-            <p>{item.transmission}</p>
+            <p>{item.geartype}</p>
           </div>
           <div className="carcard-info">
-            <h4><span><FaSuitcase /></span> Luggage</h4>
-            <p>{item.luggage}</p>
+            <h4><span><FaSuitcase /></span> Milage Kmpl</h4>
+            <p>{item.milage}</p>
           </div>
           <div className="carcard-footer">
             <h3>₹{item.rent}<span> /day</span></h3>
@@ -42,66 +43,79 @@ const ItemCard = ({ item }) => {
 };
 
 const Cars = () => {
+  axios.defaults.withCredentials=true;
+  const [items,setitems]=useState([]);
+  useEffect(()=>{
+    axios.post('http://localhost:3000/admin/details',{
+        fetch:'car',
+    })
+    .then(res => {
+        setitems(res.data);
+        console.log(res.data);
+    })
+    .catch(err => {console.log(res.data.message)});
+  }
+,[]);
   const [selectedFilter, setSelectedFilter] = useState("All");
 
-  const filters = ["All", "Car1", "Car2", "Car3", "Car4"];
+  const filters = ["All", "Sports", "Sedan", "Suv", "Luxuxy"];
 
-  const items = [
-    {
-      id: 1,
-      name: "Aston Martin DBX",
-      category: 'Car1',
-      passenger: '5',
-      transmission: 'Auto',
-      luggage: '4 bags',
-      rent: '2000',
-    },
-    {
-      id: 2,
-      name: "Aston Martin DBX",
-      category: 'Car2',
-      passenger: '5',
-      transmission: 'Auto',
-      luggage: '4 bags',
-      rent: '2000',
-    },
-    {
-      id: 3,
-      name: "Aston Martin DBX",
-      category: 'Car1',
-      passenger: '5',
-      transmission: 'Auto',
-      luggage: '4 bags',
-      rent: '2000',
-    },
-    {
-      id: 4,
-      name: "Aston Martin DBX",
-      category: 'Car3',
-      passenger: '5',
-      transmission: 'Auto',
-      luggage: '4 bags',
-      rent: '2000',
-    },
-    {
-      id: 5,
-      name: "Aston Martin DBX",
-      category: 'Car4',
-      passenger: '5',
-      transmission: 'Auto',
-      luggage: '4 bags',
-      rent: '2000',
-    },
-    {
-      id: 6,
-      name: "Aston Martin DBX",
-      category: 'Car1',
-      passenger: '5',
-      transmission: 'Auto',
-      luggage: '4 bags',
-      rent: '2000',
-    },
-  ];
+  // const items = [
+  //   {
+  //     id: 1,
+  //     name: "Aston Martin DBX",
+  //     category: 'Car1',
+  //     passenger: '5',
+  //     transmission: 'Auto',
+  //     luggage: '4 bags',
+  //     rent: '2000',
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "Aston Martin DBX",
+  //     category: 'Car2',
+  //     passenger: '5',
+  //     transmission: 'Auto',
+  //     luggage: '4 bags',
+  //     rent: '2000',
+  //   },
+  //   {
+  //     id: 3,
+  //     name: "Aston Martin DBX",
+  //     category: 'Car1',
+  //     passenger: '5',
+  //     transmission: 'Auto',
+  //     luggage: '4 bags',
+  //     rent: '2000',
+  //   },
+  //   {
+  //     id: 4,
+  //     name: "Aston Martin DBX",
+  //     category: 'Car3',
+  //     passenger: '5',
+  //     transmission: 'Auto',
+  //     luggage: '4 bags',
+  //     rent: '2000',
+  //   },
+  //   {
+  //     id: 5,
+  //     name: "Aston Martin DBX",
+  //     category: 'Car4',
+  //     passenger: '5',
+  //     transmission: 'Auto',
+  //     luggage: '4 bags',
+  //     rent: '2000',
+  //   },
+  //   {
+  //     id: 6,
+  //     name: "Aston Martin DBX",
+  //     category: 'Car1',
+  //     passenger: '5',
+  //     transmission: 'Auto',
+  //     luggage: '4 bags',
+  //     rent: '2000',
+  //   },
+  // ];
 
   const handleFilterChange = (filter) => {
     setSelectedFilter(filter);
@@ -110,7 +124,7 @@ const Cars = () => {
   const filteredItems =
     selectedFilter === "All"
       ? items
-      : items.filter((item) => item.category === selectedFilter);
+      : items.filter((item) => item.cartype === selectedFilter);
 
   return (
     <div>
@@ -139,7 +153,7 @@ const Cars = () => {
         <div className="carcard-list-container">
           <div className="carcard-list">
               {filteredItems.map((item) => (
-                <ItemCard key={item.id} item={item}/>
+                <ItemCard key={item._id} item={item}/>
               ))}
           </div>
         </div>

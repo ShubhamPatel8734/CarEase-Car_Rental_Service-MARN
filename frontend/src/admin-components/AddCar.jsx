@@ -85,8 +85,8 @@ const AddCar = ({ onClose }) => {
             <div className="carform-dropdown">
               <select className="carform-textbox" required name="geartype" onChange={(e)=>{setgeartype(e.target.value)}}>
                 <option value='' disabled selected>Select Gear type</option>
-                <option value='A'>Manual</option>
-                <option value='B'>Automatic</option>
+                <option value='Man'>Manual</option>
+                <option value='Auto'>Automatic</option>
               </select>
             </div>
           </div>

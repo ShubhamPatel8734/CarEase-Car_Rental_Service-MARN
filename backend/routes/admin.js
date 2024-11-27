@@ -142,4 +142,14 @@ router.post('/cardetail',async(req,res)=>{
         return res.json({status: false,message: err})
     }
 })
+router.get('/count',async(req,res) =>{
+    try{
+        const customers=await User.countDocuments();
+        const carsonrent=await Car.countDocuments({avail:"0"});
+        const totalcars=await Car.countDocuments();
+        return res.json({customers,carsonrent,totalcars});
+    }catch(err){
+        return res.json({status: false,message: err})
+    }
+})
 export {router as AdminRouter}
