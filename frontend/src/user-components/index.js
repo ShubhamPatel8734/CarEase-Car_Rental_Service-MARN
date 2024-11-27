@@ -18,3 +18,9 @@ export { default as MyProfile } from '../user-components/MyProfile.jsx'
 
 // EditProfile
 export { default as EditProfile } from '../user-components/EditProfile.jsx'
+
+// Car Card
+export { default as CarCard } from '../user-components/CarCard.jsx'
+
+// Car Booking Form Popup Menu
+export { default as CarBooking } from '../user-components/CarBookingForm.jsx'

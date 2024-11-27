@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 //[Import local folders/files]
 // * Components
-import { Layout, PreLoader } from "./components/index";
+import { Layout, PreLoader, ScrollToTop } from "./components/index";
 import { Home, About, Cars, Contact, FAQ, ErrorPage } from "./pages/index";
 import { User_Layout, MyProfile, EditProfile } from "./user-components/index";
 import { DashboardHome, CarList, UserProfile, UserBookingTable, UserBookingForm } from "./user-pages/index";
@@ -30,6 +30,7 @@ function App() {
 
   return (
     <Router>
+      <ScrollToTop />
       <Routes> 
 
         {/* 404 Error Page */}

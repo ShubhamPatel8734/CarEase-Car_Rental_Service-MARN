@@ -76,10 +76,13 @@ const handlelogout=()=>{
           </nav>
         </div>
         <div className="user-header-dashboard">
-          <div className="dashboard-icon"><FaUserCircle className="header-icon"/></div>
-          <div className="dashboard-text"><a href="/dashboard/home" className="login-link">Dashboard</a></div>
-          <div className="logout-icon"><FaPowerOff className="header-icon"/></div>
-          <div className="logout-text"><a href="/" className="register-link" onClick={handlelogout}>Logout</a></div>
+          {/* <div className="dashboard-icon"><FaUserCircle className="header-icon"/></div>
+          <div className="dashboard-text"><a href="/dashboard/home" className="login-link">Dashboard</a></div> */}
+          <div className="logout-text">
+            <a href="/" className="logout-link" onClick={handlelogout}>
+              <div className="logout-icon"><FaPowerOff className="header-icon" onClick={handlelogout}/></div>Logout
+            </a>
+          </div>
         </div>
       </nav>
     </>

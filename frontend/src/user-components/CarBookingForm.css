@@ -1,0 +1,209 @@
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #222;
+    box-shadow: 1px 1px 10px #333;
+    z-index: 1000;
+    border-radius: 20px;
+  }
+  
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.89);
+    z-index: 999;
+  }
+  
+  .modal .close-btn {
+    position: absolute;
+    padding: 15px;
+    top: 0;   
+    right: 0;
+    background-color: transparent;
+    border: none;
+    font-size: 22px;
+    font-weight: 600;
+    color: #fff;
+    background-color: red;
+    transition: 0.5s all;
+    border-top-right-radius: 20px;      
+  }
+
+  .close-btn h1{
+    font-size: 20px;
+  }
+
+.modal .close-btn:hover{
+    color: #fff;
+    border-top-right-radius: 20px;
+    cursor: pointer;
+    outline: none;
+}
+
+.close-btn:hover h1{
+    color: #fff;
+    text-shadow: 1px 1px 4px #333;
+}
+
+.popup-bookingform-content{
+    color: #1b1b1b;
+    height: auto;
+    height: 75vh;
+    /* padding: 20px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 1px 1px 10px #333;
+    border-radius: 10px;
+}
+
+.popup-bookingform-content .bookingform-title{
+    font-size: 52px;
+    text-align: center;
+    text-shadow: 1px 1px 3px #fff;
+    top: 0;
+    color: white;
+}
+
+.popup-bookingform-content .bookingform-title span{
+    color: #f5b754;
+}
+
+.bookingform-form{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-height: 90vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.bookingform-form::-webkit-scrollbar {
+    width: 10px;
+}
+
+.bookingform-form::-webkit-scrollbar-track {
+    background-color: #333  ; 
+    border-radius: 10px;
+  }
+
+  .bookingform-form::-webkit-scrollbar-thumb {
+    background-color: #f5b754; 
+    border-radius: 10px;
+    border: 2px solid #f5b754;
+  }
+  
+
+  .bookingform-form::-webkit-scrollbar-thumb:hover {
+    background-color: #fff; 
+    cursor: pointer;
+  }
+
+.bookingform-body-row{
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+    justify-content: space-between;
+    width: 90%;
+    /* border: 1px solid red; */
+}
+
+.bookingform-body-row .bookingform-body-col{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    text-wrap: nowrap;
+    width: 50%;
+    /* border: 1px solid blue; */
+}
+
+.bookingform-body-col .dropdown select{
+    /* border: 1px solid #ccc; */
+    border: none;
+    outline: none;
+    outline: none;
+    cursor: pointer;
+    padding: 15px;
+    position: relative;
+}
+
+.bookingform-body-col .dropdown select:hover {
+    border-color: #1b1b1b;
+    background-color: #1b1b1b;
+    color: #f5b754;
+}
+
+.bookingform-body-row .bookingform-label,
+.bookingform-body-row-area .bookingform-label{
+    width: auto;
+    text-align: left;
+    font-size: 24px;
+    font-weight: 600;
+    padding-left: 5px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    color: #fff;
+    /* border: 1px solid green; */
+}
+
+.bookingform-body-row .bookingform-textbox,
+.bookingform-body-row-area .bookingform-textarea{
+    font-size: 20px;
+    width: 90%;
+    padding: 15px 10px;
+    color: #f5b754;
+    border-radius: 20px;
+    background-color: #1b1b1b;
+    border: 1px solid #222;
+    outline: none;
+    user-select:contain;
+    margin: 15px 0;
+}
+
+.bookingform-body-row-area{
+    display: flex;
+    flex-direction: column;
+    width: 97%;
+    margin-left: 10px;
+}
+
+.bookingform-body-row-area .bookingform-textarea{
+    resize: none;
+}
+
+.bookingform-body-row-btn{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.bookingform-body-row-btn .booking-btn{
+    margin: 0 15px;
+    padding: 15px;
+    font-size: 22px;
+    font-weight: 600;
+    border-radius: 20px;
+    color: #222;
+    background-color: #f5b754;
+    border: 1px solid #f5b754;
+    transition: 0.5s ease-in-out;
+}
+
+.bookingform-body-row-btn .booking-btn:hover{
+    cursor: pointer;
+    background-color: #333;
+    color: #f5b754;
+}

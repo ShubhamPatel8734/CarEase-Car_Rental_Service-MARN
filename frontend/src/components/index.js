@@ -15,3 +15,6 @@ export { default as RegisterForm } from '../components/RegisterForm.jsx'
 
 // PreLoader
 export { default as PreLoader } from '../components/PreLoader.jsx'
+
+// ScrollToTop
+export { default as ScrollToTop } from '../components/ScrollToTop.jsx'

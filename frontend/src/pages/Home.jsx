@@ -16,6 +16,7 @@ import { GoArrowUpRight } from "react-icons/go";
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import Slider from "react-slick";
+import {useNavigate} from 'react-router-dom'
 
 const Home = () => {
 
@@ -40,6 +41,14 @@ const Home = () => {
     focusOnSelect: true,
   };
 
+  const navigate = useNavigate();
+  const handleHerosectionbutton = () => {
+    navigate('/cars');
+  }
+  const handleAboutSectionButton = () => {
+    navigate('/about')
+  }
+
   return (
     <>
       {/* --------------------- Hero section -------------------- */}
@@ -61,7 +70,7 @@ const Home = () => {
             range of premium vehicles to suit your preferences and <br />{" "}
             lifestyle.
           </p>
-          <button href="/" className="button">
+          <button className="button" onClick={handleHerosectionbutton}>
             View all Cars <FaArrowRight className="btn-icon" />
           </button>
         </div>
@@ -101,7 +110,7 @@ const Home = () => {
               <p>Economy Cars</p>
             </div>
             <div className="about-btn">
-              <button className="abt-btn">
+              <button className="abt-btn" onClick={handleAboutSectionButton}>
                 Read More
                 <span>
                   <GoArrowUpRight />

@@ -19,10 +19,10 @@ const Navbar = () => {
                     <LiaCarSolid className='Navbar-icons'/>
                     <h3>Available Cars</h3>
                 </NavLink>
-                <NavLink to='/dashboard/newbooking'  className='Navbar-link'>
+                {/* <NavLink to='/dashboard/newbooking'  className='Navbar-link'>
                     <MdAddBox className='Navbar-icons'/>
                     <h3>New Booking</h3>
-                </NavLink>
+                </NavLink> */}
                 <NavLink to='/dashboard/mybooking'  className='Navbar-link'>
                     <FaRegCalendarCheck className='Navbar-icons'/>
                     <h3>My Bookings</h3>

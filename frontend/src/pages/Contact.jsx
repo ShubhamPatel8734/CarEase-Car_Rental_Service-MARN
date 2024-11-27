@@ -105,20 +105,30 @@ const Contact = () => {
           <h1><span>Get In</span> Touch</h1>
           <form className='contact-form'>
             <div className='contact-form-row'>
-              <input type="text" id="username" name="username" placeholder='Your Name*' className='contactus-textbox' required onChange={handleinput}/>
-              {errors.username && <div className='editprofile-error'>{errors.username}</div>}
-              <input type="email" id="email" name="email" placeholder='Your Email*' className='contactus-textbox' required onChange={handleinput}/>
-              {errors.email && <div className='editprofile-error'>{errors.email}</div>}
+              <div className='contact-form-col'>
+                <input type="text" id="username" name="username" placeholder='Your Name*' className='contactus-textbox' required onChange={handleinput}/>
+                {errors.username && <div className='contactform-error'>{errors.username}</div>}
+              </div>
+              <div className='contact-form-col'>
+                <input type="email" id="email" name="email" placeholder='Your Email*' className='contactus-textbox' required onChange={handleinput}/>
+                {errors.email && <div className='contactform-error'>{errors.email}</div>}
+              </div>
             </div>
             <div className='contact-form-row'>
-              <input type="tel" id="phone" name="phone" placeholder='Contact No*' className='contactus-textbox' required onChange={handleinput}/>
-              {errors.phone && <div className='editprofile-error'>{errors.phone}</div>}
-              <input type="text" id="subject" name="subject" placeholder='Subject*' className='contactus-textbox' required onChange={handleinput}/>
-              {errors.subject && <div className='editprofile-error'>{errors.subject}</div>}
+              <div className='contact-form-col'>
+                <input type="tel" id="phone" name="phone" placeholder='Contact No*' className='contactus-textbox' required onChange={handleinput}/>
+                {errors.phone && <div className='contactform-error'>{errors.phone}</div>}
+              </div>
+              <div className='contact-form-col'>
+                <input type="text" id="subject" name="subject" placeholder='Subject*' className='contactus-textbox' required onChange={handleinput}/>
+                {errors.subject && <div className='contactform-error'>{errors.subject}</div>}
+              </div>
             </div>
             <div className='contact-form-row'>
-              <textarea id='message' name='message' className='contactus-textarea' rows='5' placeholder='Write your message here...'onChange={handleinput}></textarea>
-              {errors.message && <div className='editprofile-error'>{errors.message}</div>}
+              <div className='contact-form-col'>
+                <textarea id='message' name='message' className='contactus-textarea' rows='5' placeholder='Write your message here...'onChange={handleinput}></textarea>
+                {errors.message && <div className='contactform-error'>{errors.message}</div>}
+              </div>
             </div>
             <button type="submit" className='contactus-btn' onClick={handleValidation}>Submit</button>
           </form>

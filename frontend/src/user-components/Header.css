@@ -96,7 +96,7 @@
     font-size: 34px;
     margin-top: 6px;
     padding-left: 10px;
-    transition: 0.2s ease-in-out;
+    transition: 0.1s ease-in-out;
 }
 
 .dashboard-text, .logout-text{
@@ -108,27 +108,16 @@
     text-decoration: none;
     color: #fff;
     font-size: 20px;
-    transition: 0.2s ease-in-out;
-}
-
-.user-header-dashboard a:hover{
-    color: #f5b754;
-    padding-bottom: 3px;
-    border-bottom-style: solid;
-    border-bottom-width: 3.1px;
-    width: fit-content;
-    cursor: pointer;
-}
-
-.user-header-dashboard a.active{
-    color: #f5b754;
-    padding-bottom: 3px;
-    border-bottom-style: solid;
-    border-bottom-width: 3.1px;
-    width: fit-content;
-    cursor: default;
+    transition: 0.1s ease-in-out;
 }
 
 .logout-text a:hover{
     color: red;
+}
+
+.logout-link{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;      
 }
