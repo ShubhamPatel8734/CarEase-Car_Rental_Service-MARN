@@ -1,7 +1,8 @@
 import React from "react";
 import "../user-components/CarBookingForm.css";
-
-function CarBookingForm({ onClose }) {
+import { useState,useEffect } from "react";
+import axios from "axios";
+function CarBookingForm({ item,onClose }) {
   return (
     <div className="popup">
       <button className="close-btn" onClick={onClose}>
@@ -52,6 +53,7 @@ function CarBookingForm({ onClose }) {
                 className="bookingform-textbox"
                 required
                 placeholder="Enter Car Type"
+                value={item.cartype}
                 readOnly={true}
               />
             </div>
@@ -66,6 +68,7 @@ function CarBookingForm({ onClose }) {
                 className="bookingform-textbox"
                 required
                 placeholder="Enter Car Name"
+                value={item.carname}
                 readOnly={true}
               />
             </div>
@@ -107,6 +110,7 @@ function CarBookingForm({ onClose }) {
                 name="license"
                 className="bookingform-textbox"
                 required
+                value={item.rent}
                 readOnly={true}
               />
             </div>

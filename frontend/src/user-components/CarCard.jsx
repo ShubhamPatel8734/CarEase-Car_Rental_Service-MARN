@@ -8,27 +8,27 @@ function CarCard ({item, onBuyClick}) {
     <div className="carcard">
             <div className="carcard-content">
                 <div className="carcard-img">
-                    <img src="../images/cars.jpg" alt={item.name}></img>
+                    <img src={'http://localhost:3000/'+item.image} alt={item.carname}></img>
                 </div>
                 <div className="carcard-desc">
                     <div className="carcard-title">
-                        <h3>{item.name}</h3>
+                        <h3>{item.carname}</h3>
                     </div>
                     <div className="carcard-info">
                         <h4><span><FaCar /></span> Car Type</h4>
-                        <p>{item.category}</p>
+                        <p>{item.cartype}</p>
                     </div>
                     <div className="carcard-info">
                         <h4><span><TbUser /></span> Passengers</h4>
-                        <p>{item.passenger}</p>
+                        <p>{item.seat}</p>
                     </div>
                     <div className="carcard-info">
                         <h4><span><TbManualGearbox /></span> Transmission</h4>
-                        <p>{item.transmission}</p>
+                        <p>{item.geartype}</p>
                     </div>
                     <div className="carcard-info">
-                        <h4><span><FaSuitcase /></span> Luggage</h4>
-                        <p>{item.luggage}</p>
+                        <h4><span><FaSuitcase /></span> Milage</h4>
+                        <p>{item.milage}</p>
                     </div>
                     <div className="carcard-footer">
                         <h3>₹{item.rent}<span> /day</span></h3>

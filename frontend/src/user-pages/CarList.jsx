@@ -1,11 +1,23 @@
-import React, { useState } from 'react'
-
+import React, { useState,useEffect } from 'react'
+import axios from 'axios';
 import "../user-pages/CarList.css";
 import {CarCard, CarBooking} from '../user-components/index'
 
 function CarList() {
-
-    const [selectedItem, setSelectedItem] = useState(null);
+        axios.defaults.withCredentials=true;
+        const [items,setitems]=useState([]);
+        useEffect(()=>{
+          axios.post('http://localhost:3000/admin/details',{
+              fetch:'car',
+          })
+          .then(res => {
+              setitems(res.data);
+              console.log(res.data);
+          })
+          .catch(err => {console.log(res.data.message)});
+        }
+      ,[]);
+    const [selectedItem, setSelectedItem] = useState({});
     const [showBookingForm, setshowBookingForm] = useState(false);
 
     const handleBuyClick = (item) => {
@@ -18,64 +30,64 @@ function CarList() {
     };
 
     const [selectedFilter, setSelectedFilter] = useState("All");
-    const filters = ["All", "Car1", "Car2", "Car3", "Car4"];
+    const filters = ["All", "Sports", "Sedan", "Suv", "Luxuxy"];
 
-    const items = [
-        {
-            id: 1,
-            name: "Aston Martin DBX",
-            category: 'Car1',
-            passenger: '5',
-            transmission: 'Auto',
-            luggage: '4 bags',
-            rent: '2000',
-        },
-        {
-            id: 2,
-            name: "Aston Martin DBX",
-            category: 'Car2',
-            passenger: '5',
-            transmission: 'Auto',
-            luggage: '4 bags',
-            rent: '2000',
-        },
-        {
-            id: 3,
-            name: "Aston Martin DBX",
-            category: 'Car1',
-            passenger: '5',
-            transmission: 'Auto',
-            luggage: '4 bags',
-            rent: '2000',
-        },
-        {
-            id: 4,
-            name: "Aston Martin DBX",
-            category: 'Car3',
-            passenger: '5',
-            transmission: 'Auto',
-            luggage: '4 bags',
-            rent: '2000',
-        },
-        {
-            id: 5,
-            name: "Aston Martin DBX",
-            category: 'Car4',
-            passenger: '5',
-            transmission: 'Auto',
-            luggage: '4 bags',
-            rent: '2000',
-        },
-        {
-            id: 6,
-            name: "Aston Martin DBX",
-            category: 'Car1',
-            passenger: '5',
-            transmission: 'Auto',
-            luggage: '4 bags',
-            rent: '2000',
-        },
-    ];
+    // const items = [
+    //     {
+    //         id: 1,
+    //         name: "Aston Martin DBX",
+    //         category: 'Car1',
+    //         passenger: '5',
+    //         transmission: 'Auto',
+    //         luggage: '4 bags',
+    //         rent: '2000',
+    //     },
+    //     {
+    //         id: 2,
+    //         name: "Aston Martin DBX",
+    //         category: 'Car2',
+    //         passenger: '5',
+    //         transmission: 'Auto',
+    //         luggage: '4 bags',
+    //         rent: '2000',
+    //     },
+    //     {
+    //         id: 3,
+    //         name: "Aston Martin DBX",
+    //         category: 'Car1',
+    //         passenger: '5',
+    //         transmission: 'Auto',
+    //         luggage: '4 bags',
+    //         rent: '2000',
+    //     },
+    //     {
+    //         id: 4,
+    //         name: "Aston Martin DBX",
+    //         category: 'Car3',
+    //         passenger: '5',
+    //         transmission: 'Auto',
+    //         luggage: '4 bags',
+    //         rent: '2000',
+    //     },
+    //     {
+    //         id: 5,
+    //         name: "Aston Martin DBX",
+    //         category: 'Car4',
+    //         passenger: '5',
+    //         transmission: 'Auto',
+    //         luggage: '4 bags',
+    //         rent: '2000',
+    //     },
+    //     {
+    //         id: 6,
+    //         name: "Aston Martin DBX",
+    //         category: 'Car1',
+    //         passenger: '5',
+    //         transmission: 'Auto',
+    //         luggage: '4 bags',
+    //         rent: '2000',
+    //     },
+    // ];
 
     const handleFilterChange = (filter) => {
         setSelectedFilter(filter);
@@ -84,7 +96,7 @@ function CarList() {
     const filteredItems =
         selectedFilter === "All"
             ? items
-            : items.filter((item) => item.category === selectedFilter);
+            : items.filter((item) => item.cartype === selectedFilter);
 
     return (
         <div className='CarList'>
@@ -112,7 +124,7 @@ function CarList() {
                     <div className="carcard-list-container">
                         <div className="carcard-list">
                             {filteredItems.map((item) => (
-                                <CarCard key={item.id} item={item} onBuyClick={handleBuyClick}/>
+                                <CarCard key={item._id} item={item} onBuyClick={handleBuyClick}/>
                             ))}
                         </div>
                         {showBookingForm &&
