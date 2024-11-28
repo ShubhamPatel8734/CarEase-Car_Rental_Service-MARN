@@ -2,13 +2,33 @@ import React, { useState,useEffect } from 'react'
 import axios from 'axios';
 import "../user-pages/CarList.css";
 import {CarCard, CarBooking} from '../user-components/index'
-
+import { useNavigate } from 'react-router-dom';
 function CarList() {
         axios.defaults.withCredentials=true;
         const [items,setitems]=useState([]);
+        const [values,setvalues]=useState({});
+        const navigate=useNavigate();
+        //Getting user details.
+        useEffect(()=>{
+          axios.get('http://localhost:3000/user/status')
+          .then( res=>{
+            if(res.data.Status === "Success"){
+                axios.post("http://localhost:3000/user/profile",{
+                  id:res.data.id
+                }).then(res =>{
+                  console.log(res.data);
+                  setvalues(res.data);
+                }).catch(err => console.log(err))
+            }
+            else{
+              navigate("/about");
+            }
+          })
+        },[])
+        //Getting all the cars.
         useEffect(()=>{
           axios.post('http://localhost:3000/admin/details',{
-              fetch:'car',
+              fetch:'availablecar',
           })
           .then(res => {
               setitems(res.data);
@@ -130,7 +150,7 @@ function CarList() {
                         {showBookingForm &&
                             <div className="modal-overlay">
                                 <div className="modal">
-                                    <CarBooking className="modal" item={selectedItem} onClose={handleClosePopup} />
+                                    <CarBooking className="modal" item={selectedItem} onClose={handleClosePopup} user={values}/>
                                 </div>
                             </div>
                         } 

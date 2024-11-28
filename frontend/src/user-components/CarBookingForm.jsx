@@ -2,7 +2,44 @@ import React from "react";
 import "../user-components/CarBookingForm.css";
 import { useState,useEffect } from "react";
 import axios from "axios";
-function CarBookingForm({ item,onClose }) {
+import Carbookingvalidation from "./CarBookingValidate";
+function CarBookingForm({ item,onClose,user }) {
+  const [license,setlicense]=useState('');
+  const [pickupdate,setpickupdate]=useState('');
+  const [returndate,setreturndate]=useState('');
+  const [totalprice,settotalprice]=useState(item.rent);
+  const [payment,setpayment]=useState('');
+  const [errors,seterrors]=useState({});
+  useEffect(()=>{
+    //console.log("Running");
+    //console.log("Pickup",pickupdate,"Return",returndate);
+    if(pickupdate && returndate){
+      //console.log("sab milagaya")
+      const pickup=new Date(pickupdate);
+      const drop=new Date(returndate);
+        if(pickup.setHours(0,0,0,0) <= drop.setHours(0,0,0,0)){
+          //console.log("Barabar date");
+          const milliseconds=drop-pickup;
+          const days=milliseconds/(1000*60*60*24)+1;
+          //console.log("Days -- ",days);
+          const totalrent=days*item.rent;
+          //console.log("Rent -- ",totalrent);
+          settotalprice(totalrent);
+        }
+        else{
+          settotalprice(0);
+        }
+    }
+},[pickupdate,returndate])
+  function handlevalidate(e){
+    e.preventDefault();
+    seterrors(Carbookingvalidation(license,pickupdate,returndate,totalprice,payment))
+    const checkerr=Carbookingvalidation(license,pickupdate,returndate,totalprice,payment);
+        //console.log(checkerr)
+        if(Object.entries(checkerr).length=== 0){
+          console.log("Lets roll!")
+        }
+  }
   return (
     <div className="popup">
       <button className="close-btn" onClick={onClose}>
@@ -25,6 +62,8 @@ function CarBookingForm({ item,onClose }) {
                 className="bookingform-textbox"
                 required
                 placeholder="Enter Email Id"
+                value={user.email}
+                readOnly={true}
               />
             </div>
             <div className="bookingform-body-col">
@@ -38,7 +77,9 @@ function CarBookingForm({ item,onClose }) {
                 className="bookingform-textbox"
                 required
                 placeholder="Enter License No"
+                onChange={(e)=>{setlicense(e.target.value)}}
               />
+              {errors.license && <div style={{color:'red'}}>{errors.license}</div>}
             </div>
           </div>
           <div className="bookingform-body-row">
@@ -79,24 +120,30 @@ function CarBookingForm({ item,onClose }) {
                 Pickup Date
               </label>
               <input
-                type="datetime-local"
+                type="date"
                 id="pickup"
                 name="pickup"
                 className="bookingform-textbox"
                 required
+                min={new Date().toJSON().slice(0,10)}
+                onChange={(e)=>{setpickupdate(e.target.value)}}
               />
+              {errors.pickupdate && <div style={{color:'red'}}>{errors.pickupdate}</div>}
             </div>
             <div className="bookingform-body-col">
               <label htmlFor="return" className="bookingform-label">
                 Return Date
               </label>
               <input
-                type="datetime-local"
+                type="date"
                 id="return"
                 name="return"
                 className="bookingform-textbox"
                 required
+                min={new Date().toJSON().slice(0,10)}
+                onChange={(e)=>{setreturndate(e.target.value)}}
               />
+              {errors.returndate && <div style={{color:'red'}}>{errors.returndate}</div>}
             </div>
           </div>
           <div className="bookingform-body-row">
@@ -119,13 +166,16 @@ function CarBookingForm({ item,onClose }) {
                 Total Price
               </label>
               <input
-                type="text"
+                type="number"
                 id="license"
                 name="license"
                 className="bookingform-textbox"
                 required
-                readOnly={true}
+                min={item.rent}
+                //readOnly={true}
+                value={totalprice}
               />
+              {errors.totalprice && <div style={{color:'red'}}>{errors.totalprice}</div>}
             </div>
           </div>
           <div className="bookingform-body-row">
@@ -134,18 +184,19 @@ function CarBookingForm({ item,onClose }) {
                 Payment Mode
               </label>
               <div className="dropdown">
-                <select className="bookingform-textbox" required name="pmode">
+                <select className="bookingform-textbox" required name="pmode" onChange={(e)=>{setpayment(e.target.value)}}>
                   <option value="" disabled selected>
                     Select Payment Method
                   </option>
                   <option value="cash">Cash</option>
                   <option value="netbanking">Net Banking</option>
                 </select>
+                {errors.payment && <div style={{color:'red'}}>{errors.payment}</div>}
               </div>
             </div>
           </div>
           <div className="bookingform-body-row-btn">
-            <button type="submit" id="booking-btn" className="booking-btn">
+            <button type="submit" id="booking-btn" className="booking-btn" onClick={handlevalidate}>
               Book Now
             </button>
           </div>

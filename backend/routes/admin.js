@@ -107,6 +107,15 @@ router.post("/details",async(req,res)=>{
             return res.json({Status: false,message: "Server error"}) 
         }
     }
+    if(fetch==='availablecar'){
+        try{
+            const cars= await Car.find({avial: 1});
+            return res.json(cars);
+        }
+        catch(err){
+            return res.json({Status: false,message: "Server error"}) 
+        }
+    }
 })
 router.put("/editcar", async(req,res)=>{
     const id=req.body.id;
