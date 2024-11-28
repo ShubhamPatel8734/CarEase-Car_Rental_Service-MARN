@@ -16,10 +16,19 @@ export default function Carbookingvalidation(license,pickupdate,returndate,total
     if(pickupdate!=="" && returndate!==""){
         const pickup=new Date(pickupdate);
         const drop=new Date(returndate);
-        if(pickup.setHours(0,0,0,0) > drop.setHours(0,0,0,0)){
-            errors.pickupdate="Pickup date has to be lower than Retunn date";
-            errors.returndate="Pickup date has to be lower than Retunn date";
-         }
+        const todaydate=new Date();
+        if(pickup.setHours(0,0,0,0)<todaydate.setHours(0,0,0,0) || drop.setHours(0,0,0,0)<todaydate.setHours(0,0,0,0)){
+            if(pickup.setHours(0,0,0,0)<todaydate.setHours(0,0,0,0)){
+                errors.pickupdate="Date should atleast be of today";
+            }
+            if(drop.setHours(0,0,0,0)<todaydate.setHours(0,0,0,0)){
+                errors.returndate="Date should atleast be of today";
+            }
+        }
+        else if((pickup.setHours(0,0,0,0) > drop.setHours(0,0,0,0))){
+            errors.pickupdate="Pickup date has to be lower than Return date";
+            errors.returndate="Pickup date has to be lower than Return date";
+        }
     }
     if(payment===""){
         errors.payment="Payment method reqired";

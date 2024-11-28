@@ -11,16 +11,17 @@ function CarBookingForm({ item,onClose,user }) {
   const [payment,setpayment]=useState('');
   const [errors,seterrors]=useState({});
   useEffect(()=>{
-    //console.log("Running");
     //console.log("Pickup",pickupdate,"Return",returndate);
     if(pickupdate && returndate){
       //console.log("sab milagaya")
       const pickup=new Date(pickupdate);
       const drop=new Date(returndate);
+      const todaydate=new Date();
         if(pickup.setHours(0,0,0,0) <= drop.setHours(0,0,0,0)){
           //console.log("Barabar date");
+          if(pickup.setHours(0,0,0,0)>=todaydate.setHours(0,0,0,0) && drop.setHours(0,0,0,0)>=todaydate.setHours(0,0,0,0)){
           const milliseconds=drop-pickup;
-          const days=milliseconds/(1000*60*60*24)+1;
+          const days=(milliseconds/(1000*60*60*24))+1;//added 1 here because on same day we have to take 1 day rent,
           //console.log("Days -- ",days);
           const totalrent=days*item.rent;
           //console.log("Rent -- ",totalrent);
@@ -29,8 +30,18 @@ function CarBookingForm({ item,onClose,user }) {
         else{
           settotalprice(0);
         }
+      }
+        else{
+          settotalprice(0);
+        }
     }
 },[pickupdate,returndate])
+const getLocalDate =()=>{
+  const now=new Date(); const year=now.getFullYear(); 
+  const month=String(now.getMonth()+1).padStart(2,'0');
+  const date=String(now.getDate()).padStart(2,'0');
+  return `${year}-${month}-${date}`;
+}
   function handlevalidate(e){
     e.preventDefault();
     seterrors(Carbookingvalidation(license,pickupdate,returndate,totalprice,payment))
@@ -125,7 +136,7 @@ function CarBookingForm({ item,onClose,user }) {
                 name="pickup"
                 className="bookingform-textbox"
                 required
-                min={new Date().toJSON().slice(0,10)}
+                min={getLocalDate()}
                 onChange={(e)=>{setpickupdate(e.target.value)}}
               />
               {errors.pickupdate && <div style={{color:'red'}}>{errors.pickupdate}</div>}
@@ -140,7 +151,7 @@ function CarBookingForm({ item,onClose,user }) {
                 name="return"
                 className="bookingform-textbox"
                 required
-                min={new Date().toJSON().slice(0,10)}
+                min={getLocalDate()}
                 onChange={(e)=>{setreturndate(e.target.value)}}
               />
               {errors.returndate && <div style={{color:'red'}}>{errors.returndate}</div>}
