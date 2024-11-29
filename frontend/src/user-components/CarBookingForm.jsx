@@ -49,8 +49,24 @@ const getLocalDate =()=>{
         //console.log(checkerr)
         if(Object.entries(checkerr).length=== 0){
           console.log("Lets roll!")
-        }
-  }
+          axios.put("http://localhost:3000/user/booking",{
+            carid:item._id,
+            userid:user._id,
+            license:license,
+            pickup:pickupdate,
+            drop:returndate,
+            totalprice:totalprice,
+            payment:payment,
+        }).then(res => {
+          if(res.data.Status === true){
+            alert(res.data.message);
+            location.reload(true);
+          }
+          else{
+            alert(res.data.message)
+          }
+        }).catch(err => console.log(err));
+        }}      
   return (
     <div className="popup">
       <button className="close-btn" onClick={onClose}>

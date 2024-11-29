@@ -154,7 +154,7 @@ router.post('/cardetail',async(req,res)=>{
 router.get('/count',async(req,res) =>{
     try{
         const customers=await User.countDocuments();
-        const carsonrent=await Car.countDocuments({avail:"0"});
+        const carsonrent=await Car.countDocuments({avial:"0"});
         const totalcars=await Car.countDocuments();
         return res.json({customers,carsonrent,totalcars});
     }catch(err){

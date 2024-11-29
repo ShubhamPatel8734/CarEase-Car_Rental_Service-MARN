@@ -3,6 +3,8 @@ import bcrypt from "bcrypt";
 const router=express.Router();
 import { User } from "../models/User.js";
 import jwt from "jsonwebtoken";
+import { Booking } from "../models/Booking.js";
+import { Car } from "../models/Cars.js";
 router.post('/register',async (req,res)=>{
     const firstname=req.body.firstname;
     const lastname=req.body.lastname;
@@ -100,4 +102,32 @@ router.put("/editprofile", async(req,res)=>{
         return res.json({Status: false,message: "Server error"})
     }
 })
+router.put('/booking',async (req,res)=>{
+    try{
+    const car_id=req.body.carid;
+    const user_id=req.body.userid;
+    const pickupdate=req.body.pickup;
+    const returndate=req.body.drop;
+    const license=req.body.license;
+    const payment=req.body.payment;
+    const totalprice=req.body.totalprice;
+    const newBooking= new Booking({
+        car_id,
+        user_id,
+        license,
+        pickupdate,
+        returndate,
+        totalprice,
+        payment,
+    })
+    await newBooking.save();
+    const carupdate=await Car.findByIdAndUpdate({_id:car_id},{avial: 0},{ new:true,runValidators:true });
+    if(!carupdate){
+        return res.json({Status: false,message: "Car Not updated"})       
+    }
+    return res.json({Status: true,message: "Booking Sucessfull"})
+}catch(err){
+    return res.json({Status: false,message: "Server error"})
+}
+});
 export {router as UserRouter}
