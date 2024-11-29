@@ -4,6 +4,8 @@ const router=express.Router();
 import { Admin } from "../models/Admin.js";
 import { Car } from "../models/Cars.js";
 import { User } from "../models/User.js";
+import { Booking } from "../models/Booking.js";
+import { Contact } from "../models/Contact.js";
 import jwt from "jsonwebtoken";
 import multer from "multer";
 import path from "path";
@@ -20,7 +22,7 @@ router.post('/login', async(req,res)=>{
         return res.json({status: false,message: "Invalid Credentials"})
     }
     const token=jwt.sign({name: admin.firstname, id: admin._id}, process.env.KEY , {expiresIn: '2h'})
-    res.cookie('atoken', token, {httpOnly: true,maxAge: 720000})
+    res.cookie('atoken', token, {httpOnly: true,maxAge: 7200000})
     return res.json({status: true, message: "Login Successfull"})
 })
 
@@ -116,6 +118,24 @@ router.post("/details",async(req,res)=>{
             return res.json({Status: false,message: "Server error"}) 
         }
     }
+    if(fetch==='contact'){
+        try{
+            const contacts= await Contact.find();
+            return res.json(contacts);
+        }
+        catch(err){
+            return res.json({Status: false,message: "Server error"}) 
+        }
+    }
+    if(fetch==='booking'){
+        try{
+            const book= await Booking.find();
+            return res.json(book);
+        }
+        catch(err){
+            return res.json({Status: false,message: "Server error"}) 
+        }
+    }
 })
 router.put("/editcar", async(req,res)=>{
     const id=req.body.id;
@@ -156,7 +176,17 @@ router.get('/count',async(req,res) =>{
         const customers=await User.countDocuments();
         const carsonrent=await Car.countDocuments({avial:"0"});
         const totalcars=await Car.countDocuments();
-        return res.json({customers,carsonrent,totalcars});
+        const totalbookings=await Booking.countDocuments();
+        const totalinc=await Booking.aggregate([
+            {
+                $group:{
+                    _id: null,
+                    total:{$sum: "$totalprice"},
+                },
+            },
+        ])
+        const totalincome=totalinc[0].total;
+        return res.json({customers,carsonrent,totalcars,totalbookings,totalincome});
     }catch(err){
         return res.json({status: false,message: err})
     }

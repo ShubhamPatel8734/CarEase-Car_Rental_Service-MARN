@@ -10,7 +10,7 @@ const AdminHome = () => {
   const [name,setname]=useState('');
   const [message,setmessage]=useState('');
   const [id,setid]=useState('');
-  const [values,setvalues]=useState({customers: 0,carsonrent: 0,totalcars: 0})
+  const [values,setvalues]=useState({customers: 0,carsonrent: 0,totalcars: 0,totalbookings: 0,totalincome: 0})
   const navigate=useNavigate();
   useEffect(()=>{
     axios.get('http://localhost:3000/admin/status')
@@ -61,13 +61,13 @@ const AdminHome = () => {
         </div>
         <div className='admin-home-card'>
           <div className='admin-home-text'>
-            <h1>00</h1>
+            <h1>{values.totalbookings}</h1>
             <h3>Total Bookings</h3>
           </div>
         </div>
         <div className='admin-home-card'>
           <div className='admin-home-text'>
-            <h1>00</h1>
+            <h1>{values.totalincome}</h1>
             <h3>Total Income</h3>
           </div>
         </div>
