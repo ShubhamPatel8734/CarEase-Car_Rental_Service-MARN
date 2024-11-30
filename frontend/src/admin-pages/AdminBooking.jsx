@@ -67,7 +67,13 @@ const AdminBooking = () => {
     //   const currentRecords = data.slice(indexofFirstRecord, indexofLastRecord);
     
     //   const paginate = (pageNumber) => setcurrentPage(pageNumber);
-
+    const handledelete=(id)=>{
+        axios.delete('http://localhost:3000/admin/deletebooking/'+id)
+        .then(res => {console.log(res.data.Message);
+            window.location.reload();
+        })
+        .catch(err => console.log(err));
+      }
   return (
     <div className='admin-booking-container'>
         <div className='admin-booking-title'>
@@ -109,7 +115,7 @@ const AdminBooking = () => {
                         <td>{record.payment}</td>
                         <td className='admin-booking-table-icons'>
                             {/* <FaEdit className='booking-table-editbtn'/> */}
-                            <MdDelete className='booking-table-deletebtn'/>
+                            <MdDelete className='booking-table-deletebtn' onClick={()=>{handledelete(record._id)}}/>
                         </td>
                     </tr>
                 ))}

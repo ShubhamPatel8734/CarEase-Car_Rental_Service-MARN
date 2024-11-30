@@ -95,7 +95,13 @@ const closeCarEditForm = () => {
 //   const currentRecords = data.slice(indexofFirstRecord, indexofLastRecord);
 
 //   const paginate = (pageNumber) => setcurrentPage(pageNumber);
-
+const handledelete=(id)=>{
+    axios.delete('http://localhost:3000/admin/deletecar/'+id)
+    .then(res => {console.log(res.data.Message);
+        window.location.reload();
+    })
+    .catch(err => console.log(err));
+  }
   return (
     <div className='admin-car-container'>
         <div className='admin-car-title'>
@@ -140,7 +146,7 @@ const closeCarEditForm = () => {
                         <td className='admin-car-table-icons'>
                             <FaEdit className='car-table-editbtn' onClick={(e)=>{ e.preventDefault();
                                 handleCarEditFormClick(record._id)}}/>
-                            <MdDelete className='car-table-deletebtn'/>
+                            <MdDelete className='car-table-deletebtn' onClick={()=>handledelete(record._id)}/>
                         </td>
                         {showCarEditForm && <div className='carform-overlay'><div className='carform-show'> <EditCar onClose={closeCarEditForm} data={selectedid}/> </div></div>}
                     </tr>

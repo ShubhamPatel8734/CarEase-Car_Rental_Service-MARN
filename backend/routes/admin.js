@@ -191,4 +191,52 @@ router.get('/count',async(req,res) =>{
         return res.json({status: false,message: err})
     }
 })
+router.delete('/deleteuser/:id',async(req,res)=>{
+    try{
+    const id=req.params.id;
+    const deleteduser=await User.findByIdAndDelete(id);
+    if(!deleteduser){
+        return res.json({Message: "User not deleted"});
+    }
+    return res.json({Message: "Success"});
+    }catch(err){
+        return res.json({status: false,Message: err})
+    }
+})
+router.delete('/deletecar/:id',async(req,res)=>{
+    try{
+    const id=req.params.id;
+    const deletedcar=await Car.findByIdAndDelete(id);
+    if(!deletedcar){
+        return res.json({Message: "Car not deleted"});
+    }
+    return res.json({Message: "Success"});
+    }catch(err){
+        return res.json({status: false,Message: err})
+    }
+})
+router.delete('/deletebooking/:id',async(req,res)=>{
+    try{
+    const id=req.params.id;
+    const deletedbooking=await Booking.findByIdAndDelete(id);
+    if(!deletedbooking){
+        return res.json({Message: "Booking not deleted"});
+    }
+    return res.json({Message: "Success"});
+    }catch(err){
+        return res.json({status: false,Message: err})
+    }
+})
+router.delete('/deletecontact/:id',async(req,res)=>{
+    try{
+    const id=req.params.id;
+    const deletedcontact=await Contact.findByIdAndDelete(id);
+    if(!deletedcontact){
+        return res.json({Message: "Contact not deleted"});
+    }
+    return res.json({Message: "Success"});
+    }catch(err){
+        return res.json({status: false,Message: err})
+    }
+})
 export {router as AdminRouter}

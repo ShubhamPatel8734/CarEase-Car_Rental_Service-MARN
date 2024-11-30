@@ -60,7 +60,7 @@ const getLocalDate =()=>{
         }).then(res => {
           if(res.data.Status === true){
             alert(res.data.message);
-            location.reload(true);
+            window.location.reload();
           }
           else{
             alert(res.data.message)

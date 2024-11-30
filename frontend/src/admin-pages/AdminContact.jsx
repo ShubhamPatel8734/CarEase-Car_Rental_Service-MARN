@@ -67,7 +67,13 @@ const AdminContact = () => {
     //   const currentRecords = data.slice(indexofFirstRecord, indexofLastRecord);
     
     //   const paginate = (pageNumber) => setcurrentPage(pageNumber);
-
+    const handledelete=(id)=>{
+        axios.delete('http://localhost:3000/admin/deletecontact/'+id)
+        .then(res => {console.log(res.data.Message);
+            window.location.reload();
+        })
+        .catch(err => console.log(err));
+      }
   return (
     <div className='admin-contact-container'>
         <div className='admin-contact-title'>
@@ -107,7 +113,7 @@ const AdminContact = () => {
                         <td>{record.message}</td>
                         <td className='admin-contact-table-icons'>
                             {/* <FaEdit className='customer-table-editbtn'/> */}
-                            <MdDelete className='contact-table-deletebtn'/>
+                            <MdDelete className='contact-table-deletebtn' onClick={() =>{handledelete(record._id)}}/>
                         </td>
                     </tr>
                 ))}
