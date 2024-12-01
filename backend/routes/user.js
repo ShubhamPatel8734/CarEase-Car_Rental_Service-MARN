@@ -130,4 +130,43 @@ router.put('/booking',async (req,res)=>{
     return res.json({Status: false,message: "Server error"})
 }
 });
+router.post('/userhome',async(req,res)=>{
+    try{
+    const id=req.body.id;
+    const totbookings=await Booking.countDocuments({user_id: id});
+    const totalspend=await Booking.aggregate([
+        {
+            $group:{
+                _id: id,
+                total:{$sum: "$totalprice"},
+            },
+        },
+    ])
+    const totalspending=totalspend[0].total;
+    const distinctcars=await Booking.distinct("car_id",{user_id: id})
+    const totalcars=distinctcars.length;
+    return res.json({totbookings,totalspending,totalcars});
+    }catch(err){
+        return res.json({status: false,message: err});
+    }
+})
+router.post('/userbooking',async(req,res)=>{
+    try{
+    const userid=req.body.id;
+    const userbookings=await Booking.find({user_id: userid});
+    //console.log(userbookings);
+    const carids=userbookings.map(booking => booking.car_id);
+    //console.log(carids.length,carids);
+    const cardetails=await Car.find({_id: {$in: carids} });
+    //console.log(cardetails);
+    const result=userbookings.map(booking => ({
+        booking,
+        carInfo:cardetails.find(car =>car._id == booking.car_id),
+    }));
+    //console.log("result",result);
+    return res.json(result);
+    }catch(err){
+        return res.json({status: false,message: err});
+    }
+})
 export {router as UserRouter}

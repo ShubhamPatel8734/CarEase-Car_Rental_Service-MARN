@@ -3,6 +3,8 @@ import '../components/RegisterForm.css'
 import { useState } from 'react';
 import SignupValidation from './UserSignupValidation';
 import axios from "axios";
+import {toast, ToastContainer} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const RegisterForm = ({ onClose }) => {
   const [values,setvalues]=useState({firstname:'',lastname:'',email:'',phone:'', password:'',confirmpassword:''});
     function handleinput(event){
@@ -10,6 +12,9 @@ const RegisterForm = ({ onClose }) => {
       setvalues(newObj);
     }
     const [errors,seterrors]=useState({});
+    const notify=(message)=>{
+      toast(message);
+    }
     function signup(event){
       event.preventDefault();
       seterrors(SignupValidation(values));
@@ -24,10 +29,13 @@ const RegisterForm = ({ onClose }) => {
           password:values.password,
         }).then(res =>{
               console.log(res);
-              if(res.data.status)
-              alert("registered");
+              if(res.data.status){
+              alert(res.data.message);
+              window.location.reload();
+              }
               else
               alert(res.data.message);
+              //<ToastContainer/>
         }).catch(err =>{
           console.log(err);
         })

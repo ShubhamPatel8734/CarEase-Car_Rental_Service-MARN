@@ -11,16 +11,24 @@ const UserHome = () => {
   const [name,setname]=useState('');
   const [message,setmessage]=useState('');
   const [id,setid]=useState('');
+  const [values,setvalues]=useState({totbookings:'',totalspending:'',totalcars:''});
+  const [bookingdetails,setbookingdetails]=useState([]);
   const navigate=useNavigate();
   useEffect(()=>{
     axios.get('http://localhost:3000/user/status')
     .then( res=>{
       if(res.data.Status === "Success"){
           setauth(true);
-          //alert("You are logged in.");
           setname(res.data.name);
           setid(res.data.id);
-          // navigate("/about");  
+          axios.post('http://localhost:3000/user/userhome',{
+            id:res.data.id
+          })
+          .then(res=>{
+            setvalues(res.data);
+          }).catch(err =>{
+            console.log(err);
+          })
       }
       else{
         setmessage(res.data.Message);
@@ -29,12 +37,21 @@ const UserHome = () => {
       }
     })
   },[])
+  useEffect(()=>{
+    //console.log(id);
+    axios.post('http://localhost:3000/user/userbooking',{
+      id:id,
+    }).then(res=>{
+      setbookingdetails(res.data);
+      console.log("Details",res.data);
+    }).catch(err=>{ console.log(err)})
+  },[id])
   return (
     <div className='Userhome'>
       <div className='Userhome-cards'>
         <div className='Userhome-card'>
           <div className='Userhome-text'>
-            <h1>00</h1>
+            <h1>{values.totbookings}</h1>
             <h3>Total Bookings</h3>
           </div>
           <div className='Userhome-icons'>
@@ -43,8 +60,8 @@ const UserHome = () => {
         </div>
         <div className='Userhome-card'>
           <div className='Userhome-text'>
-            <h1>00</h1>
-            <h3>Accepted Bookings</h3>
+            <h1>{values.totalspending}</h1>
+            <h3>Total Spending</h3>
           </div>
           <div className='Userhome-icons'>
             <MdOutlineLibraryAdd/>
@@ -52,8 +69,8 @@ const UserHome = () => {
         </div>
         <div className='Userhome-card'>
           <div className='Userhome-text'>
-            <h1>00</h1>
-            <h3>Pending Bookings</h3>
+            <h1>{values.totalcars}</h1>
+            <h3>Total Cars Used</h3>
           </div>
           <div className='Userhome-icons'>
             <TbLibraryMinus/>
@@ -67,7 +84,7 @@ const UserHome = () => {
         <table className='Userhome-booking-table'>
           <thead>
             <tr>
-              <th>ID</th>
+              {/* <th>ID</th> */}
               <th>Car Name</th>
               <th>Car Type</th>
               <th>Start Date</th>
@@ -78,17 +95,18 @@ const UserHome = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>ABC</td>
-              <td>ABC</td>
-              <td>ABC</td>
-              <td>ABC</td>
-              <td>ABC</td>
-              <td>ABC</td>
-              <td>ABC</td>
+            { bookingdetails.map((bookdt) =>(
+            <tr key={bookdt.booking._id}>
+              {/* <td>ABC</td> */}
+              <td>{bookdt.carInfo.carname}</td>
+              <td>{bookdt.carInfo.cartype}</td>
+              <td>{bookdt.booking.pickupdate.slice(0,10)}</td>
+              <td>{bookdt.booking.returndate.slice(0,10)}</td>
+              <td>{bookdt.carInfo.rent}</td>
+              <td>{bookdt.booking.totalprice}</td>
               <td><span className='Userhome-cancel'>Cancelled</span></td>
-            </tr>
-            <tr>
+            </tr>))}
+            {/* <tr>
               <td>ABC</td>
               <td>ABC</td>
               <td>ABC</td>
@@ -107,7 +125,7 @@ const UserHome = () => {
               <td>ABC</td>
               <td>ABC</td>
               <td><span className='Userhome-completed'>Completed</span></td>
-            </tr>
+            </tr> */}
           </tbody>
         </table>
       </div>
