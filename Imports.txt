@@ -4,3 +4,5 @@ npm install react-slick
 npm install slick-carousel
 npm install react-chartjs-2 chart.js
 npm install jspdf jspdf-autotable
+npm i react-toastify
+npm i react-toastify/dist/ReactToastify.css

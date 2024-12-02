@@ -2,6 +2,8 @@ import React from 'react'
 import '../user-pages/UserHome.css'
 import { MdOutlineLibraryAddCheck, MdOutlineLibraryAdd } from "react-icons/md";
 import { TbLibraryMinus } from "react-icons/tb";
+import { FaIndianRupeeSign } from "react-icons/fa6";
+import { LiaCarSolid } from "react-icons/lia";
 import axios from 'axios';
 import { useState,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -64,7 +66,7 @@ const UserHome = () => {
             <h3>Total Spending</h3>
           </div>
           <div className='Userhome-icons'>
-            <MdOutlineLibraryAdd/>
+            <FaIndianRupeeSign/>
           </div>
         </div>
         <div className='Userhome-card'>
@@ -73,7 +75,7 @@ const UserHome = () => {
             <h3>Total Cars Used</h3>
           </div>
           <div className='Userhome-icons'>
-            <TbLibraryMinus/>
+            <LiaCarSolid/>
           </div>
         </div>
       </div>
