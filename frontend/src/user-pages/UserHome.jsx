@@ -93,7 +93,7 @@ const UserHome = () => {
               <th>End Date</th> 
               <th>Car Price</th>
               <th>Total Price</th>
-              <th>Status</th>
+              {/* <th>Status</th> */}
             </tr>
           </thead>
           <tbody>
@@ -106,7 +106,8 @@ const UserHome = () => {
               <td>{bookdt.booking.returndate.slice(0,10)}</td>
               <td>{bookdt.carInfo.rent}</td>
               <td>{bookdt.booking.totalprice}</td>
-              <td><span className='Userhome-cancel'>Cancelled</span></td>
+              {/* <td>{
+                <span className='Userhome-cancel'>Cancelled</span>}</td> */}
             </tr>))}
             {/* <tr>
               <td>ABC</td>
