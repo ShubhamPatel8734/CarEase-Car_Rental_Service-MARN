@@ -83,7 +83,7 @@ const UserBookingsTable = () => {
         ["Payment Mode", record.booking.payment],
       ],
     });
-    doc.save(`Receipt-${record.id}.pdf`);
+    doc.save(`Receipt-${record.booking._id}.pdf`);
   };
   return (
     <>
