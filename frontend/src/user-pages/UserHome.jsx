@@ -28,13 +28,14 @@ const UserHome = () => {
           })
           .then(res=>{
             setvalues(res.data);
+            //console.log("Values",res.data);
           }).catch(err =>{
-            console.log(err);
+            console.log("Error",err);
           })
       }
       else{
         setmessage(res.data.Message);
-        navigate("/about");
+        navigate("/cars");
         //alert(res.data.Message);
       }
     })
@@ -53,7 +54,7 @@ const UserHome = () => {
       <div className='Userhome-cards'>
         <div className='Userhome-card'>
           <div className='Userhome-text'>
-            <h1>{values.totbookings}</h1>
+            <h1>{values.totbookings?values.totbookings:0}</h1>
             <h3>Total Bookings</h3>
           </div>
           <div className='Userhome-icons'>
@@ -62,7 +63,7 @@ const UserHome = () => {
         </div>
         <div className='Userhome-card'>
           <div className='Userhome-text'>
-            <h1>{values.totalspending}</h1>
+            <h1>{values.totalspending?values.totalspending:0}</h1>
             <h3>Total Spending</h3>
           </div>
           <div className='Userhome-icons'>
@@ -71,7 +72,7 @@ const UserHome = () => {
         </div>
         <div className='Userhome-card'>
           <div className='Userhome-text'>
-            <h1>{values.totalcars}</h1>
+            <h1>{values.totalcars?values.totalcars:0}</h1>
             <h3>Total Cars Used</h3>
           </div>
           <div className='Userhome-icons'>

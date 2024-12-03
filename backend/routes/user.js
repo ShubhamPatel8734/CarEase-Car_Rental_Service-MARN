@@ -5,6 +5,7 @@ import { User } from "../models/User.js";
 import jwt from "jsonwebtoken";
 import { Booking } from "../models/Booking.js";
 import { Car } from "../models/Cars.js";
+import mongoose from "mongoose";
 router.post('/register',async (req,res)=>{
     const firstname=req.body.firstname;
     const lastname=req.body.lastname;
@@ -136,8 +137,13 @@ router.post('/userhome',async(req,res)=>{
     const totbookings=await Booking.countDocuments({user_id: id});
     const totalspend=await Booking.aggregate([
         {
+            $match:{
+              user_id:id,
+            },
+        },
+        {   
             $group:{
-                _id: id,
+                _id: null,
                 total:{$sum: "$totalprice"},
             },
         },
@@ -145,6 +151,7 @@ router.post('/userhome',async(req,res)=>{
     const totalspending=totalspend[0].total;
     const distinctcars=await Booking.distinct("car_id",{user_id: id})
     const totalcars=distinctcars.length;
+    // console.log("User home",totbookings,totalspending,totalcars);
     return res.json({totbookings,totalspending,totalcars});
     }catch(err){
         return res.json({status: false,message: err});

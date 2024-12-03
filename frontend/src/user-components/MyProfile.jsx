@@ -28,7 +28,7 @@ const MyProfile = () => {
       }
       else{
         setmessage(res.data.Message);
-        navigate("/about");
+        navigate("/cars");
       }
     })
   },[])

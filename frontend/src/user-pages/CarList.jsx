@@ -21,7 +21,7 @@ function CarList() {
                 }).catch(err => console.log(err))
             }
             else{
-              navigate("/about");
+              navigate("/cars");
             }
           })
         },[])

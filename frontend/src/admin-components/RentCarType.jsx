@@ -4,11 +4,11 @@ import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Toolti
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const data = {
-  labels: ['Car1', 'Car2', 'Car3', 'Car4', 'Car5'],
+  labels: ['Sedan', 'Sports', 'SUV', 'Luxury'],
   datasets: [
     {
       label: 'No of Cars',
-      data: [65, 59, 80, 81, 56],
+      data: [65, 59, 80, 81],
       backgroundColor: 'rgba(34, 34, 34, 1)',
       borderColor: 'rgba(245, 183, 84, 1)', 
       borderWidth: 1,
