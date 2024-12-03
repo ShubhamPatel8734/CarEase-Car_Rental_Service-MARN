@@ -48,7 +48,9 @@ const Home = () => {
   const handleAboutSectionButton = () => {
     navigate('/about')
   }
-
+  const handleCarCategorySection = () => {
+    navigate('/cars');
+  }
   return (
     <>
       {/* --------------------- Hero section -------------------- */}
@@ -229,7 +231,7 @@ const Home = () => {
               </div>
               <div className="car-cat-desc">
                 <h3>Sport Cars</h3>
-                <GoArrowUpRight className="car-cat-desc-icon" />
+                <GoArrowUpRight className="car-cat-desc-icon" onClick={handleCarCategorySection}/>
               </div>
             </div>
             <div className="category-card">
@@ -238,7 +240,7 @@ const Home = () => {
               </div>
               <div className="car-cat-desc">
                 <h3>SUVs</h3>
-                <GoArrowUpRight className="car-cat-desc-icon" />
+                <GoArrowUpRight className="car-cat-desc-icon" onClick={handleCarCategorySection}/>
               </div>
             </div>
             <div className="category-card">
@@ -247,7 +249,7 @@ const Home = () => {
               </div>
               <div className="car-cat-desc">
                 <h3>Convertible</h3>
-                <GoArrowUpRight className="car-cat-desc-icon" />
+                <GoArrowUpRight className="car-cat-desc-icon" onClick={handleCarCategorySection}/>
               </div>
             </div>
             <div className="category-card">
@@ -256,7 +258,7 @@ const Home = () => {
               </div>
               <div className="car-cat-desc">
                 <h3>EV Cars</h3>
-                <GoArrowUpRight className="car-cat-desc-icon" />
+                <GoArrowUpRight className="car-cat-desc-icon" onClick={handleCarCategorySection}/>
               </div>
             </div>
             <div className="category-card">
@@ -265,7 +267,7 @@ const Home = () => {
               </div>
               <div className="car-cat-desc">
                 <h3>Sedan</h3>
-                <GoArrowUpRight className="car-cat-desc-icon" />
+                <GoArrowUpRight className="car-cat-desc-icon" onClick={handleCarCategorySection}/>
               </div>
             </div>
             <div className="category-card">
@@ -274,7 +276,7 @@ const Home = () => {
               </div>
               <div className="car-cat-desc">
                 <h3>Small Car</h3>
-                <GoArrowUpRight className="car-cat-desc-icon" />
+                <GoArrowUpRight className="car-cat-desc-icon" onClick={handleCarCategorySection}/>
               </div>
             </div>
           </Slider>
