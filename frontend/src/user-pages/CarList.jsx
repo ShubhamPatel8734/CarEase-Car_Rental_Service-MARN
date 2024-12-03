@@ -50,7 +50,7 @@ function CarList() {
     };
 
     const [selectedFilter, setSelectedFilter] = useState("All");
-    const filters = ["All", "Sports", "Sedan", "Suv", "Luxuxy"];
+    const filters = ["All", "Sports", "Sedan", "SUV", "Luxury"];
 
     // const items = [
     //     {

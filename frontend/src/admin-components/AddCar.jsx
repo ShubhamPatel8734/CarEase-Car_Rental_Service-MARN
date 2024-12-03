@@ -32,6 +32,7 @@ const AddCar = ({ onClose }) => {
       .then(res => {
         if(res.data.Status=== true){
           alert(res.data.message);
+          window.location.reload();
         }
         else{
           alert(res.data.message);

@@ -176,7 +176,7 @@ const getLocalDate =()=>{
           <div className="bookingform-body-row">
             <div className="bookingform-body-col">
               <label htmlFor="license" className="bookingform-label">
-                Car Rent Price
+                Rent Per Day
               </label>
               <input
                 type="email"
