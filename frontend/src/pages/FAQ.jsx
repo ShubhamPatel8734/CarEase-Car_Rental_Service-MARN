@@ -3,14 +3,14 @@ import { FaAngleRight, FaAngleDown } from "react-icons/fa6";
 import "../pages/FAQ.css";
 
 const leftdata = [
-  {id: 1,title: 'Age and Responsibility', desc:'Driver must be 20+ years old to drive cars, must hold driving license & should obey all the rules.'},
+  {id: 1,title: 'Age and Responsibility', desc:'Driver must be 18+ years old to drive cars, must hold driving license & should obey all the rules.'},
   {id: 2,title: 'Deposite', desc:'Online & Cash deposits are accepted. This amount will be used only for fines and toll road charges. terms & conditions apply.'},
-  {id: 3,title: 'Documents', desc:'A valid Driving License, Mobile number, Email address is required. (Payment receipt is required to show for those who rent car online.)'},
+  {id: 3,title: 'Documents', desc:'A valid Driving License, Mobile number, Email address is required. (Note: The user must show a payment receipt.) '},
 ]
 
 const rightdata = [
-  {id: 4,title: 'Car Delivery', desc:'At the time of Delivery our team will contact And Deliver the car to your Location. On spot, You will check the car, Sign the contract & receive the key. Enjoy your ride !'},
-  {id: 5,title: 'Enquire Now', desc:'You can contact us for a quotation & our team will assist you with the booking process. You can use the contact methods available on this page.'},
+  {id: 4,title: 'Verification & Agreement ', desc:'The user must bring the original documents mentioned and the payment receipt. Then, the user must Sign the Terms & Conditions and then receive the key. Enjoy your ride!'},
+  {id: 5,title: 'Enquire Now', desc:'You can contact us for a quotation & our team will assist you with the booking process. You can use the contact methods available on the contact us page.'},
   {id: 6,title: 'Payment Methods', desc:'We offer a variety of payment methods. We accept cash and the majority of credit cards such as Visa, MasterCard and RuPay.'},
 ]
 

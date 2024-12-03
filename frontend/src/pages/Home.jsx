@@ -134,7 +134,7 @@ const Home = () => {
           <div className="box-item">
             <div className="item">
               <FaLocationCrosshairs className="icons" />
-              <div className="head-title">Set Location</div>
+              <div className="head-title">Select A Car</div>
               <div className="sub-title">Lorem ipsum dolor sit amet.</div>
             </div>
             <div className="item">
@@ -149,7 +149,7 @@ const Home = () => {
             </div>
             <div className="item">
               <TbCheckbox className="icons" />
-              <div className="head-title">Adjust Needs</div>
+              <div className="head-title">Confirm Booking</div>
               <div className="sub-title">Lorem ipsum dolor sit amet.</div>
             </div>
             <div className="item">
