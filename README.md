@@ -1,6 +1,9 @@
 # CarEase-Car-Rental-Service
 
-The CarEase platform is a MERN Stack website project that is designed to cater to multiple user types, including admins, customers, and visitors, each with specific needs. Admins will manage bookings, car details, and customer feedback, while customers can make new bookings, review their booking history, and manage their profiles. Visitors can explore cars, view general information, and register or log in to become customers.
+The CarEase platform is a MERN Stack website project designed to cater to multiple user types, including admins, customers, and visitors, each with specific needs. Admins will manage bookings, car details, and customer feedback, while customers can make new bookings, review their booking history, and manage their profiles. Visitors can explore cars, view general information, and register or log in to become customers.
+
+Check the Visitor, Admin & Customer Page using the below link...
+[CarEase ScreenShots.pdf](https://github.com/user-attachments/files/18016396/CarEase.ScreenShots.pdf)
 
 Home Page
 ![Home SS](https://github.com/user-attachments/assets/09d01b31-c314-426b-a7de-cedd36a06a77)
